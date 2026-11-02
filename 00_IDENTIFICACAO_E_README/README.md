@@ -23,7 +23,7 @@
 ---
 
 ## 3. Link do Repositório
-* **Repositório GitHub:** *(a ser preenchido com o link do repositório do grupo)*
+* **Repositório GitHub:** `https://github.com/joaoboconcelo/edutask-tqs-p2`
 * **Branch de Trabalho:** `main`
 
 ---
