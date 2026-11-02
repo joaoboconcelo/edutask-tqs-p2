@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Nova Tarefa - EduTask{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card p-4 shadow-sm">
+            <h3 class="fw-bold mb-1">Cadastrar Atividade Acadêmica</h3>
+            <p class="text-muted mb-4">Adicione uma nova tarefa com prazo e prioridade para monitoramento</p>
+
+            <form action="{{ url_for('tasks.new_task') }}" method="POST" id="form-task">
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-semibold">Título da Atividade</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Ex: Projeto Integrado P2 - Testes de Software" required>
+                    <div class="form-text">Mínimo de 3 caracteres.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="discipline_id" class="form-label fw-semibold">Disciplina Vinculada</label>
+                    <select class="form-select" id="discipline_id" name="discipline_id" required>
+                        <option value="" disabled selected>Selecione uma disciplina...</option>
+                        {% for d in disciplines %}
+                        <option value="{{ d.id }}">{{ d.code }} - {{ d.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="due_date" class="form-label fw-semibold">Data Limite de Entrega</label>
+                        <input type="date" class="form-control" id="due_date" name="due_date" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="priority" class="form-label fw-semibold">Prioridade</label>
+                        <select class="form-select" id="priority" name="priority">
+                            <option value="Baixa">Baixa</option>
+                            <option value="Média" selected>Média</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label fw-semibold">Descrição / Detalhes (Opcional)</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" placeholder="Critérios de aceitação, links, diretrizes..."></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{{ url_for('tasks.list_tasks') }}" class="btn btn-outline-secondary" id="btn-cancel-task">
+                        <i class="bi bi-arrow-left"></i> Voltar
+                    </a>
+                    <button type="submit" class="btn btn-primary px-4 fw-semibold" id="btn-save-task">
+                        <i class="bi bi-check-circle"></i> Salvar Atividade
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

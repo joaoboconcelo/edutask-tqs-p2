@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Disciplinas - EduTask{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1">Disciplinas Acadêmicas</h2>
+        <p class="text-muted mb-0">Gerenciamento de matérias do curso de Ciência da Computação</p>
+    </div>
+    <a href="{{ url_for('disciplines.new_discipline') }}" class="btn btn-primary" id="btn-new-discipline">
+        <i class="bi bi-plus-circle"></i> Cadastrar Nova Disciplina
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="table-disciplines">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 15%;">Código</th>
+                        <th style="width: 35%;">Nome da Disciplina</th>
+                        <th style="width: 25%;">Docente Responsável</th>
+                        <th style="width: 10%;">Carga Horária</th>
+                        <th style="width: 15%;" class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disc in disciplines %}
+                    <tr id="row-disc-{{ disc.id }}">
+                        <td><span class="badge bg-primary fs-6">{{ disc.code }}</span></td>
+                        <td class="fw-semibold">{{ disc.name }}</td>
+                        <td>{{ disc.teacher }}</td>
+                        <td>{{ disc.workload_hours }}h</td>
+                        <td class="text-center">
+                            <form action="{{ url_for('disciplines.delete_discipline', disc_id=disc.id) }}" method="POST" class="d-inline" onsubmit="return confirm('Confirmar exclusão da disciplina?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger" id="btn-delete-disc-{{ disc.id }}" title="Excluir">
+                                    <i class="bi bi-trash"></i> Excluir
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">Nenhuma disciplina cadastrada.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

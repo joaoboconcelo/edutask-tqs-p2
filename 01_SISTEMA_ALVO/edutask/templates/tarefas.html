@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}Tarefas e Atividades - EduTask{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1">Tarefas Acadêmicas</h2>
+        <p class="text-muted mb-0">Controle de atividades, prazos e entregas de projetos</p>
+    </div>
+    <a href="{{ url_for('tasks.new_task') }}" class="btn btn-primary" id="btn-new-task">
+        <i class="bi bi-plus-circle"></i> Cadastrar Nova Tarefa
+    </a>
+</div>
+
+<!-- Filtros e Busca -->
+<div class="card p-3 mb-4 shadow-sm">
+    <form method="GET" action="{{ url_for('tasks.list_tasks') }}" id="form-filter" class="row g-2 align-items-center">
+        <div class="col-md-3">
+            <label class="form-label small fw-semibold text-muted mb-1">Status</label>
+            <select name="status" class="form-select" id="filter-status">
+                <option value="Todos" {% if current_status == 'Todos' %}selected{% endif %}>Todos os Status</option>
+                <option value="Pendente" {% if current_status == 'Pendente' %}selected{% endif %}>Pendente</option>
+                <option value="Em Andamento" {% if current_status == 'Em Andamento' %}selected{% endif %}>Em Andamento</option>
+                <option value="Concluída" {% if current_status == 'Concluída' %}selected{% endif %}>Concluída</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label small fw-semibold text-muted mb-1">Prioridade</label>
+            <select name="priority" class="form-select" id="filter-priority">
+                <option value="Todas" {% if current_priority == 'Todas' %}selected{% endif %}>Todas as Prioridades</option>
+                <option value="Alta" {% if current_priority == 'Alta' %}selected{% endif %}>Alta</option>
+                <option value="Média" {% if current_priority == 'Média' %}selected{% endif %}>Média</option>
+                <option value="Baixa" {% if current_priority == 'Baixa' %}selected{% endif %}>Baixa</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label small fw-semibold text-muted mb-1">Buscar por Palavra-Chave</label>
+            <input type="text" name="q" class="form-control" id="search-input" placeholder="Ex: Selenium, DER, Relatório..." value="{{ current_query }}">
+        </div>
+        <div class="col-md-2 d-flex align-items-end pt-4">
+            <button type="submit" class="btn btn-secondary w-100 fw-semibold" id="btn-filter">
+                <i class="bi bi-funnel"></i> Filtrar
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Tabela de Tarefas -->
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="table-tasks">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 25%;">Atividade / Descrição</th>
+                        <th style="width: 20%;">Disciplina</th>
+                        <th style="width: 12%;">Prazo Limite</th>
+                        <th style="width: 10%;">Prioridade</th>
+                        <th style="width: 13%;">Urgência Calculada</th>
+                        <th style="width: 20%;" class="text-center">Alterar Status / Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                    <tr id="row-task-{{ task.id }}">
+                        <td>
+                            <div class="fw-bold" id="task-title-{{ task.id }}">{{ task.title }}</div>
+                            {% if task.description %}
+                            <small class="text-muted">{{ task.description }}</small>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark border">{{ task.discipline_code }}</span>
+                            <small class="d-block text-muted">{{ task.discipline_name }}</small>
+                        </td>
+                        <td>{{ task.due_date }}</td>
+                        <td>
+                            {% if task.priority == 'Alta' %}
+                                <span class="badge badge-alta" id="badge-priority-{{ task.id }}">Alta</span>
+                            {% elif task.priority == 'Média' %}
+                                <span class="badge badge-media" id="badge-priority-{{ task.id }}">Média</span>
+                            {% else %}
+                                <span class="badge badge-baixa" id="badge-priority-{{ task.id }}">Baixa</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if task.urgency_level == 'Crítica / Em Atraso' %}
+                                <span class="badge bg-danger" id="badge-urgency-{{ task.id }}">{{ task.urgency_level }}</span>
+                            {% elif task.urgency_level == 'Alta Urgência' %}
+                                <span class="badge bg-warning text-dark" id="badge-urgency-{{ task.id }}">{{ task.urgency_level }}</span>
+                            {% else %}
+                                <span class="badge bg-info text-dark" id="badge-urgency-{{ task.id }}">{{ task.urgency_level }}</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <form action="{{ url_for('tasks.update_status', task_id=task.id) }}" method="POST" class="d-inline-flex align-items-center mb-1">
+                                <select name="status" class="form-select form-select-sm me-1" id="select-status-{{ task.id }}" style="width: 130px;">
+                                    <option value="Pendente" {% if task.status == 'Pendente' %}selected{% endif %}>Pendente</option>
+                                    <option value="Em Andamento" {% if task.status == 'Em Andamento' %}selected{% endif %}>Em Andamento</option>
+                                    <option value="Concluída" {% if task.status == 'Concluída' %}selected{% endif %}>Concluída</option>
+                                </select>
+                                <button type="submit" class="btn btn-sm btn-outline-success" id="btn-update-status-{{ task.id }}" title="Salvar Status">
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </form>
+                            <form action="{{ url_for('tasks.delete_task', task_id=task.id) }}" method="POST" class="d-inline" onsubmit="return confirm('Deseja excluir esta tarefa?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger" id="btn-delete-task-{{ task.id }}" title="Excluir">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center py-4 text-muted">Nenhuma atividade encontrada para os critérios selecionados.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

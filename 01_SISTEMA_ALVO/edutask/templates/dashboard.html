@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - EduTask{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1">Painel Acadêmico</h2>
+        <p class="text-muted mb-0">Visão geral do progresso de entregas e disciplinas matriculadas</p>
+    </div>
+    <div>
+        <a href="{{ url_for('tasks.new_task') }}" class="btn btn-primary" id="btn-quick-task">
+            <i class="bi bi-plus-lg"></i> Nova Tarefa
+        </a>
+        <a href="{{ url_for('disciplines.new_discipline') }}" class="btn btn-outline-secondary" id="btn-quick-disc">
+            <i class="bi bi-journal-plus"></i> Nova Disciplina
+        </a>
+    </div>
+</div>
+
+<!-- Cards de Métricas -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-primary border-4 shadow-sm" id="card-total-tasks">
+            <div class="text-muted small fw-bold text-uppercase">Total de Tarefas</div>
+            <div class="fs-2 fw-bold text-dark mt-1" id="stat-total-tasks">{{ total_tasks }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-success border-4 shadow-sm" id="card-completed-tasks">
+            <div class="text-muted small fw-bold text-uppercase">Concluídas</div>
+            <div class="fs-2 fw-bold text-success mt-1" id="stat-completed-tasks">{{ completed_tasks }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-warning border-4 shadow-sm" id="card-pending-tasks">
+            <div class="text-muted small fw-bold text-uppercase">Pendentes / Em Aberto</div>
+            <div class="fs-2 fw-bold text-warning mt-1" id="stat-pending-tasks">{{ pending_tasks + in_progress_tasks }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-info border-4 shadow-sm" id="card-total-disciplines">
+            <div class="text-muted small fw-bold text-uppercase">Disciplinas Cadastradas</div>
+            <div class="fs-2 fw-bold text-info mt-1" id="stat-total-disciplines">{{ total_disciplines }}</div>
+        </div>
+    </div>
+</div>
+
+<!-- Barra de Progresso Geral -->
+<div class="card p-4 mb-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="fw-bold">Taxa Geral de Conclusão</span>
+        <span class="fw-bold text-primary" id="stat-rate-text">{{ completion_rate }}%</span>
+    </div>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+             style="width: {{ completion_rate }}%;" aria-valuenow="{{ completion_rate }}" aria-valuemin="0" aria-valuemax="100" id="progress-bar-completion">
+            {{ completion_rate }}%
+        </div>
+    </div>
+</div>
+
+<!-- Próximas Entregas -->
+<div class="card shadow-sm">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="fw-bold mb-0"><i class="bi bi-clock-history text-primary"></i> Próximas Entregas e Atividades</h5>
+        <a href="{{ url_for('tasks.list_tasks') }}" class="btn btn-sm btn-outline-primary" id="link-view-all-tasks">Ver Todas</a>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="table-upcoming-tasks">
+                <thead class="table-light">
+                    <tr>
+                        <th>Título da Atividade</th>
+                        <th>Disciplina</th>
+                        <th>Prazo Limite</th>
+                        <th>Prioridade</th>
+                        <th>Nível de Urgência</th>
+                        <th>Status Atual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in upcoming_tasks %}
+                    <tr>
+                        <td class="fw-semibold">{{ task.title }}</td>
+                        <td><span class="badge bg-light text-dark border">{{ task.discipline_code }}</span> {{ task.discipline_name }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td>
+                            {% if task.priority == 'Alta' %}
+                                <span class="badge badge-alta">Alta</span>
+                            {% elif task.priority == 'Média' %}
+                                <span class="badge badge-media">Média</span>
+                            {% else %}
+                                <span class="badge badge-baixa">Baixa</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if task.urgency_level == 'Crítica / Em Atraso' %}
+                                <span class="badge bg-danger">{{ task.urgency_level }} (Score: {{ task.urgency_score }})</span>
+                            {% elif task.urgency_level == 'Alta Urgência' %}
+                                <span class="badge bg-warning text-dark">{{ task.urgency_level }} (Score: {{ task.urgency_score }})</span>
+                            {% else %}
+                                <span class="badge bg-info text-dark">{{ task.urgency_level }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if task.status == 'Concluída' %}
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Concluída</span>
+                            {% elif task.status == 'Em Andamento' %}
+                                <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
+                            {% else %}
+                                <span class="badge bg-secondary"><i class="bi bi-clock"></i> Pendente</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center py-4 text-muted">Nenhuma atividade registrada no momento.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

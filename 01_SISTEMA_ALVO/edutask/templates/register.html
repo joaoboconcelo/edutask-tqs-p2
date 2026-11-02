@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro de Usuário - EduTask{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-3">
+    <div class="col-md-6">
+        <div class="card p-4 shadow-sm">
+            <div class="text-center mb-3">
+                <i class="bi bi-person-plus-fill text-primary" style="font-size: 2.5rem;"></i>
+                <h3 class="fw-bold mt-2">Criar Nova Conta</h3>
+                <p class="text-muted">Cadastro de alunos para gerenciamento de atividades</p>
+            </div>
+
+            <form action="{{ url_for('auth.register') }}" method="POST" id="form-register">
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-semibold">Nome Completo</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Ex: João Lucas de Antonio" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex: joao@unisagrado.edu.br" required>
+                    <div class="form-text">Deve ser um endereço de e-mail válido.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-semibold">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                    <div class="form-text">Requisitos: mín. 8 caracteres, 1 maiúscula, 1 número e 1 caractere especial.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label fw-semibold">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Repita a senha" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold" id="btn-register">
+                    <i class="bi bi-check-circle"></i> Cadastrar
+                </button>
+            </form>
+
+            <div class="text-center mt-3">
+                <p class="small text-muted mb-0">Já tem cadastro? <a href="{{ url_for('auth.login') }}" id="link-login">Faça Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

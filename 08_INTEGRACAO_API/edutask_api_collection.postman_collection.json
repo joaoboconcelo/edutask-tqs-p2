@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "e93f9c62-edutask-tqs-p2-collection",
+		"name": "EduTask Web - Suíte de Testes de API e Integração (P2)",
+		"description": "Coleção oficial de testes de integração e contrato da API RESTful do EduTask Web. UNISAGRADO Ciência da Computação 2026.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 - Autenticação - Login Válido (Positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 200 OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Resposta deve conter mensagem de sucesso e dados do usuario\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Autenticação realizada com sucesso.\");",
+							"    pm.expect(jsonData.user).to.be.an(\"object\");",
+							"    pm.expect(jsonData.user.email).to.eql(\"aluno@unisagrado.edu.br\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"Senha@123\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			}
+		},
+		{
+			"name": "02 - Autenticação - Credenciais Inválidas (Negativo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 401 Unauthorized\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"pm.test(\"Resposta deve conter mensagem de erro de credenciais\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"Credenciais inválidas.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"SenhaIncorreta@99\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			}
+		},
+		{
+			"name": "03 - Disciplinas - Criar Disciplina Válida (Positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 201 Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Validar contrato do objeto da disciplina criada\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.discipline).to.have.property(\"id\");",
+							"    pm.expect(jsonData.discipline.code).to.eql(\"CC-TEST01\");",
+							"    pm.expect(jsonData.discipline.workload_hours).to.eql(80);",
+							"    pm.environment.set(\"created_discipline_id\", jsonData.discipline.id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"CC-TEST01\",\n    \"name\": \"Laboratório de Qualidade Integrada\",\n    \"teacher\": \"Prof. Dr. Elvio Gilberto da Silva\",\n    \"workload_hours\": 80\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/disciplinas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"disciplinas"
+					]
+				}
+			}
+		},
+		{
+			"name": "04 - Disciplinas - Código Duplicado (Negativo / Conflito)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 409 Conflict\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"pm.test(\"Mensagem deve reportar duplicidade\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.include(\"já existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"CC-TQS01\",\n    \"name\": \"Disciplina Repetida\",\n    \"teacher\": \"Docente\",\n    \"workload_hours\": 60\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/disciplinas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"disciplinas"
+					]
+				}
+			}
+		},
+		{
+			"name": "05 - Tarefas - Criar Atividade Acadêmica (Positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 201 Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Validar calculo automatico de urgencia e score\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.task.title).to.eql(\"Atividade de Testes de API Postman\");",
+							"    pm.expect(jsonData.task.urgency_score).to.be.a(\"number\");",
+							"    pm.expect(jsonData.task.status).to.eql(\"Pendente\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Atividade de Testes de API Postman\",\n    \"description\": \"Validar contratos e rotas via coleção\",\n    \"due_date\": \"2026-11-28\",\n    \"priority\": \"Alta\",\n    \"discipline_id\": 1\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tarefas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tarefas"
+					]
+				}
+			}
+		},
+		{
+			"name": "06 - Métricas - Consulta de Indicadores Gerais (Positivo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code deve ser 200 OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Validar presenca das metricas de negocio\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"total_tasks\");",
+							"    pm.expect(jsonData).to.have.property(\"completed_tasks\");",
+							"    pm.expect(jsonData).to.have.property(\"completion_rate_percent\");",
+							"    pm.expect(jsonData.completion_rate_percent).to.be.a(\"number\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "{{base_url}}/api/metricas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"metricas"
+					]
+				}
+			}
+		}
+	]
+}

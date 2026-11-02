@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Entrar - EduTask{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-5">
+        <div class="card p-4 shadow-sm">
+            <div class="text-center mb-4">
+                <i class="bi bi-mortarboard-fill text-primary" style="font-size: 3rem;"></i>
+                <h3 class="fw-bold mt-2">EduTask</h3>
+                <p class="text-muted">Acesso ao Sistema de Gestão Acadêmica</p>
+            </div>
+
+            <form action="{{ url_for('auth.login') }}" method="POST" id="form-login">
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold">E-mail Institucional</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="nome@unisagrado.edu.br" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-semibold">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold" id="btn-login">
+                    <i class="bi bi-box-arrow-in-right"></i> Entrar
+                </button>
+            </form>
+
+            <div class="text-center mt-3">
+                <p class="small text-muted mb-0">Não possui conta? <a href="{{ url_for('auth.register') }}" id="link-register">Cadastre-se</a></p>
+            </div>
+
+            <div class="alert alert-light border mt-4 mb-0 small text-muted">
+                <strong>Conta de Teste / Demonstração:</strong><br>
+                E-mail: <code>aluno@unisagrado.edu.br</code><br>
+                Senha: <code>Senha@123</code>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
