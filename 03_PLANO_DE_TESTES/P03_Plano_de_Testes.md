@@ -10,7 +10,7 @@
 ## 1. Identificação e Versão do Sistema
 * **Nome do Sistema:** EduTask Web (Sistema de Gestão Acadêmica e Atividades)
 * **Versão Avaliada:** v1.0.0-p2
-* **Repositório:** `https://github.com/unisagrado-cc/edutask-tqs-p2`
+* **Repositório:** `https://github.com/joaoboconcelo/edutask-tqs-p2`
 * **Tipo de Aplicação:** Aplicação Web com backend Python Flask, banco SQLite e frontend responsivo Bootstrap.
 
 ---
