@@ -1,0 +1,11 @@
+{
+  "caso": "UAT-02",
+  "data": "2026-11-11T20:23:13.248Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "CC-UAT01",
+  "obtido": "Estudante cadastrou disciplina de 80h e consultou apenas a sua disciplina.",
+  "url": "http://127.0.0.1:5011/disciplinas",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

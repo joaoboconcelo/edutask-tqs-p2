@@ -1,0 +1,11 @@
+{
+  "caso": "CT-011",
+  "data": "2026-11-11T20:20:54.590Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Disciplina cadastrada com sucesso",
+  "obtido": "Disciplina CC-ES03 persistida e exibida com 80h.",
+  "url": "http://127.0.0.1:5011/disciplinas",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

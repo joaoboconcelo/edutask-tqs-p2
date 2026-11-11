@@ -1,6 +1,6 @@
 # Revisão de 11 de novembro de 2026
 
-A revisão corrigiu o código e alinhou os documentos às evidências disponíveis. O relatório revisado contém 12 páginas, com sumário atualizado pelo Word e PDF exportado do mesmo DOCX.
+A revisão corrigiu o código e alinhou os documentos às evidências disponíveis. O relatório revisado contém 35 páginas, com sumário atualizado pelo Word e PDF exportado do mesmo DOCX.
 
 ## Resultados verificados
 
@@ -34,4 +34,4 @@ Apresentação e vídeo foram marcados como dispensados conforme informação do
 
 Consultar `PENDENCIAS_PARA_ENTREGA.md`: aprovação do sistema, publicação/execuções do Actions, issues, confirmação manual, aceitação humana, origem/licença, participação/assinaturas e entrega oficial. Os formulários CSV para registros manuais e aceite foram preparados sem resultados humanos presumidos.
 
-A revisão local não foi publicada nem enviada ao professor. A nota final depende da rubrica e da validação desses itens.
+A revisão técnica foi publicada e aprovada no Actions. Quatro issues foram registradas e encerradas, e o PR de demonstração comprovou falha controlada e correção. A inspeção interativa cobriu 24 casos e quatro cenários de aceitação técnica. A entrega no Drive, a aprovação docente e as assinaturas continuam dependentes do grupo.

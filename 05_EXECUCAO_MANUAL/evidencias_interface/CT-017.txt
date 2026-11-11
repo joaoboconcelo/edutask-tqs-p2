@@ -1,0 +1,35 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- alert:
+  - text: Já existe uma disciplina cadastrada com o código CC-TQS01.
+  - button "Close"
+- main:
+  - heading "Cadastrar Nova Disciplina" [level=3]
+  - paragraph: Informe os dados da matéria para associar entregas e tarefas
+  - generic: Código da Disciplina
+  - textbox "Código da Disciplina":
+    - /placeholder: "Ex: CC-TQS01 ou ENG-202"
+  - generic: "Formato esperado: 2 a 4 letras, hífen e 2 a 6 caracteres alfanuméricos."
+  - generic: Nome da Disciplina
+  - textbox "Nome da Disciplina":
+    - /placeholder: "Ex: Testes e Qualidade de Software"
+  - generic: Professor(a) Responsável
+  - textbox "Professor(a) Responsável":
+    - /placeholder: "Ex: Prof. Dr. Elvio Gilberto da Silva"
+  - generic: Carga Horária Semestral (Horas)
+  - spinbutton "Carga Horária Semestral (Horas)"
+  - generic: Valores válidos entre 15h e 400h.
+  - link " Voltar":
+    - /url: /disciplinas
+    - generic: 
+    - text: Voltar
+  - button " Salvar Disciplina":
+    - generic: 
+    - text: Salvar Disciplina
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

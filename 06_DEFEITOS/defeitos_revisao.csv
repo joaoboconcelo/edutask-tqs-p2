@@ -1,5 +1,0 @@
-﻿ID;Título;Requisito;Risco;Severidade;Prioridade;Status;Evidência
-DEF-03;Taxa de conclusão aceita concluídas positivas com total zero;RF-05;R-06;Média;Alta;Encerrado local;test_tdd_consistencia.py / red.xml e green.xml
-DEF-04;Configuração de banco ignorada e testes contaminam demonstração;RF-03/RF-04;R-05;Média;Alta;Encerrado local;test_isolated_databases_do_not_share_records
-DEF-05;API permite leitura e alteração sem sessão e mistura dados de usuários;RF-02;R-02;Alta;Alta;Encerrado local;test_r02_api_requires_session / test_r02_users_cannot_read_or_modify_each_others_records
-DEF-06;Data inválida na API causa exceção em vez de resposta 400;RF-04;R-07;Alta;Alta;Encerrado local;test_rf04_invalid_task_does_not_persist

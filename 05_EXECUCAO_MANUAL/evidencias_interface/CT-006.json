@@ -1,0 +1,11 @@
+{
+  "caso": "CT-006",
+  "data": "2026-11-11T20:19:41.285Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "não coincidem",
+  "obtido": "Confirmação divergente rejeitada.",
+  "url": "http://127.0.0.1:5011/register",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

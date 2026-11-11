@@ -1,0 +1,38 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- alert:
+  - text: Disciplina cadastrada com sucesso!
+  - button "Close"
+- main:
+  - heading "Disciplinas Acadêmicas" [level=2]
+  - paragraph: Gerenciamento de matérias do curso de Ciência da Computação
+  - link " Cadastrar Nova Disciplina":
+    - /url: /disciplinas/nova
+    - generic: 
+    - text: Cadastrar Nova Disciplina
+  - table:
+    - rowgroup:
+      - row "Código Nome da Disciplina Docente Responsável Carga Horária Ações":
+        - columnheader "Código"
+        - columnheader "Nome da Disciplina"
+        - columnheader "Docente Responsável"
+        - columnheader "Carga Horária"
+        - columnheader "Ações"
+    - rowgroup:
+      - row "CC-UAT01 Disciplina Inspecao CC-UAT01 Professor Teste 80h  Excluir":
+        - cell "CC-UAT01":
+          - generic: CC-UAT01
+        - cell "Disciplina Inspecao CC-UAT01"
+        - cell "Professor Teste"
+        - cell "80h"
+        - cell " Excluir":
+          - button " Excluir":
+            - generic: 
+            - text: Excluir
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

@@ -1,0 +1,29 @@
+{
+  "repositorio": "https://github.com/joaoboconcelo/edutask-tqs-p2",
+  "issues": {
+    "DEF-03": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/1",
+    "DEF-04": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/2",
+    "DEF-05": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/3",
+    "DEF-06": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/4"
+  },
+  "execucoes": {
+    "principal": {
+      "id": 43094289919,
+      "commit": "33d441c7f6dc4599da735727f232c5c1aa5d41f3",
+      "conclusao": "success",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919"
+    },
+    "falha_controlada": {
+      "id": 43094396473,
+      "commit": "018467182875469c7eb57214fdcdc75eefd600e1",
+      "conclusao": "failure",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094396473"
+    },
+    "correcao": {
+      "id": 43094602358,
+      "commit": "7407afef2a4d9744661295ccc99d795dd6be2db5",
+      "conclusao": "success",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094602358"
+    }
+  }
+}

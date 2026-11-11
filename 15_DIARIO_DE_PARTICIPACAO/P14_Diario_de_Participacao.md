@@ -1,21 +1,19 @@
-# Diário de participação e declaração
+# Diário de participação e declaração para conferência
 
-## Registro verificável desta revisão
+| Data | Atividade verificável | Evidência | Participação individual |
+|---|---|---|---|
+| 11/11/2026 | Revisão de código, regressão, métricas, TDD e documentação | Testes, diff Git e arquivos brutos | A confirmar pelos integrantes |
+| 11/11/2026 | Publicação, issues e demonstração de CI com falha e correção | Commits, issues #1 a #4 e PR #5 | A confirmar pelos integrantes |
+| 11/11/2026 | Inspeção interativa de 24 casos e quatro cenários de aceitação técnica | Capturas e metadados nas pastas 05 e 10 | Executor técnico identificado nos registros |
 
-| Data | Atividade | Execução | Evidência | Tempo |
-|---|---|---|---|---|
-| 11/11/2026 | Revisão técnica e documental solicitada por João Lucas; testes, correções e coleta de evidências | Assistência do Codex; autoria e revisão final do grupo a confirmar | Diff Git, XML, capturas, CSV e snapshots | Não medido; não atribuído aos integrantes |
+Não há total de horas auditado. Datas futuras anteriormente previstas não são apresentadas como atividades realizadas.
 
-## Conferência do histórico
+## Declaração para assinatura após revisão do grupo
 
-O diário recebido foi preservado em `DIARIO_ORIGINAL_PARA_CONFERENCIA.md`. Ele contém registros posteriores a 11/11/2026 apresentados como concluídos e declara 85,5 horas sem comprovação anexada.
-Atividades de 17/11/2026 em diante devem ser tratadas como planejamento, não trabalho realizado. Não se antecipa assinatura nem se atribui participação individual por inferência.
-O grupo deve confirmar os registros anteriores, corrigir divergências entre datas de execução e diário e associar evidências reais. Não há totais de horas auditados nesta revisão.
+Declaramos que revisamos os arquivos, compreendemos os testes, conferimos as evidências e reconhecemos as limitações identificadas no relatório. As assinaturas abaixo devem ser feitas pelas próprias pessoas, com data efetiva.
 
-## Declaração para assinatura após conferência
+Gabriel Henrique Moreira: _______________________ Data: ______________
 
-Declaramos que revisamos os arquivos, compreendemos os testes e identificamos as limitações e o uso de assistência por inteligência artificial. As execuções da revisão são rastreáveis aos arquivos brutos. Não declaramos comprovadas atividades históricas sem registro.
+João Lucas de Antonio Boconcelo: _______________________ Data: ______________
 
-Integrantes: Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo e Lucas Braga.
-
-Assinaturas e datas efetivas: pendentes do grupo. Não assinar em nome de terceiros.
+Lucas Braga: _______________________ Data: ______________

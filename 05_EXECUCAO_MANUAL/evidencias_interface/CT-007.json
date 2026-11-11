@@ -1,0 +1,11 @@
+{
+  "caso": "CT-007",
+  "data": "2026-11-11T20:19:50.284Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Painel Acadêmico",
+  "obtido": "Login válido abriu o painel com três tarefas e taxa inicial de 33,33%.",
+  "url": "http://127.0.0.1:5011/",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

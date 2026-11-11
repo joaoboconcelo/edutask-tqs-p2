@@ -1,0 +1,36 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+- alert:
+  - text: Este e-mail já está cadastrado no sistema.
+  - button "Close"
+- main:
+  - generic: 
+  - heading "Criar Nova Conta" [level=3]
+  - paragraph: Cadastro de alunos para gerenciamento de atividades
+  - generic: Nome Completo
+  - textbox "Nome Completo":
+    - /placeholder: "Ex: João Lucas de Antonio"
+  - generic: E-mail
+  - textbox "E-mail":
+    - /placeholder: "Ex: joao@unisagrado.edu.br"
+  - generic: Deve ser um endereço de e-mail válido.
+  - generic: Senha
+  - textbox "Senha":
+    - /placeholder: Mínimo 8 caracteres
+  - generic: "Requisitos: mín. 8 caracteres, 1 maiúscula, 1 número e 1 caractere especial."
+  - generic: Confirmar Senha
+  - textbox "Confirmar Senha":
+    - /placeholder: Repita a senha
+  - button " Cadastrar":
+    - generic: 
+    - text: Cadastrar
+  - paragraph:
+    - text: Já tem cadastro?
+    - link "Faça Login":
+      - /url: /login
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

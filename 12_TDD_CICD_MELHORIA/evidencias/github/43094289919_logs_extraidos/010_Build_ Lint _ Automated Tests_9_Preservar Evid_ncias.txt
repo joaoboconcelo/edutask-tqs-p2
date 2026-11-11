@@ -1,0 +1,36 @@
+﻿2026-11-11T20:13:13.9340890Z ##[group]Run actions/upload-artifact@v4
+2026-11-11T20:13:13.9341558Z with:
+2026-11-11T20:13:13.9341777Z   name: evidencias-de-testes
+2026-11-11T20:13:13.9342415Z   path: 05_EXECUCAO_MANUAL/evidencias_reexecucao/
+07_AUTOMACAO_UNITARIA/evidencias/
+08_INTEGRACAO_API/evidencias/
+09_SISTEMA_INTERFACE/evidencias/
+
+2026-11-11T20:13:13.9343071Z   if-no-files-found: warn
+2026-11-11T20:13:13.9343303Z   compression-level: 6
+2026-11-11T20:13:13.9343519Z   overwrite: false
+2026-11-11T20:13:13.9343732Z   include-hidden-files: false
+2026-11-11T20:13:13.9343969Z env:
+2026-11-11T20:13:13.9344213Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9344640Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:13:13.9345062Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9345441Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9345820Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9346226Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:13:13.9346550Z ##[endgroup]
+2026-11-11T20:13:14.1065803Z (node:2581) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T20:13:14.1066731Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T20:13:14.1244125Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-11T20:13:14.1247131Z The least common ancestor is /home/runner/work/edutask-tqs-p2/edutask-tqs-p2. This will be the root directory of the artifact
+2026-11-11T20:13:14.1248268Z With the provided path, there will be 62 files uploaded
+2026-11-11T20:13:14.1254061Z Artifact name is valid!
+2026-11-11T20:13:14.1254788Z Root directory input is valid!
+2026-11-11T20:13:14.3526373Z Beginning upload of artifact content to blob storage
+2026-11-11T20:13:14.4490313Z (node:2581) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-11T20:13:14.4919326Z Uploaded bytes 493789
+2026-11-11T20:13:14.5088066Z Finished uploading artifact content to blob storage!
+2026-11-11T20:13:14.5089072Z SHA256 digest of uploaded artifact zip is b5e44a1698695cb8eef07cb15252fc5e3dcc3f7e9d3cb0acd72152372204ad4d
+2026-11-11T20:13:14.5090729Z Finalizing artifact upload
+2026-11-11T20:13:14.8469481Z Artifact evidencias-de-testes.zip successfully finalized. Artifact ID 13889313988
+2026-11-11T20:13:14.8471375Z Artifact evidencias-de-testes has been successfully uploaded! Final size is 493789 bytes. Artifact ID is 13889313988
+2026-11-11T20:13:14.8478459Z Artifact download URL: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919/artifacts/13889313988

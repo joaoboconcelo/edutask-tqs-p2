@@ -1,0 +1,11 @@
+{
+  "caso": "CT-024",
+  "data": "2026-11-11T20:23:02.060Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Nenhuma atividade encontrada",
+  "obtido": "Busca por termo inexistente exibiu estado vazio sem erro.",
+  "url": "http://127.0.0.1:5011/tarefas?status=Pendente&priority=Alta&q=string-inexistente-xyz",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

@@ -1,0 +1,11 @@
+{
+  "caso": "CT-018",
+  "data": "2026-11-11T20:22:04.524Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Não é possível excluir",
+  "obtido": "Exclusão da disciplina CC-TQS01 bloqueada; registro permaneceu na lista.",
+  "url": "http://127.0.0.1:5011/disciplinas",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

@@ -11,7 +11,7 @@ Revisão: 2026-11-11T12:31:56-03:00. Sistema: EduTask Web v1.0.1-p2.
 | UAT-03 | Priorizar uma entrega próxima | Prazo em dois dias exibe Alta Urgência | test_uat03_student_sees_urgency |
 | UAT-04 | Acompanhar seu progresso | Concluir tarefa aumenta contagem e percentual exato | test_uat04_student_tracks_completion |
 
-Resultado técnico: os quatro cenários passaram na suíte consolidada. Decisão humana de aceitação: pendente de confirmação do grupo; não há representante externo ou assinatura comprovada.
+Resultado técnico: quatro cenários aprovados na suíte e novamente conferidos pela interface. As capturas e o registro de aceitação técnica estão nesta pasta. Executor: assistente de validação técnica. Homologação humana ou assinatura do usuário não são presumidas.
 Reproduzir: `python -m pytest -v 10_ACEITACAO_NAO_FUNCIONAIS`.
 
 ## Seis verificações não funcionais em três categorias

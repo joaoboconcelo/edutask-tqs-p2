@@ -1,88 +1,76 @@
-> **Nota da revisão de 11/11/2026:** os registros de outubro abaixo são relatos históricos do grupo, sem capturas contemporâneas ou issues externas disponibilizadas. A reexecução atual comprova o comportamento da versão revisada, mas não comprova as datas nem o ciclo original de defeitos.
+# Defeitos confirmados na revisão de 11 de novembro de 2026
 
-# PRODUTO P07 - RELATÓRIO E GESTÃO DE DEFEITOS (APÊNDICE G)
-**Projeto:** EduTask Web v1.0.0-p2
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
-**Ferramenta Adotada:** Padrão GitHub Issues
-**Responsável pelo Registro e Acompanhamento:** Lucas Braga
-**Responsável pela Correção (Dev):** João Lucas de Antonio Boconcelo
+Os IDs DEF-03 a DEF-06 estão vinculados às issues #1 a #4. Todas foram encerradas após publicação da correção e aprovação da suíte no GitHub Actions. A decisão humana de homologação é separada do reteste técnico.
 
----
+## DEF-03 Taxa de conclusão aceita concluídas positivas com total zero
 
-## 1. Visão Geral do Ciclo de Vida dos Defeitos
-Todos os defeitos reportados seguiram o fluxo formal de estados:
-`Novo` ➔ `Em Análise` ➔ `Em Correção` ➔ `Pronto para Reteste` ➔ `Encerrado`.
+Requisito: RF-05. Risco: R-06. Severidade: Média. Prioridade: Alta.
 
----
+Ambiente: Python 3.13.2, Flask, SQLite local isolado. Data: 11/11/2026. Status: Encerrado na revisão local.
 
-## 2. Registro Detalhado dos Defeitos
+Obtido antes: calculate_completion_rate(0, 1) retornava 0.0 em vez de rejeitar a inconsistência.
 
-### [DEF-01] Falha de validação: Aceitação de senhas sem caracteres especiais no cadastro de alunos
-* **Identificador da Issue:** #DEF-01
-* **Requisito Relacionado:** RF-01 | **Caso de Teste Relacionado:** CT-004 / EX-004
-* **Ambiente e Versão:** Google Chrome v131 / Windows 11 / EduTask v1.0.0 (commit inicial)
-* **Severidade:** **Média** (Afeta requisitos de segurança da política de senhas)
-* **Prioridade de Correção:** **Alta**
-* **Status Final:** **Encerrado** (Corrigido e retestado com sucesso)
-* **Responsável pelo Relato:** Lucas Braga
-* **Responsável pela Correção:** João Lucas Boconcelo
+Esperado: rejeitar entradas inconsistentes, preservar isolamento e responder sem erro interno.
 
-#### Pré-condições:
-Tela de cadastro `/register` acessível e banco de dados operacional.
+Correção: Verificar completed_tasks > total_tasks antes do caso vazio.
 
-#### Passos para Reproduzir:
-1. Acessar `http://127.0.0.1:5000/register`.
-2. Informar Nome: "Aluno Teste", E-mail: "aluno.teste@unisagrado.edu.br".
-3. No campo Senha digitar: `SenhaForte2026` (contém maiúscula, minúscula e números, mas nenhum símbolo especial).
-4. Confirmar a senha com o mesmo valor e clicar no botão "Cadastrar".
+Reprodução e reteste: `test_tdd_consistencia.py / red.xml e green.xml`. Linha de base: commit a0df9e6a2dd69687bc88222fca707bdc6f877583. Correção publicada: commit 33d441c7f6dc4599da735727f232c5c1aa5d41f3. Logs consolidados em `11_METRICAS_E_QUALIDADE/evidencias/testes.xml`.
 
-#### Resultado Obtido (Falha):
-O sistema realizava o cadastro sem exigir o caractere especial, violando a regra de segurança especificada no RF-01.
+Responsabilidade: revisão técnica; validação dos integrantes pendente.
 
-#### Resultado Esperado:
-O cadastro deve ser bloqueado e uma mensagem em vermelho deve ser exibida: "A senha deve conter pelo menos um caractere especial (@$!%*?&#...).".
+## DEF-04 Configuração de banco ignorada e testes contaminam demonstração
 
-#### Resolução e Reteste:
-* **Ação Corretiva:** Implementada a checagem `any(c in "@$!%*?&#^_-+=." for c in password)` dentro da função `validate_password_strength()` em `task_service.py`.
-* **Evidência do Reteste:** Execução do teste unitário e manual confirmando o bloqueio da senha sem caractere especial.
-* **Conclusão:** Defeito corrigido e homologado.
+Requisito: RF-03/RF-04. Risco: R-05. Severidade: Média. Prioridade: Alta.
 
----
+Ambiente: Python 3.13.2, Flask, SQLite local isolado. Data: 11/11/2026. Status: Encerrado na revisão local.
 
-### [DEF-02] Ausência de trava na carga horária inferior a 15 horas no cadastro de disciplinas
-* **Identificador da Issue:** #DEF-02
-* **Requisito Relacionado:** RF-03 | **Caso de Teste Relacionado:** CT-014 / EX-014
-* **Ambiente e Versão:** Edge v131 / Windows 11 / EduTask v1.0.0
-* **Severidade:** **Média** (Inconsistência cadastral em regras acadêmicas)
-* **Prioridade de Correção:** **Média**
-* **Status Final:** **Encerrado** (Corrigido e retestado com sucesso)
-* **Responsável pelo Relato:** Lucas Braga
-* **Responsável pela Correção:** João Lucas Boconcelo
+Obtido antes: models.py usava caminho global enquanto create_app aceitava DATABASE sem aplicá-lo.
 
-#### Pré-condições:
-Usuário autenticado com permissão de cadastro de disciplinas.
+Esperado: rejeitar entradas inconsistentes, preservar isolamento e responder sem erro interno.
 
-#### Passos para Reproduzir:
-1. Acessar `/disciplinas/nova`.
-2. Preencher Código: `CC-SUB14`, Nome: "Seminário Curto", Professor: "Prof. Teste".
-3. No campo "Carga Horária Semestral" digitar o valor: `14`.
-4. Clicar em "Salvar Disciplina".
+Correção: Ler DATABASE de current_app, inicializar dentro do contexto e usar temporários.
 
-#### Resultado Obtido (Falha):
-A disciplina era aceita e gravada no banco com 14 horas de duração sem validação do limite inferior regulamentar.
+Reprodução e reteste: `test_isolated_databases_do_not_share_records`. Linha de base: commit a0df9e6a2dd69687bc88222fca707bdc6f877583. Correção publicada: commit 33d441c7f6dc4599da735727f232c5c1aa5d41f3. Logs consolidados em `11_METRICAS_E_QUALIDADE/evidencias/testes.xml`.
 
-#### Resultado Esperado:
-O sistema deve barrar a submissão e exibir o alerta: "A carga horária deve ser um valor numérico entre 15 e 400 horas.".
+Responsabilidade: revisão técnica; validação dos integrantes pendente.
 
-#### Resolução e Reteste:
-* **Ação Corretiva:** Criada a função `validate_workload(hours)` em `task_service.py` que valida a condição `15 <= val <= 400` antes de persistir no banco.
-* **Evidência do Reteste:** Tentativa de inserção com 14h exibiu a mensagem de bloqueio esperada. Inserção com 15h gravou normalmente (CT-013).
-* **Conclusão:** Defeito corrigido e aprovado em reteste.
+## DEF-05 API permite leitura e alteração sem sessão e mistura dados de usuários
 
----
+Requisito: RF-02. Risco: R-02. Severidade: Alta. Prioridade: Alta.
 
-## 3. Resumo Quantitativo de Gestão de Defeitos
-* **Total de Defeitos Identificados:** 2
-* **Total de Defeitos Corrigidos:** 2
-* **Total de Defeitos Reabertos:** 0 (Taxa de Reabertura: 0,0%)
-* **Defeitos Ativos / Pendentes:** 0 (100% de resolução)
+Ambiente: Python 3.13.2, Flask, SQLite local isolado. Data: 11/11/2026. Status: Encerrado na revisão local.
+
+Obtido antes: Endpoints não verificavam sessão e gravavam user_id=1. Consultas HTML não filtravam o proprietário.
+
+Esperado: rejeitar entradas inconsistentes, preservar isolamento e responder sem erro interno.
+
+Correção: Exigir sessão na API e filtrar leituras e escritas por user_id.
+
+Reprodução e reteste: `test_r02_api_requires_session / test_r02_users_cannot_read_or_modify_each_others_records`. Linha de base: commit a0df9e6a2dd69687bc88222fca707bdc6f877583. Correção publicada: commit 33d441c7f6dc4599da735727f232c5c1aa5d41f3. Logs consolidados em `11_METRICAS_E_QUALIDADE/evidencias/testes.xml`.
+
+Responsabilidade: revisão técnica; validação dos integrantes pendente.
+
+## DEF-06 Data inválida na API causa exceção em vez de resposta 400
+
+Requisito: RF-04. Risco: R-07. Severidade: Alta. Prioridade: Alta.
+
+Ambiente: Python 3.13.2, Flask, SQLite local isolado. Data: 11/11/2026. Status: Encerrado na revisão local.
+
+Obtido antes: POST /api/tarefas com due_date=2026-02-30 propagava ValueError.
+
+Esperado: rejeitar entradas inconsistentes, preservar isolamento e responder sem erro interno.
+
+Correção: Capturar ValueError, encerrar conexão e retornar JSON com HTTP 400 sem persistência.
+
+Reprodução e reteste: `test_rf04_invalid_task_does_not_persist`. Linha de base: commit a0df9e6a2dd69687bc88222fca707bdc6f877583. Correção publicada: commit 33d441c7f6dc4599da735727f232c5c1aa5d41f3. Logs consolidados em `11_METRICAS_E_QUALIDADE/evidencias/testes.xml`.
+
+Responsabilidade: revisão técnica; validação dos integrantes pendente.
+
+## Vínculos e reteste remoto
+
+- DEF-03: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/1
+- DEF-04: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/2
+- DEF-05: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/3
+- DEF-06: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/4
+
+Suíte publicada aprovada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919 . Os defeitos são registros da revisão de 11/11/2026, sem retrodatação.

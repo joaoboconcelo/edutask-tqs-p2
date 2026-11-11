@@ -1,0 +1,51 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- alert:
+  - text: Bem-vindo(a), Carlos Silva!
+  - button "Close"
+- main:
+  - heading "Painel Acadêmico" [level=2]
+  - paragraph: Visão geral do progresso de entregas e disciplinas matriculadas
+  - link " Nova Tarefa":
+    - /url: /tarefas/nova
+    - generic: 
+    - text: Nova Tarefa
+  - link " Nova Disciplina":
+    - /url: /disciplinas/nova
+    - generic: 
+    - text: Nova Disciplina
+  - generic: Total de Tarefas
+  - generic: "0"
+  - generic: Concluídas
+  - generic: "0"
+  - generic: Pendentes / Em Aberto
+  - generic: "0"
+  - generic: Disciplinas Cadastradas
+  - generic: "0"
+  - generic: Taxa Geral de Conclusão
+  - generic: 0.0%
+  - progressbar: 0.0%
+  - heading " Próximas Entregas e Atividades" [level=5]:
+    - generic: 
+    - text: Próximas Entregas e Atividades
+  - link "Ver Todas":
+    - /url: /tarefas
+  - table:
+    - rowgroup:
+      - row "Título da Atividade Disciplina Prazo Limite Prioridade Nível de Urgência Status Atual":
+        - columnheader "Título da Atividade"
+        - columnheader "Disciplina"
+        - columnheader "Prazo Limite"
+        - columnheader "Prioridade"
+        - columnheader "Nível de Urgência"
+        - columnheader "Status Atual"
+    - rowgroup:
+      - row "Nenhuma atividade registrada no momento.":
+        - cell "Nenhuma atividade registrada no momento."
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

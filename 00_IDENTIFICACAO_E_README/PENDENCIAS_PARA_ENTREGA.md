@@ -1,14 +1,21 @@
-# Pendências que dependem do grupo
+# Situação final e confirmações restantes
 
-A revisão local melhora os critérios técnicos, mas não garante nota 10. Para completar os itens que não podem ser produzidos por inferência:
+## Concluído tecnicamente
 
-1. Obter ou anexar aprovação do sistema pelo professor. A ficha continua sem aprovação preenchida.
-2. Confirmar a dispensa da apresentação/vídeo e a forma de redistribuição da nota, se aplicável.
-3. Publicar a revisão no repositório, executar Actions e guardar URLs de sucesso e falha controlada. O workflow local está preparado; a demonstração local não é um run remoto.
-4. Registrar os defeitos na ferramenta exigida (GitHub Issues/Jira), com seus links. Os registros atuais são arquivos locais.
-5. Confirmar os 24 casos manuais com executor, data real e capturas; a revisão fornece reexecução automatizada, identificada como tal.
-6. Homologar os quatro cenários de aceitação como representante do usuário, com observações reais.
-7. Conferir origem/licença, diário, participação e assinaturas; não usar atividades futuras como concluídas. Validar também a atualização de RNF-02 para scrypt/PBKDF2.
-8. Fazer upload no Drive oficial, testar acesso sem privilégios e preencher o comprovante apenas após a entrega efetiva.
+- Revisão publicada no GitHub com suite aprovada no Actions.
+- Falha controlada e correção demonstradas em PR separado, encerrado sem merge.
+- Quatro defeitos registrados nas issues #1 a #4 e encerrados com correção e reteste remoto.
+- 24 casos conferidos interativamente pela interface com capturas, além da reexecução automatizada.
+- Quatro cenários de aceitação técnica conferidos pela interface, com resultados observados.
+- Relatório completo, métricas, planilha, evidências e backup organizados.
 
-Não é necessário inventar histórico. Corrigir o registro ou confirmar a exceção com o professor é a forma adequada de fechar cada pendência.
+## Não pode ser preenchido por inferência
+
+1. Aprovação do sistema pelo professor: o solicitante não confirmou aprovação; a ficha continua em branco.
+2. Homologação humana: a validação técnica por assistente está identificada e não é assinatura de um integrante ou representante humano.
+3. Conferência de participação, horas efetivas e assinaturas pelos próprios integrantes.
+4. Confirmação da dispensa de apresentação/vídeo e da distribuição dos pesos pelo professor.
+5. Upload no Drive oficial e conferência de acesso e prazo. Publicação no GitHub não substitui a entrega oficial.
+6. Confirmação de licença de redistribuição e da redação revisada de RNF-02 pelo grupo/professor.
+
+Os formulários para essas confirmações permanecem sem resultados ou assinaturas inventados.

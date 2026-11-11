@@ -1,0 +1,11 @@
+{
+  "caso": "CT-017",
+  "data": "2026-11-11T20:21:39.447Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Já existe uma disciplina",
+  "obtido": "Código CC-TQS01 duplicado rejeitado.",
+  "url": "http://127.0.0.1:5011/disciplinas/nova",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

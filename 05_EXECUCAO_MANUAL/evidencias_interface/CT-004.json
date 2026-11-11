@@ -1,0 +1,11 @@
+{
+  "caso": "CT-004",
+  "data": "2026-11-11T20:19:30.168Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "caractere especial",
+  "obtido": "Senha sem símbolo rejeitada pelo backend.",
+  "url": "http://127.0.0.1:5011/register",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

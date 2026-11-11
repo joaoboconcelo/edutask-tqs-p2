@@ -1,0 +1,66 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- alert:
+  - text: Atividade acadêmica cadastrada com sucesso!
+  - button "Close"
+- main:
+  - heading "Tarefas Acadêmicas" [level=2]
+  - paragraph: Controle de atividades, prazos e entregas de projetos
+  - link " Cadastrar Nova Tarefa":
+    - /url: /tarefas/nova
+    - generic: 
+    - text: Cadastrar Nova Tarefa
+  - generic: Status
+  - combobox:
+    - option "Todos os Status" [selected]
+    - option "Pendente"
+    - option "Em Andamento"
+    - option "Concluída"
+  - generic: Prioridade
+  - combobox:
+    - option "Todas as Prioridades" [selected]
+    - option "Alta"
+    - option "Média"
+    - option "Baixa"
+  - generic: Buscar por Palavra-Chave
+  - 'textbox "Ex: Selenium, DER, Relatório..."'
+  - button " Filtrar":
+    - generic: 
+    - text: Filtrar
+  - table:
+    - rowgroup:
+      - row "Atividade / Descrição Disciplina Prazo Limite Prioridade Urgência Calculada Alterar Status / Ações":
+        - columnheader "Atividade / Descrição"
+        - columnheader "Disciplina"
+        - columnheader "Prazo Limite"
+        - columnheader "Prioridade"
+        - columnheader "Urgência Calculada"
+        - columnheader "Alterar Status / Ações"
+    - rowgroup:
+      - row "Entrega Aceitacao Prazo Proximo CC-UAT01 Disciplina Inspecao CC-UAT01 2026-11-13 Alta Alta Urgência Pendente  ":
+        - cell "Entrega Aceitacao Prazo Proximo":
+          - generic: Entrega Aceitacao Prazo Proximo
+        - cell "CC-UAT01 Disciplina Inspecao CC-UAT01":
+          - generic: CC-UAT01
+          - generic: Disciplina Inspecao CC-UAT01
+        - cell "2026-11-13"
+        - cell "Alta":
+          - generic: Alta
+        - cell "Alta Urgência":
+          - generic: Alta Urgência
+        - cell "Pendente  ":
+          - combobox:
+            - option "Pendente" [selected]
+            - option "Em Andamento"
+            - option "Concluída"
+          - button "":
+            - generic: 
+          - button "":
+            - generic: 
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

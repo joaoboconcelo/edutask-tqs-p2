@@ -1,0 +1,86 @@
+﻿2026-11-11T20:14:40.5158128Z ##[group]Run mkdir -p 08_INTEGRACAO_API/evidencias
+2026-11-11T20:14:40.5158560Z [36;1mmkdir -p 08_INTEGRACAO_API/evidencias[0m
+2026-11-11T20:14:40.5159555Z [36;1mpytest -v 08_INTEGRACAO_API 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py 10_ACEITACAO_NAO_FUNCIONAIS --junitxml=08_INTEGRACAO_API/evidencias/integracao_catalogo.xml[0m
+2026-11-11T20:14:40.5181584Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:14:40.5181836Z env:
+2026-11-11T20:14:40.5182113Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.5182764Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:14:40.5183197Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.5183574Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.5183947Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.5184322Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:14:40.5184651Z ##[endgroup]
+2026-11-11T20:14:40.7033160Z ============================= test session starts ==============================
+2026-11-11T20:14:40.7033876Z platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+2026-11-11T20:14:40.7034405Z cachedir: .pytest_cache
+2026-11-11T20:14:40.7034727Z rootdir: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:14:40.7035068Z configfile: pytest.ini
+2026-11-11T20:14:40.8494449Z collecting ... collected 64 items
+2026-11-11T20:14:40.8494756Z 
+2026-11-11T20:14:41.2186142Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_01_api_login_success PASSED [  1%]
+2026-11-11T20:14:41.5726999Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_02_api_login_invalid_credentials PASSED [  3%]
+2026-11-11T20:14:41.8128111Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_03_api_create_discipline_success PASSED [  4%]
+2026-11-11T20:14:42.0526398Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_04_api_create_discipline_duplicate_conflict PASSED [  6%]
+2026-11-11T20:14:42.2980696Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_05_api_create_task_with_calculated_urgency PASSED [  7%]
+2026-11-11T20:14:42.5368710Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_06_api_get_metrics_success PASSED [  9%]
+2026-11-11T20:14:42.6640555Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_api_requires_session[/api/tarefas] PASSED [ 10%]
+2026-11-11T20:14:42.7905808Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_api_requires_session[/api/disciplinas] PASSED [ 12%]
+2026-11-11T20:14:42.9169147Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_api_requires_session[/api/metricas] PASSED [ 14%]
+2026-11-11T20:14:43.0474882Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/] PASSED [ 15%]
+2026-11-11T20:14:43.1731884Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/tarefas] PASSED [ 17%]
+2026-11-11T20:14:43.2998103Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/disciplinas] PASSED [ 18%]
+2026-11-11T20:14:43.4276597Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/tarefas/nova] PASSED [ 20%]
+2026-11-11T20:14:43.5536028Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/disciplinas/nova] PASSED [ 21%]
+2026-11-11T20:14:44.0248425Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rnf02_password_hash_and_login PASSED [ 23%]
+2026-11-11T20:14:44.1606874Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[Abc@123-Abc@123-m\xednimo 8] PASSED [ 25%]
+2026-11-11T20:14:44.2952618Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[SenhaForte2026-SenhaForte2026-caractere especial] PASSED [ 26%]
+2026-11-11T20:14:44.4290845Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[senhaforte@123-senhaforte@123-mai\xfascula] PASSED [ 28%]
+2026-11-11T20:14:44.5640489Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[SenhaForte@2026-OutraSenha@2026-n\xe3o coincidem] PASSED [ 29%]
+2026-11-11T20:14:44.8053088Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[14-400] PASSED [ 31%]
+2026-11-11T20:14:45.0500507Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[15-201] PASSED [ 32%]
+2026-11-11T20:14:45.2922831Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[400-201] PASSED [ 34%]
+2026-11-11T20:14:45.5342787Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[401-400] PASSED [ 35%]
+2026-11-11T20:14:45.7748861Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[abc-400] PASSED [ 37%]
+2026-11-11T20:14:46.0187875Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override0-400] PASSED [ 39%]
+2026-11-11T20:14:46.2653311Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override1-400] PASSED [ 40%]
+2026-11-11T20:14:46.5081123Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override2-400] PASSED [ 42%]
+2026-11-11T20:14:46.7500014Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override3-400] PASSED [ 43%]
+2026-11-11T20:14:46.9950636Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override4-400] PASSED [ 45%]
+2026-11-11T20:14:47.2378883Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override5-404] PASSED [ 46%]
+2026-11-11T20:14:47.4951332Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf05_status_updates_exact_dashboard_rate PASSED [ 48%]
+2026-11-11T20:14:47.7548149Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf06_combined_filters_and_search PASSED [ 50%]
+2026-11-11T20:14:48.0047326Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r05_discipline_with_tasks_cannot_be_deleted PASSED [ 51%]
+2026-11-11T20:14:48.4770939Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_users_cannot_read_or_modify_each_others_records PASSED [ 53%]
+2026-11-11T20:14:48.7356605Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r03_sql_injection_does_not_authenticate_or_delete PASSED [ 54%]
+2026-11-11T20:14:49.2181041Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_isolated_databases_do_not_share_records PASSED [ 56%]
+2026-11-11T20:14:49.4654683Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-001] PASSED [ 57%]
+2026-11-11T20:14:49.5977226Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-002] PASSED [ 59%]
+2026-11-11T20:14:49.7321566Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-003] PASSED [ 60%]
+2026-11-11T20:14:49.8648294Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-004] PASSED [ 62%]
+2026-11-11T20:14:49.9979793Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-005] PASSED [ 64%]
+2026-11-11T20:14:50.1321835Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-006] PASSED [ 65%]
+2026-11-11T20:14:50.3958185Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-007] PASSED [ 67%]
+2026-11-11T20:14:50.6414741Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-008] PASSED [ 68%]
+2026-11-11T20:14:50.7756259Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-009] PASSED [ 70%]
+2026-11-11T20:14:50.9062467Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-010] PASSED [ 71%]
+2026-11-11T20:14:51.1570076Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-011] PASSED [ 73%]
+2026-11-11T20:14:51.4041371Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-012] PASSED [ 75%]
+2026-11-11T20:14:51.6536563Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-013] PASSED [ 76%]
+2026-11-11T20:14:51.8976129Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-014] PASSED [ 78%]
+2026-11-11T20:14:52.1478285Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-015] PASSED [ 79%]
+2026-11-11T20:14:52.3931582Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-016] PASSED [ 81%]
+2026-11-11T20:14:52.6409651Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-017] PASSED [ 82%]
+2026-11-11T20:14:52.8889851Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-018] PASSED [ 84%]
+2026-11-11T20:14:53.1471460Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-019] PASSED [ 85%]
+2026-11-11T20:14:53.3969934Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-020] PASSED [ 87%]
+2026-11-11T20:14:53.6497397Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-021] PASSED [ 89%]
+2026-11-11T20:14:53.9058841Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-022] PASSED [ 90%]
+2026-11-11T20:14:54.1628327Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-023] PASSED [ 92%]
+2026-11-11T20:14:54.4192207Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-024] PASSED [ 93%]
+2026-11-11T20:14:54.8974055Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat01_student_registers_and_logs_in PASSED [ 95%]
+2026-11-11T20:14:55.1486916Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat02_student_organizes_disciplines PASSED [ 96%]
+2026-11-11T20:14:55.4077364Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat03_student_sees_urgency PASSED [ 98%]
+2026-11-11T20:14:55.6906469Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat04_student_tracks_completion PASSED [100%]
+2026-11-11T20:14:55.6907158Z 
+2026-11-11T20:14:55.6907590Z - generated xml file: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/08_INTEGRACAO_API/evidencias/integracao_catalogo.xml -
+2026-11-11T20:14:55.6908248Z ============================= 64 passed in 14.97s ==============================

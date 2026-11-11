@@ -1,0 +1,44 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- alert:
+  - text: O título da tarefa deve ter no mínimo 3 caracteres.
+  - button "Close"
+- main:
+  - heading "Cadastrar Atividade Acadêmica" [level=3]
+  - paragraph: Adicione uma nova tarefa com prazo e prioridade para monitoramento
+  - generic: Título da Atividade
+  - textbox "Título da Atividade":
+    - /placeholder: "Ex: Projeto Integrado P2 - Testes de Software"
+  - generic: Mínimo de 3 caracteres.
+  - generic: Disciplina Vinculada
+  - combobox "Disciplina Vinculada":
+    - option "Selecione uma disciplina..." [disabled] [selected]
+    - option "CC-BD02 - Banco de Dados Avançado"
+    - option "CC-ES03 - Disciplina Inspecao CC-ES03"
+    - option "CC-EST400 - Disciplina Inspecao CC-EST400"
+    - option "CC-TOP15 - Disciplina Inspecao CC-TOP15"
+    - option "CC-TQS01 - Testes e Qualidade de Software"
+  - generic: Data Limite de Entrega
+  - textbox "Data Limite de Entrega"
+  - generic: Prioridade
+  - combobox "Prioridade":
+    - option "Baixa"
+    - option "Média" [selected]
+    - option "Alta"
+  - generic: Descrição / Detalhes (Opcional)
+  - textbox "Descrição / Detalhes (Opcional)":
+    - /placeholder: Critérios de aceitação, links, diretrizes...
+  - link " Voltar":
+    - /url: /tarefas
+    - generic: 
+    - text: Voltar
+  - button " Salvar Atividade":
+    - generic: 
+    - text: Salvar Atividade
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

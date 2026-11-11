@@ -1,0 +1,540 @@
+﻿2026-11-11T20:12:23.7545889Z Current runner version: '2.338.2'
+2026-11-11T20:12:23.7570577Z ##[group]Runner Image Provisioner
+2026-11-11T20:12:23.7571934Z Hosted Compute Agent
+2026-11-11T20:12:23.7572637Z Version: 20261028.624
+2026-11-11T20:12:23.7573296Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-11T20:12:23.7574097Z Build Date: 2026-10-28T21:51:42Z
+2026-11-11T20:12:23.7574791Z Worker ID: {a7a17a65-ce62-4dd3-ac79-29bec7bd24ac}
+2026-11-11T20:12:23.7575550Z Region: eastus
+2026-11-11T20:12:23.7576116Z Cloud: Azure
+2026-11-11T20:12:23.7576686Z ##[endgroup]
+2026-11-11T20:12:23.7578318Z ##[group]Operating System
+2026-11-11T20:12:23.7579033Z Ubuntu
+2026-11-11T20:12:23.7579632Z 24.04.5
+2026-11-11T20:12:23.7580184Z LTS
+2026-11-11T20:12:23.7580741Z ##[endgroup]
+2026-11-11T20:12:23.7581603Z ##[group]Runner Image
+2026-11-11T20:12:23.7582251Z Image: ubuntu-24.04
+2026-11-11T20:12:23.7583226Z Version: 20261101.360.1
+2026-11-11T20:12:23.7584686Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-11T20:12:23.7586326Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-11T20:12:23.7587326Z ##[endgroup]
+2026-11-11T20:12:23.7588665Z ##[group]GITHUB_TOKEN Permissions
+2026-11-11T20:12:23.7591429Z Contents: read
+2026-11-11T20:12:23.7592150Z Metadata: read
+2026-11-11T20:12:23.7592754Z ##[endgroup]
+2026-11-11T20:12:23.7594905Z Secret source: Actions
+2026-11-11T20:12:23.7596016Z Cache mode: write
+2026-11-11T20:12:23.7596992Z Prepare workflow directory
+2026-11-11T20:12:23.7953451Z Prepare all required actions
+2026-11-11T20:12:23.8002651Z Getting action download info
+2026-11-11T20:12:24.0521570Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-11T20:12:24.1720549Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-11T20:12:24.3309108Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-11T20:12:24.5537996Z Complete job name: Build, Lint & Automated Tests
+2026-11-11T20:12:24.6493107Z ##[group]Run actions/checkout@v4
+2026-11-11T20:12:24.6494042Z with:
+2026-11-11T20:12:24.6494533Z   repository: joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:12:24.6498674Z   token: ***
+2026-11-11T20:12:24.6499117Z   ssh-strict: true
+2026-11-11T20:12:24.6499556Z   ssh-user: git
+2026-11-11T20:12:24.6500020Z   persist-credentials: true
+2026-11-11T20:12:24.6500511Z   clean: true
+2026-11-11T20:12:24.6500959Z   sparse-checkout-cone-mode: true
+2026-11-11T20:12:24.6501694Z   fetch-depth: 1
+2026-11-11T20:12:24.6502126Z   fetch-tags: false
+2026-11-11T20:12:24.6502575Z   show-progress: true
+2026-11-11T20:12:24.6503022Z   lfs: false
+2026-11-11T20:12:24.6503449Z   submodules: false
+2026-11-11T20:12:24.6503905Z   set-safe-directory: true
+2026-11-11T20:12:24.6504418Z   allow-unsafe-pr-checkout: false
+2026-11-11T20:12:24.6505221Z ##[endgroup]
+2026-11-11T20:12:24.9265115Z Syncing repository: joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:12:24.9268399Z ##[group]Getting Git version info
+2026-11-11T20:12:24.9269429Z Working directory is '/home/runner/work/edutask-tqs-p2/edutask-tqs-p2'
+2026-11-11T20:12:24.9270570Z [command]/usr/bin/git version
+2026-11-11T20:12:24.9367831Z git version 2.56.0
+2026-11-11T20:12:24.9393433Z ##[endgroup]
+2026-11-11T20:12:24.9409779Z Temporarily overriding HOME='/home/runner/work/_temp/29c6aaca-243a-49a3-ae35-be437054ad75' before making global git config changes
+2026-11-11T20:12:24.9412494Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T20:12:24.9417468Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:12:24.9476807Z Deleting the contents of '/home/runner/work/edutask-tqs-p2/edutask-tqs-p2'
+2026-11-11T20:12:24.9482547Z ##[group]Initializing the repository
+2026-11-11T20:12:24.9487583Z [command]/usr/bin/git init /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:12:24.9608883Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-11T20:12:24.9610761Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-11T20:12:24.9612589Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-11T20:12:24.9613967Z hint: call:
+2026-11-11T20:12:24.9614600Z hint:
+2026-11-11T20:12:24.9615403Z hint: 	git config --global init.defaultBranch <name>
+2026-11-11T20:12:24.9616533Z hint:
+2026-11-11T20:12:24.9617529Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-11T20:12:24.9619218Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-11T20:12:24.9620420Z hint:
+2026-11-11T20:12:24.9621369Z hint: 	git branch -m <name>
+2026-11-11T20:12:24.9622195Z hint:
+2026-11-11T20:12:24.9623309Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-11T20:12:24.9625175Z Initialized empty Git repository in /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/.git/
+2026-11-11T20:12:24.9638175Z [command]/usr/bin/git remote add origin https://github.com/joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:12:24.9701950Z ##[endgroup]
+2026-11-11T20:12:24.9703230Z ##[group]Disabling automatic garbage collection
+2026-11-11T20:12:24.9706141Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-11T20:12:24.9743033Z ##[endgroup]
+2026-11-11T20:12:24.9744296Z ##[group]Setting up auth
+2026-11-11T20:12:24.9750495Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T20:12:24.9789317Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T20:12:25.0223339Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T20:12:25.0272009Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T20:12:25.0519987Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T20:12:25.0567542Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T20:12:25.0817460Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-11T20:12:25.0869147Z ##[endgroup]
+2026-11-11T20:12:25.0870365Z ##[group]Fetching the repository
+2026-11-11T20:12:25.0883198Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +33d441c7f6dc4599da735727f232c5c1aa5d41f3:refs/remotes/origin/main
+2026-11-11T20:12:25.3237339Z From https://github.com/joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:12:25.3239148Z  * [new ref]         33d441c7f6dc4599da735727f232c5c1aa5d41f3 -> origin/main
+2026-11-11T20:12:25.3243474Z ##[endgroup]
+2026-11-11T20:12:25.3244816Z ##[group]Determining the checkout info
+2026-11-11T20:12:25.3246505Z ##[endgroup]
+2026-11-11T20:12:25.3254641Z [command]/usr/bin/git sparse-checkout disable
+2026-11-11T20:12:25.3318376Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-11T20:12:25.3360866Z ##[group]Checking out the ref
+2026-11-11T20:12:25.3365880Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-11T20:12:25.3647213Z Switched to a new branch 'main'
+2026-11-11T20:12:25.3652863Z branch 'main' set up to track 'origin/main'.
+2026-11-11T20:12:25.3662762Z ##[endgroup]
+2026-11-11T20:12:25.3715178Z [command]/usr/bin/git log -1 --format=%H
+2026-11-11T20:12:25.3750466Z 33d441c7f6dc4599da735727f232c5c1aa5d41f3
+2026-11-11T20:12:25.4243097Z ##[group]Run actions/setup-python@v5
+2026-11-11T20:12:25.4244401Z with:
+2026-11-11T20:12:25.4245324Z   python-version: 3.13
+2026-11-11T20:12:25.4246369Z   check-latest: false
+2026-11-11T20:12:25.4258064Z   token: ***
+2026-11-11T20:12:25.4259057Z   update-environment: true
+2026-11-11T20:12:25.4260200Z   allow-prereleases: false
+2026-11-11T20:12:25.4261682Z   freethreaded: false
+2026-11-11T20:12:25.4262725Z ##[endgroup]
+2026-11-11T20:12:25.5731623Z ##[group]Installed versions
+2026-11-11T20:12:25.5852760Z (node:2316) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T20:12:25.5857842Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T20:12:25.5860993Z Successfully set up CPython (3.13.18)
+2026-11-11T20:12:25.5864561Z ##[endgroup]
+2026-11-11T20:12:25.6036993Z ##[group]Run python -m pip install --upgrade pip
+2026-11-11T20:12:25.6038573Z [36;1mpython -m pip install --upgrade pip[0m
+2026-11-11T20:12:25.6040118Z [36;1mpip install -r 01_SISTEMA_ALVO/requirements.txt[0m
+2026-11-11T20:12:25.6117875Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:12:25.6119022Z env:
+2026-11-11T20:12:25.6120198Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:25.6122434Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:12:25.6124317Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:25.6125999Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:25.6127695Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:25.6129416Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:12:25.6130885Z ##[endgroup]
+2026-11-11T20:12:27.8136093Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (26.2.2)
+2026-11-11T20:12:27.9570723Z Collecting pip
+2026-11-11T20:12:28.0575940Z   Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+2026-11-11T20:12:28.0841930Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-11T20:12:28.1898226Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 32.5 MB/s  0:00:00
+2026-11-11T20:12:28.3136672Z Installing collected packages: pip
+2026-11-11T20:12:28.3152256Z   Attempting uninstall: pip
+2026-11-11T20:12:28.3172737Z     Found existing installation: pip 26.2.2
+2026-11-11T20:12:28.3825411Z     Uninstalling pip-26.2.2:
+2026-11-11T20:12:28.3888518Z       Successfully uninstalled pip-26.2.2
+2026-11-11T20:12:29.4402171Z Successfully installed pip-26.3
+2026-11-11T20:12:29.9558101Z Collecting Flask>=3.0.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 1))
+2026-11-11T20:12:30.0559948Z   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+2026-11-11T20:12:30.1016887Z Collecting Werkzeug>=3.0.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 2))
+2026-11-11T20:12:30.1230966Z   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+2026-11-11T20:12:30.1705880Z Collecting pytest>=8.0.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 3))
+2026-11-11T20:12:30.1917333Z   Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-11T20:12:30.2330242Z Collecting requests>=2.31.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 4))
+2026-11-11T20:12:30.2542046Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-11T20:12:30.3011862Z Collecting selenium>=4.18.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:30.3224979Z   Downloading selenium-4.52.0-py3-none-any.whl.metadata (7.5 kB)
+2026-11-11T20:12:30.3553399Z Collecting webdriver-manager>=4.0.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 6))
+2026-11-11T20:12:30.3765379Z   Downloading webdriver_manager-4.1.2-py3-none-any.whl.metadata (16 kB)
+2026-11-11T20:12:30.4100611Z Collecting python-docx>=1.1.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 7))
+2026-11-11T20:12:30.4311583Z   Downloading python_docx-1.2.0-py3-none-any.whl.metadata (2.0 kB)
+2026-11-11T20:12:30.6069671Z Collecting matplotlib>=3.8.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:30.6283289Z   Downloading matplotlib-3.11.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+2026-11-11T20:12:30.7017610Z Collecting flake8>=7.0.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 9))
+2026-11-11T20:12:30.7234241Z   Downloading flake8-7.5.0-py2.py3-none-any.whl.metadata (3.8 kB)
+2026-11-11T20:12:31.1488241Z Collecting coverage>=7.0.0 (from -r 01_SISTEMA_ALVO/requirements.txt (line 10))
+2026-11-11T20:12:31.1711331Z   Downloading coverage-7.17.2-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.1 kB)
+2026-11-11T20:12:31.2008315Z Collecting blinker>=1.9.0 (from Flask>=3.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 1))
+2026-11-11T20:12:31.2227638Z   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+2026-11-11T20:12:31.2556140Z Collecting click>=8.1.3 (from Flask>=3.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 1))
+2026-11-11T20:12:31.2770949Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-11T20:12:31.3045430Z Collecting itsdangerous>=2.2.0 (from Flask>=3.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 1))
+2026-11-11T20:12:31.3257936Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2026-11-11T20:12:31.3558597Z Collecting jinja2>=3.1.2 (from Flask>=3.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 1))
+2026-11-11T20:12:31.3770062Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-11T20:12:31.4461468Z Collecting markupsafe>=2.1.1 (from Flask>=3.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 1))
+2026-11-11T20:12:31.4672006Z   Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-11T20:12:31.4947350Z Collecting iniconfig>=2 (from pytest>=8.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 3))
+2026-11-11T20:12:31.5158651Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-11T20:12:31.5453425Z Collecting packaging>=24 (from pytest>=8.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 3))
+2026-11-11T20:12:31.5662665Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-11T20:12:31.5935789Z Collecting pluggy<2,>=1.6 (from pytest>=8.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 3))
+2026-11-11T20:12:31.6149623Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-11T20:12:31.6465968Z Collecting pygments>=2.15 (from pytest>=8.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 3))
+2026-11-11T20:12:31.6674557Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-11T20:12:31.8035198Z Collecting charset_normalizer<4,>=2 (from requests>=2.31.0->-r 01_SISTEMA_ALVO/requirements.txt (line 4))
+2026-11-11T20:12:31.8254345Z   Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-11-11T20:12:31.8607856Z Collecting idna<4,>=2.5 (from requests>=2.31.0->-r 01_SISTEMA_ALVO/requirements.txt (line 4))
+2026-11-11T20:12:31.8819102Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-11T20:12:31.9199699Z Collecting urllib3<3,>=1.26 (from requests>=2.31.0->-r 01_SISTEMA_ALVO/requirements.txt (line 4))
+2026-11-11T20:12:31.9422634Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-11T20:12:31.9765574Z Collecting certifi>=2023.5.7 (from requests>=2.31.0->-r 01_SISTEMA_ALVO/requirements.txt (line 4))
+2026-11-11T20:12:31.9978602Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-11T20:12:32.0289228Z Collecting trio<1.0,>=0.31.0 (from selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.0503326Z   Downloading trio-0.35.0-py3-none-any.whl.metadata (8.5 kB)
+2026-11-11T20:12:32.0787229Z Collecting trio-websocket<1.0,>=0.12.2 (from selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.1002435Z   Downloading trio_websocket-0.12.2-py3-none-any.whl.metadata (5.1 kB)
+2026-11-11T20:12:32.1318462Z Collecting typing_extensions<5.0,>=4.15.0 (from selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.1531991Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-11T20:12:32.1885565Z Collecting websocket-client<2.0,>=1.8.0 (from selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.2102051Z   Downloading websocket_client-1.9.2-py3-none-any.whl.metadata (8.3 kB)
+2026-11-11T20:12:32.2410190Z Collecting attrs>=23.2.0 (from trio<1.0,>=0.31.0->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.2621015Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-11T20:12:32.2925541Z Collecting sortedcontainers (from trio<1.0,>=0.31.0->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.3139070Z   Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+2026-11-11T20:12:32.3408773Z Collecting outcome (from trio<1.0,>=0.31.0->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.3628398Z   Downloading outcome-1.3.0.post0-py2.py3-none-any.whl.metadata (2.6 kB)
+2026-11-11T20:12:32.3891822Z Collecting sniffio>=1.3.0 (from trio<1.0,>=0.31.0->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.4112535Z   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+2026-11-11T20:12:32.4407739Z Collecting wsproto>=0.14 (from trio-websocket<1.0,>=0.12.2->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.4621052Z   Downloading wsproto-1.3.2-py3-none-any.whl.metadata (5.2 kB)
+2026-11-11T20:12:32.4918130Z Collecting pysocks!=1.5.7,<2.0,>=1.5.6 (from urllib3[socks]<3.0,>=2.6.3->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:32.5132594Z   Downloading PySocks-1.7.1-py3-none-any.whl.metadata (13 kB)
+2026-11-11T20:12:32.5473836Z Collecting python-dotenv (from webdriver-manager>=4.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 6))
+2026-11-11T20:12:32.5686454Z   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+2026-11-11T20:12:32.8114620Z Collecting lxml>=3.1.0 (from python-docx>=1.1.0->-r 01_SISTEMA_ALVO/requirements.txt (line 7))
+2026-11-11T20:12:32.8327605Z   Downloading lxml-6.1.3-cp313-cp313-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+2026-11-11T20:12:32.9102096Z Collecting contourpy>=1.0.1 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:32.9319366Z   Downloading contourpy-1.4.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-11-11T20:12:32.9589603Z Collecting cycler>=0.10 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:32.9800955Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2026-11-11T20:12:33.1720457Z Collecting fonttools>=4.28.2 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:33.1935280Z   Downloading fonttools-4.68.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (139 kB)
+2026-11-11T20:12:33.3039924Z Collecting kiwisolver>=1.3.1 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:33.3256495Z   Downloading kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+2026-11-11T20:12:33.5329325Z Collecting numpy>=1.25 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:33.5547948Z   Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-11T20:12:33.7284604Z Collecting pillow>=9 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:33.7495430Z   Downloading pillow-13.0.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-11-11T20:12:33.7890048Z Collecting pyparsing>=3 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:33.8104606Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+2026-11-11T20:12:33.8395431Z Collecting python-dateutil>=2.7 (from matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:33.8615141Z   Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+2026-11-11T20:12:33.8906262Z Collecting mccabe<0.8.0,>=0.7.0 (from flake8>=7.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 9))
+2026-11-11T20:12:33.9121696Z   Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+2026-11-11T20:12:33.9416061Z Collecting pycodestyle<2.16.0,>=2.15.0 (from flake8>=7.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 9))
+2026-11-11T20:12:33.9640099Z   Downloading pycodestyle-2.15.0-py2.py3-none-any.whl.metadata (4.5 kB)
+2026-11-11T20:12:33.9939238Z Collecting pyflakes<4.2.0,>=4.1.0 (from flake8>=7.0.0->-r 01_SISTEMA_ALVO/requirements.txt (line 9))
+2026-11-11T20:12:34.0167051Z   Downloading pyflakes-4.1.0-py2.py3-none-any.whl.metadata (3.7 kB)
+2026-11-11T20:12:34.0619945Z Collecting tzdata (from python-dateutil>=2.7->matplotlib>=3.8.0->-r 01_SISTEMA_ALVO/requirements.txt (line 8))
+2026-11-11T20:12:34.0833911Z   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-11-11T20:12:34.1110156Z Collecting h11<1,>=0.16.0 (from wsproto>=0.14->trio-websocket<1.0,>=0.12.2->selenium>=4.18.0->-r 01_SISTEMA_ALVO/requirements.txt (line 5))
+2026-11-11T20:12:34.1325029Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-11T20:12:34.1607034Z Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+2026-11-11T20:12:34.1867024Z Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+2026-11-11T20:12:34.2178233Z Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+2026-11-11T20:12:34.2487868Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-11T20:12:34.2723584Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-11T20:12:34.2963877Z Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (254 kB)
+2026-11-11T20:12:34.3217304Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-11T20:12:34.3455068Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-11T20:12:34.3694339Z Downloading selenium-4.52.0-py3-none-any.whl (12.1 MB)
+2026-11-11T20:12:34.4608887Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 137.3 MB/s  0:00:00
+2026-11-11T20:12:34.4822994Z Downloading trio-0.35.0-py3-none-any.whl (513 kB)
+2026-11-11T20:12:34.5067454Z Downloading trio_websocket-0.12.2-py3-none-any.whl (21 kB)
+2026-11-11T20:12:34.5302066Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-11T20:12:34.5534660Z Downloading PySocks-1.7.1-py3-none-any.whl (16 kB)
+2026-11-11T20:12:34.5768755Z Downloading websocket_client-1.9.2-py3-none-any.whl (95 kB)
+2026-11-11T20:12:34.6004545Z Downloading webdriver_manager-4.1.2-py3-none-any.whl (32 kB)
+2026-11-11T20:12:34.6238336Z Downloading python_docx-1.2.0-py3-none-any.whl (252 kB)
+2026-11-11T20:12:34.6478084Z Downloading matplotlib-3.11.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+2026-11-11T20:12:34.6792425Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 336.5 MB/s  0:00:00
+2026-11-11T20:12:34.7003674Z Downloading flake8-7.5.0-py2.py3-none-any.whl (57 kB)
+2026-11-11T20:12:34.7237078Z Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+2026-11-11T20:12:34.7550570Z Downloading pycodestyle-2.15.0-py2.py3-none-any.whl (31 kB)
+2026-11-11T20:12:34.7783946Z Downloading pyflakes-4.1.0-py2.py3-none-any.whl (66 kB)
+2026-11-11T20:12:34.8028863Z Downloading coverage-7.17.2-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (262 kB)
+2026-11-11T20:12:34.8272334Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-11T20:12:34.8510793Z Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2026-11-11T20:12:34.8745168Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-11T20:12:34.8989437Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-11T20:12:34.9228500Z Downloading contourpy-1.4.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (384 kB)
+2026-11-11T20:12:34.9481740Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2026-11-11T20:12:34.9721559Z Downloading fonttools-4.68.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+2026-11-11T20:12:34.9896953Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 344.7 MB/s  0:00:00
+2026-11-11T20:12:35.0107863Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-11T20:12:35.0344526Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2026-11-11T20:12:35.0605681Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-11T20:12:35.0842372Z Downloading kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+2026-11-11T20:12:35.0927365Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 199.9 MB/s  0:00:00
+2026-11-11T20:12:35.1140152Z Downloading lxml-6.1.3-cp313-cp313-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+2026-11-11T20:12:35.1303019Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 359.0 MB/s  0:00:00
+2026-11-11T20:12:35.1517728Z Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+2026-11-11T20:12:35.1757371Z Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-11-11T20:12:35.2507406Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 228.1 MB/s  0:00:00
+2026-11-11T20:12:35.2720414Z Downloading outcome-1.3.0.post0-py2.py3-none-any.whl (10 kB)
+2026-11-11T20:12:35.2957891Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-11T20:12:35.3197975Z Downloading pillow-13.0.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+2026-11-11T20:12:35.3415741Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 358.8 MB/s  0:00:00
+2026-11-11T20:12:35.3630501Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-11T20:12:35.3705118Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 201.1 MB/s  0:00:00
+2026-11-11T20:12:35.3923839Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+2026-11-11T20:12:35.4162544Z Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+2026-11-11T20:12:35.4441586Z Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+2026-11-11T20:12:35.4672406Z Downloading wsproto-1.3.2-py3-none-any.whl (24 kB)
+2026-11-11T20:12:35.4904523Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-11T20:12:35.5146014Z Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+2026-11-11T20:12:35.5384322Z Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+2026-11-11T20:12:35.5668899Z Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+2026-11-11T20:12:35.9087919Z Installing collected packages: sortedcontainers, websocket-client, urllib3, tzdata, typing_extensions, sniffio, python-dotenv, pysocks, pyparsing, pygments, pyflakes, pycodestyle, pluggy, pillow, packaging, numpy, mccabe, markupsafe, lxml, kiwisolver, itsdangerous, iniconfig, idna, h11, fonttools, cycler, coverage, click, charset_normalizer, certifi, blinker, attrs, wsproto, Werkzeug, requests, python-docx, python-dateutil, pytest, outcome, jinja2, flake8, contourpy, webdriver-manager, trio, matplotlib, Flask, trio-websocket, selenium
+2026-11-11T20:12:45.3598021Z 
+2026-11-11T20:12:45.3658141Z Successfully installed Flask-3.1.3 Werkzeug-3.1.9 attrs-26.1.0 blinker-1.9.0 certifi-2026.10.23 charset_normalizer-3.5.2 click-8.5.1 contourpy-1.4.0 coverage-7.17.2 cycler-0.12.1 flake8-7.5.0 fonttools-4.68.0 h11-0.16.0 idna-3.20 iniconfig-2.3.1 itsdangerous-2.2.0 jinja2-3.1.6 kiwisolver-1.5.1 lxml-6.1.3 markupsafe-3.0.4 matplotlib-3.11.2 mccabe-0.7.0 numpy-2.5.4 outcome-1.3.0.post0 packaging-26.3 pillow-13.0.0 pluggy-1.7.0 pycodestyle-2.15.0 pyflakes-4.1.0 pygments-2.21.0 pyparsing-3.3.3 pysocks-1.7.1 pytest-9.2.0 python-dateutil-4.0.0 python-docx-1.2.0 python-dotenv-1.2.4 requests-2.34.2 selenium-4.52.0 sniffio-1.3.1 sortedcontainers-2.4.0 trio-0.35.0 trio-websocket-0.12.2 typing_extensions-4.16.0 tzdata-2026.6 urllib3-2.8.0 webdriver-manager-4.1.2 websocket-client-1.9.2 wsproto-1.3.2
+2026-11-11T20:12:45.5093434Z ##[group]Run mkdir -p 11_METRICAS_E_QUALIDADE/evidencias
+2026-11-11T20:12:45.5093911Z [36;1mmkdir -p 11_METRICAS_E_QUALIDADE/evidencias[0m
+2026-11-11T20:12:45.5094568Z [36;1mpython -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8[0m
+2026-11-11T20:12:45.5115502Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:12:45.5115786Z env:
+2026-11-11T20:12:45.5116053Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.5116512Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:12:45.5116959Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.5117362Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.5117763Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.5118153Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:12:45.5118486Z ##[endgroup]
+2026-11-11T20:12:45.8783645Z ##[group]Run mkdir -p 07_AUTOMACAO_UNITARIA/evidencias
+2026-11-11T20:12:45.8784105Z [36;1mmkdir -p 07_AUTOMACAO_UNITARIA/evidencias[0m
+2026-11-11T20:12:45.8784644Z [36;1mpytest -v 07_AUTOMACAO_UNITARIA --junitxml=07_AUTOMACAO_UNITARIA/evidencias/unitarios.xml[0m
+2026-11-11T20:12:45.8804964Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:12:45.8805220Z env:
+2026-11-11T20:12:45.8805503Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.8805991Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:12:45.8806467Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.8806882Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.8807313Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:45.8807740Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:12:45.8808083Z ##[endgroup]
+2026-11-11T20:12:46.3152651Z ============================= test session starts ==============================
+2026-11-11T20:12:46.3154593Z platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+2026-11-11T20:12:46.3155816Z cachedir: .pytest_cache
+2026-11-11T20:12:46.3156390Z rootdir: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:12:46.3156899Z configfile: pytest.ini
+2026-11-11T20:12:46.4911307Z collecting ... collected 30 items
+2026-11-11T20:12:46.4911901Z 
+2026-11-11T20:12:46.5167493Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[-1-100] PASSED [  3%]
+2026-11-11T20:12:46.5177636Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[0-100] PASSED [  6%]
+2026-11-11T20:12:46.5186794Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[1-75] PASSED [ 10%]
+2026-11-11T20:12:46.5195701Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[2-75] PASSED [ 13%]
+2026-11-11T20:12:46.5204638Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[3-50] PASSED [ 16%]
+2026-11-11T20:12:46.5213282Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[7-50] PASSED [ 20%]
+2026-11-11T20:12:46.5224819Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[8-25] PASSED [ 23%]
+2026-11-11T20:12:46.5233349Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_invalid_dates[2026-02-30] PASSED [ 26%]
+2026-11-11T20:12:46.5241423Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_invalid_dates[abc] PASSED [ 30%]
+2026-11-11T20:12:46.5249495Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_invalid_dates[11/11/2026] PASSED [ 33%]
+2026-11-11T20:12:46.5258853Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_completion_invalid_values[-1-0-ValueError] PASSED [ 36%]
+2026-11-11T20:12:46.5267966Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_completion_invalid_values[3--1-ValueError] PASSED [ 40%]
+2026-11-11T20:12:46.5276934Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_completion_invalid_values[3-1-TypeError] PASSED [ 43%]
+2026-11-11T20:12:46.5286606Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Pendente-Alta-None-ids0] PASSED [ 46%]
+2026-11-11T20:12:46.5296100Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Pendente-Baixa-None-ids1] PASSED [ 50%]
+2026-11-11T20:12:46.5305414Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Conclu\xedda-Alta-None-ids2] PASSED [ 53%]
+2026-11-11T20:12:46.5315743Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Conclu\xedda-Baixa-None-ids3] PASSED [ 56%]
+2026-11-11T20:12:46.5325267Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Todos-Todas- M\xc9TRICAS -ids4] PASSED [ 60%]
+2026-11-11T20:12:46.5335334Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Todos-Todas-INEXISTENTE-ids5] PASSED [ 63%]
+2026-11-11T20:12:46.5344560Z 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-1] PASSED [ 66%]
+2026-11-11T20:12:46.5352517Z 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-5] PASSED [ 70%]
+2026-11-11T20:12:46.5361449Z 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[2-3] PASSED [ 73%]
+2026-11-11T20:12:46.5370635Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_calculate_completion_rate PASSED [ 76%]
+2026-11-11T20:12:46.5379669Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_calculate_task_urgency PASSED [ 80%]
+2026-11-11T20:12:46.5387897Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_password_strength_invalid_rules PASSED [ 83%]
+2026-11-11T20:12:46.5395621Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_password_strength_valid PASSED [ 86%]
+2026-11-11T20:12:46.5403500Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_discipline_code PASSED [ 90%]
+2026-11-11T20:12:46.5410863Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_email_invalid_formats PASSED [ 93%]
+2026-11-11T20:12:46.5418490Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_email_valid_formats PASSED [ 96%]
+2026-11-11T20:12:46.5646043Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_workload_boundary_values PASSED [100%]
+2026-11-11T20:12:46.5646801Z 
+2026-11-11T20:12:46.5647317Z - generated xml file: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/07_AUTOMACAO_UNITARIA/evidencias/unitarios.xml -
+2026-11-11T20:12:46.5648146Z ============================== 30 passed in 0.24s ==============================
+2026-11-11T20:12:46.6096162Z ##[group]Run mkdir -p 08_INTEGRACAO_API/evidencias
+2026-11-11T20:12:46.6096598Z [36;1mmkdir -p 08_INTEGRACAO_API/evidencias[0m
+2026-11-11T20:12:46.6097363Z [36;1mpytest -v 08_INTEGRACAO_API 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py 10_ACEITACAO_NAO_FUNCIONAIS --junitxml=08_INTEGRACAO_API/evidencias/integracao_catalogo.xml[0m
+2026-11-11T20:12:46.6119090Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:12:46.6119348Z env:
+2026-11-11T20:12:46.6119625Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:46.6120087Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:12:46.6120544Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:46.6120935Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:46.6121655Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:12:46.6122072Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:12:46.6122441Z ##[endgroup]
+2026-11-11T20:12:46.8022220Z ============================= test session starts ==============================
+2026-11-11T20:12:46.8052020Z platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+2026-11-11T20:12:46.8053037Z cachedir: .pytest_cache
+2026-11-11T20:12:46.8053605Z rootdir: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:12:46.8054234Z configfile: pytest.ini
+2026-11-11T20:12:46.9544668Z collecting ... collected 64 items
+2026-11-11T20:12:46.9545401Z 
+2026-11-11T20:12:47.2862021Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_01_api_login_success PASSED [  1%]
+2026-11-11T20:12:47.6104199Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_02_api_login_invalid_credentials PASSED [  3%]
+2026-11-11T20:12:47.8362167Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_03_api_create_discipline_success PASSED [  4%]
+2026-11-11T20:12:48.0577232Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_04_api_create_discipline_duplicate_conflict PASSED [  6%]
+2026-11-11T20:12:48.2830048Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_05_api_create_task_with_calculated_urgency PASSED [  7%]
+2026-11-11T20:12:48.5040086Z 08_INTEGRACAO_API/test_api_integracao.py::TestEduTaskAPIIntegration::test_06_api_get_metrics_success PASSED [  9%]
+2026-11-11T20:12:48.6225232Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_api_requires_session[/api/tarefas] PASSED [ 10%]
+2026-11-11T20:12:48.7398448Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_api_requires_session[/api/disciplinas] PASSED [ 12%]
+2026-11-11T20:12:48.8577326Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_api_requires_session[/api/metricas] PASSED [ 14%]
+2026-11-11T20:12:48.9771475Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/] PASSED [ 15%]
+2026-11-11T20:12:49.0972174Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/tarefas] PASSED [ 17%]
+2026-11-11T20:12:49.2168612Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/disciplinas] PASSED [ 18%]
+2026-11-11T20:12:49.3346758Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/tarefas/nova] PASSED [ 20%]
+2026-11-11T20:12:49.4524293Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_ct010_private_pages_redirect[/disciplinas/nova] PASSED [ 21%]
+2026-11-11T20:12:49.8818705Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rnf02_password_hash_and_login PASSED [ 23%]
+2026-11-11T20:12:50.0114142Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[Abc@123-Abc@123-m\xednimo 8] PASSED [ 25%]
+2026-11-11T20:12:50.1348233Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[SenhaForte2026-SenhaForte2026-caractere especial] PASSED [ 26%]
+2026-11-11T20:12:50.2595459Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[senhaforte@123-senhaforte@123-mai\xfascula] PASSED [ 28%]
+2026-11-11T20:12:50.3871976Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf01_rejects_invalid_registration[SenhaForte@2026-OutraSenha@2026-n\xe3o coincidem] PASSED [ 29%]
+2026-11-11T20:12:50.6294346Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[14-400] PASSED [ 31%]
+2026-11-11T20:12:50.8508219Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[15-201] PASSED [ 32%]
+2026-11-11T20:12:51.0724023Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[400-201] PASSED [ 34%]
+2026-11-11T20:12:51.2946182Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[401-400] PASSED [ 35%]
+2026-11-11T20:12:51.5154017Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf03_workload_boundaries[abc-400] PASSED [ 37%]
+2026-11-11T20:12:51.7364997Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override0-400] PASSED [ 39%]
+2026-11-11T20:12:51.9634766Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override1-400] PASSED [ 40%]
+2026-11-11T20:12:52.1937302Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override2-400] PASSED [ 42%]
+2026-11-11T20:12:52.4190840Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override3-400] PASSED [ 43%]
+2026-11-11T20:12:52.6430179Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override4-400] PASSED [ 45%]
+2026-11-11T20:12:52.8649731Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf04_invalid_task_does_not_persist[override5-404] PASSED [ 46%]
+2026-11-11T20:12:53.1044614Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf05_status_updates_exact_dashboard_rate PASSED [ 48%]
+2026-11-11T20:12:53.3447577Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_rf06_combined_filters_and_search PASSED [ 50%]
+2026-11-11T20:12:53.5751994Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r05_discipline_with_tasks_cannot_be_deleted PASSED [ 51%]
+2026-11-11T20:12:54.0095483Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r02_users_cannot_read_or_modify_each_others_records PASSED [ 53%]
+2026-11-11T20:12:54.2490461Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_r03_sql_injection_does_not_authenticate_or_delete PASSED [ 54%]
+2026-11-11T20:12:54.6886631Z 08_INTEGRACAO_API/test_qualidade_regressao.py::test_isolated_databases_do_not_share_records PASSED [ 56%]
+2026-11-11T20:12:54.9196336Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-001] PASSED [ 57%]
+2026-11-11T20:12:55.0455905Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-002] PASSED [ 59%]
+2026-11-11T20:12:55.1741870Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-003] PASSED [ 60%]
+2026-11-11T20:12:55.2995405Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-004] PASSED [ 62%]
+2026-11-11T20:12:55.4232998Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-005] PASSED [ 64%]
+2026-11-11T20:12:55.5482051Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-006] PASSED [ 65%]
+2026-11-11T20:12:55.7804102Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-007] PASSED [ 67%]
+2026-11-11T20:12:56.0081768Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-008] PASSED [ 68%]
+2026-11-11T20:12:56.1334033Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-009] PASSED [ 70%]
+2026-11-11T20:12:56.2508072Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-010] PASSED [ 71%]
+2026-11-11T20:12:56.4815772Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-011] PASSED [ 73%]
+2026-11-11T20:12:56.7113807Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-012] PASSED [ 75%]
+2026-11-11T20:12:56.9447221Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-013] PASSED [ 76%]
+2026-11-11T20:12:57.1712381Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-014] PASSED [ 78%]
+2026-11-11T20:12:57.4051675Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-015] PASSED [ 79%]
+2026-11-11T20:12:57.6361468Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-016] PASSED [ 81%]
+2026-11-11T20:12:57.8633518Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-017] PASSED [ 82%]
+2026-11-11T20:12:58.0927568Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-018] PASSED [ 84%]
+2026-11-11T20:12:58.3335176Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-019] PASSED [ 85%]
+2026-11-11T20:12:58.5629111Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-020] PASSED [ 87%]
+2026-11-11T20:12:58.7962314Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-021] PASSED [ 89%]
+2026-11-11T20:12:59.0419904Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-022] PASSED [ 90%]
+2026-11-11T20:12:59.2831586Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-023] PASSED [ 92%]
+2026-11-11T20:12:59.5254710Z 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py::test_catalog_case[CT-024] PASSED [ 93%]
+2026-11-11T20:12:59.9660093Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat01_student_registers_and_logs_in PASSED [ 95%]
+2026-11-11T20:13:00.1982145Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat02_student_organizes_disciplines PASSED [ 96%]
+2026-11-11T20:13:00.4380223Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat03_student_sees_urgency PASSED [ 98%]
+2026-11-11T20:13:00.7008192Z 10_ACEITACAO_NAO_FUNCIONAIS/test_aceitacao.py::test_uat04_student_tracks_completion PASSED [100%]
+2026-11-11T20:13:00.7008887Z 
+2026-11-11T20:13:00.7009534Z - generated xml file: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/08_INTEGRACAO_API/evidencias/integracao_catalogo.xml -
+2026-11-11T20:13:00.7010585Z ============================= 64 passed in 13.89s ==============================
+2026-11-11T20:13:00.7436321Z ##[group]Run pytest -v 09_SISTEMA_INTERFACE --junitxml=09_SISTEMA_INTERFACE/evidencias/selenium.xml
+2026-11-11T20:13:00.7437126Z [36;1mpytest -v 09_SISTEMA_INTERFACE --junitxml=09_SISTEMA_INTERFACE/evidencias/selenium.xml[0m
+2026-11-11T20:13:00.7457797Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:13:00.7458050Z env:
+2026-11-11T20:13:00.7458324Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:00.7458802Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:13:00.7459255Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:00.7459654Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:00.7460068Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:00.7460487Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:13:00.7460833Z ##[endgroup]
+2026-11-11T20:13:00.9311080Z ============================= test session starts ==============================
+2026-11-11T20:13:00.9312527Z platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+2026-11-11T20:13:00.9313478Z cachedir: .pytest_cache
+2026-11-11T20:13:00.9314130Z rootdir: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:13:00.9314767Z configfile: pytest.ini
+2026-11-11T20:13:01.1796559Z collecting ... collected 4 items
+2026-11-11T20:13:01.1796947Z 
+2026-11-11T20:13:11.0760119Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_01_rf02_login_and_logout PASSED [ 25%]
+2026-11-11T20:13:11.8439906Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_02_rf03_create_discipline PASSED [ 50%]
+2026-11-11T20:13:12.5524539Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_03_rf04_create_task PASSED [ 75%]
+2026-11-11T20:13:13.8696348Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_04_rf05_transition_and_exact_dashboard_rate PASSED [100%]
+2026-11-11T20:13:13.8697607Z 
+2026-11-11T20:13:13.8698548Z - generated xml file: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/09_SISTEMA_INTERFACE/evidencias/selenium.xml -
+2026-11-11T20:13:13.8700035Z ============================== 4 passed in 12.92s ==============================
+2026-11-11T20:13:13.9340902Z ##[group]Run actions/upload-artifact@v4
+2026-11-11T20:13:13.9341565Z with:
+2026-11-11T20:13:13.9341779Z   name: evidencias-de-testes
+2026-11-11T20:13:13.9342421Z   path: 05_EXECUCAO_MANUAL/evidencias_reexecucao/
+07_AUTOMACAO_UNITARIA/evidencias/
+08_INTEGRACAO_API/evidencias/
+09_SISTEMA_INTERFACE/evidencias/
+
+2026-11-11T20:13:13.9343073Z   if-no-files-found: warn
+2026-11-11T20:13:13.9343305Z   compression-level: 6
+2026-11-11T20:13:13.9343521Z   overwrite: false
+2026-11-11T20:13:13.9343734Z   include-hidden-files: false
+2026-11-11T20:13:13.9343971Z env:
+2026-11-11T20:13:13.9344216Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9344643Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:13:13.9345064Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9345443Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9345845Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:13.9346228Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:13:13.9346553Z ##[endgroup]
+2026-11-11T20:13:14.1065855Z (node:2581) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T20:13:14.1066735Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T20:13:14.1244156Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-11T20:13:14.1247139Z The least common ancestor is /home/runner/work/edutask-tqs-p2/edutask-tqs-p2. This will be the root directory of the artifact
+2026-11-11T20:13:14.1248274Z With the provided path, there will be 62 files uploaded
+2026-11-11T20:13:14.1254075Z Artifact name is valid!
+2026-11-11T20:13:14.1254794Z Root directory input is valid!
+2026-11-11T20:13:14.3526404Z Beginning upload of artifact content to blob storage
+2026-11-11T20:13:14.4490410Z (node:2581) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-11T20:13:14.4919368Z Uploaded bytes 493789
+2026-11-11T20:13:14.5088093Z Finished uploading artifact content to blob storage!
+2026-11-11T20:13:14.5089077Z SHA256 digest of uploaded artifact zip is b5e44a1698695cb8eef07cb15252fc5e3dcc3f7e9d3cb0acd72152372204ad4d
+2026-11-11T20:13:14.5090733Z Finalizing artifact upload
+2026-11-11T20:13:14.8469526Z Artifact evidencias-de-testes.zip successfully finalized. Artifact ID 13889313988
+2026-11-11T20:13:14.8471384Z Artifact evidencias-de-testes has been successfully uploaded! Final size is 493789 bytes. Artifact ID is 13889313988
+2026-11-11T20:13:14.8478477Z Artifact download URL: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919/artifacts/13889313988
+2026-11-11T20:13:14.8653851Z ##[group]Run echo "Resultado do job: success" >> $GITHUB_STEP_SUMMARY
+2026-11-11T20:13:14.8654356Z [36;1mecho "Resultado do job: success" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-11T20:13:14.8675004Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:13:14.8675279Z env:
+2026-11-11T20:13:14.8675551Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:14.8676007Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:13:14.8676447Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:14.8676830Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:14.8677226Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:14.8677618Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:13:14.8677951Z ##[endgroup]
+2026-11-11T20:13:14.8806612Z Post job cleanup.
+2026-11-11T20:13:15.0083478Z (node:2594) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T20:13:15.0084508Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T20:13:15.0315327Z Post job cleanup.
+2026-11-11T20:13:15.1347013Z [command]/usr/bin/git version
+2026-11-11T20:13:15.1398675Z git version 2.56.0
+2026-11-11T20:13:15.1446433Z Temporarily overriding HOME='/home/runner/work/_temp/a5f50fd0-04c7-4f17-b3fb-8e7e49d666c6' before making global git config changes
+2026-11-11T20:13:15.1447676Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T20:13:15.1453389Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:13:15.1501503Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T20:13:15.1544183Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T20:13:15.1902716Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T20:13:15.1943906Z http.https://github.com/.extraheader
+2026-11-11T20:13:15.1967951Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-11T20:13:15.2046601Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T20:13:15.2331598Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T20:13:15.2383522Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T20:13:15.2831999Z Cleaning up orphan processes
+2026-11-11T20:13:15.3234016Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

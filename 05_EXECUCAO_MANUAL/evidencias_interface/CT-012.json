@@ -1,0 +1,11 @@
+{
+  "caso": "CT-012",
+  "data": "2026-11-11T20:21:04.152Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Código de disciplina inválido",
+  "obtido": "Código sem hífen rejeitado com orientação do formato.",
+  "url": "http://127.0.0.1:5011/disciplinas/nova",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

@@ -1,0 +1,11 @@
+{
+  "caso": "CT-016",
+  "data": "2026-11-11T20:21:33.309Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Bloquear carga de 401h",
+  "obtido": "O navegador bloqueou 401h e exibiu: O valor deve ser menor ou igual a 400.",
+  "url": "http://127.0.0.1:5011/disciplinas/nova",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

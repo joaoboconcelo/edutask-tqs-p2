@@ -406,3 +406,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Resultado Esperado:** A tabela não deve quebrar nem disparar erro 500; deve exibir uma linha informativa com a mensagem amigável: "Nenhuma atividade encontrada para os critérios selecionados.".
 * **Candidato à Automação:** Sim.
 * **Responsável:** Lucas Braga
+
+## Observações da inspeção interativa de 11/11/2026
+
+CT-002, CT-014, CT-016 e CT-021 foram bloqueados pelos controles nativos do navegador antes do envio HTTP. Nesses casos, o critério funcional é impedir a entrada inválida; a mensagem pode ser a validação nativa, sem exigir o alerta do servidor. A reexecução automatizada via Flask também verifica a validação do backend. A inspeção foi conduzida por assistente, não é uma assinatura ou homologação humana.

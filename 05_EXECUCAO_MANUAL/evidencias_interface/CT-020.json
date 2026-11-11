@@ -1,0 +1,11 @@
+{
+  "caso": "CT-020",
+  "data": "2026-11-11T20:22:21.978Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "mínimo 3 caracteres",
+  "obtido": "Título AB rejeitado com mensagem de tamanho mínimo.",
+  "url": "http://127.0.0.1:5011/tarefas/nova",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

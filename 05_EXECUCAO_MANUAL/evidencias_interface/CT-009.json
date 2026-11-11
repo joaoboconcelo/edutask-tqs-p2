@@ -1,0 +1,11 @@
+{
+  "caso": "CT-009",
+  "data": "2026-11-11T20:20:37.613Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Credenciais inválidas",
+  "obtido": "Usuário inexistente recebeu a mesma mensagem genérica do erro de senha.",
+  "url": "http://127.0.0.1:5011/login",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

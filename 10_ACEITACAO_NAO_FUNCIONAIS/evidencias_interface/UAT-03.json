@@ -1,0 +1,11 @@
+{
+  "caso": "UAT-03",
+  "data": "2026-11-11T20:23:29.734Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Alta Urgência",
+  "obtido": "Entrega para 13/11/2026, dois dias após a validação, exibiu Alta Urgência.",
+  "url": "http://127.0.0.1:5011/tarefas",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

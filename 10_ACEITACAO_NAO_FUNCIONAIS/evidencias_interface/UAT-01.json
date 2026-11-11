@@ -1,0 +1,11 @@
+{
+  "caso": "UAT-01",
+  "data": "2026-11-11T20:23:07.789Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Carlos Silva",
+  "obtido": "Novo usuário criado em CT-001 conseguiu primeiro login e recebeu painel próprio vazio, com 0 tarefas e 0%.",
+  "url": "http://127.0.0.1:5011/",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

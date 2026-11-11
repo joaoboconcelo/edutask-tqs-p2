@@ -6,7 +6,7 @@ Integrantes: Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo e Lucas 
 ## Sistema e versão
 
 EduTask Web v1.0.1-p2, revisão de 11/11/2026; versão documental sem tag Git publicada. Aplicação acadêmica local de disciplinas e tarefas.
-Repositório: https://github.com/joaoboconcelo/edutask-tqs-p2 . Esta revisão ainda precisa ser publicada pelo grupo.
+Repositório: https://github.com/joaoboconcelo/edutask-tqs-p2 . Revisão publicada no commit 33d441c7f6dc4599da735727f232c5c1aa5d41f3; atualizações documentais posteriores constam do histórico.
 
 ## Tecnologias e pré requisitos
 
@@ -62,16 +62,20 @@ As medições de latência usam requests e HTTP real separadamente. A coleção 
 ## Pipeline
 
 Arquivo canônico: `.github/workflows/ci.yml`. Instala dependências, executa linter bloqueante e os testes e preserva artefatos.
-Sem URL de run desta revisão: publicar e executar no GitHub é pendência. `tools/verificar_pipeline.py` comprova falha e sucesso locais e identifica o ambiente corretamente.
+Execução aprovada em main: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919 . Falha controlada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094396473 . Correção aprovada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094602358 . O PR #5 foi encerrado sem merge. Logs na pasta 12.
 
 ## Documentos e evidências
 
 00 identificação e pendências; 01 sistema; 02 requisitos e riscos; 03 plano; 04 catálogo e matriz; 05 relatos manuais e reexecução automatizada; 06 defeitos históricos e confirmados; 07 unidade; 08 integração/Postman; 09 Selenium e capturas; 10 aceitação e não funcionais; 11 métricas, planilha e dados brutos; 12 TDD e CI; 13 relatório DOCX/PDF; 14 dispensa de apresentação/vídeo; 15 diário para conferência; 16 backup e checklist.
 
-Relatório atual: `13_RELATORIO_FINAL/RELATORIO_FINAL_PROJETO_P2.docx` e PDF correspondente. O memorial na raiz é cópia do relatório revisado; materiais antigos da apresentação não são fonte dos resultados atuais.
+Relatório atual: `13_RELATORIO_FINAL/RELATORIO_FINAL_PROJETO_P2.docx` e PDF correspondente. O relatório da pasta 13 é a versão canônica. A pasta 14 registra a dispensa de apresentação/vídeo; duplicatas e materiais de apresentação antigos foram removidos.
 
 ## Limitações e contato
 
-Consulte `PENDENCIAS_PARA_ENTREGA.md`: aprovação docente, registros manuais e humanos, origem/licença, publicação/Actions/Issues e entrega oficial ainda dependem do grupo.
+Consulte `PENDENCIAS_PARA_ENTREGA.md`: aprovação docente, homologação humana, licença, assinaturas e entrega oficial ainda dependem do grupo. A publicação, as issues e as evidências do Actions foram concluídas.
 Não há auditoria completa de segurança, carga concorrente, CSRF dedicado ou aceitação externa comprovada. Parecer limitado ao laboratório acadêmico.
 Contato: os três integrantes identificados no início; nenhum contato pessoal foi inventado.
+
+## Inspeção interativa e organização final
+
+A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. Esses registros não são assinaturas humanas. O relatório detalha os bloqueios nativos do navegador e separa os 98 cenários automatizados das 28 observações adicionais. A pasta tools contém apenas utilitários necessários à medição, reprodução e documentação.

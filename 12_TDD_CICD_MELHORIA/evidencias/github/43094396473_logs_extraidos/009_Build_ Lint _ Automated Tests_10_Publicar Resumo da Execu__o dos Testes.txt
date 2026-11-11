@@ -1,0 +1,11 @@
+﻿2026-11-11T20:13:25.4031967Z ##[group]Run echo "Resultado do job: failure" >> $GITHUB_STEP_SUMMARY
+2026-11-11T20:13:25.4032482Z [36;1mecho "Resultado do job: failure" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-11T20:13:25.4052657Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:13:25.4052907Z env:
+2026-11-11T20:13:25.4053177Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:25.4053810Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:13:25.4054270Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:25.4054663Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:25.4055052Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:13:25.4055449Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:13:25.4055784Z ##[endgroup]

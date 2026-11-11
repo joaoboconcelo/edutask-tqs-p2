@@ -1,0 +1,11 @@
+{
+  "caso": "CT-023",
+  "data": "2026-11-11T20:22:51.133Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Alvo Filtro Pendente Alta",
+  "obtido": "Filtro Pendente + Alta exibiu apenas o alvo; excluiu tarefas concluídas e de prioridade Média.",
+  "url": "http://127.0.0.1:5011/tarefas?status=Pendente&priority=Alta&q=",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

@@ -4,3 +4,5 @@
 *.xlsx binary
 *.png binary
 *.zip binary
+# Preservar os bytes dos logs originais baixados do GitHub Actions.
+12_TDD_CICD_MELHORIA/evidencias/github/**/*.txt binary

@@ -1,0 +1,11 @@
+{
+  "caso": "CT-001",
+  "data": "2026-11-11T20:18:59.876Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Cadastro realizado com sucesso",
+  "obtido": "Cadastro aceito e redirecionado ao login com mensagem de sucesso.",
+  "url": "http://127.0.0.1:5011/login",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

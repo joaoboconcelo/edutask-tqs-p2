@@ -1,0 +1,11 @@
+{
+  "caso": "CT-002",
+  "data": "2026-11-11T20:19:16.227Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Bloqueio de e-mail inválido",
+  "obtido": "O navegador bloqueou o envio: e-mail sem @. Validação nativa, anterior ao backend.",
+  "url": "http://127.0.0.1:5011/register",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

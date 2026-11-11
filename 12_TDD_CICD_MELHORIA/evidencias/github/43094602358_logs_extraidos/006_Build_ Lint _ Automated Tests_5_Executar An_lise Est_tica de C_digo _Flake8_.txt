@@ -1,0 +1,12 @@
+﻿2026-11-11T20:14:39.7137887Z ##[group]Run mkdir -p 11_METRICAS_E_QUALIDADE/evidencias
+2026-11-11T20:14:39.7138341Z [36;1mmkdir -p 11_METRICAS_E_QUALIDADE/evidencias[0m
+2026-11-11T20:14:39.7138795Z [36;1mpython -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8[0m
+2026-11-11T20:14:39.7162566Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:14:39.7162852Z env:
+2026-11-11T20:14:39.7163129Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:39.7163571Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:14:39.7163992Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:39.7164369Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:39.7164733Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:39.7165094Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:14:39.7165417Z ##[endgroup]

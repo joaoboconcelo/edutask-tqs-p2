@@ -1,0 +1,25 @@
+﻿2026-11-11T20:14:55.7356084Z ##[group]Run pytest -v 09_SISTEMA_INTERFACE --junitxml=09_SISTEMA_INTERFACE/evidencias/selenium.xml
+2026-11-11T20:14:55.7357244Z [36;1mpytest -v 09_SISTEMA_INTERFACE --junitxml=09_SISTEMA_INTERFACE/evidencias/selenium.xml[0m
+2026-11-11T20:14:55.7388073Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:14:55.7388478Z env:
+2026-11-11T20:14:55.7389138Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:55.7389907Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:14:55.7390573Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:55.7391185Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:55.7391816Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:55.7392434Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:14:55.7392995Z ##[endgroup]
+2026-11-11T20:14:55.9310810Z ============================= test session starts ==============================
+2026-11-11T20:14:55.9311848Z platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+2026-11-11T20:14:55.9312555Z cachedir: .pytest_cache
+2026-11-11T20:14:55.9312964Z rootdir: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:14:55.9313422Z configfile: pytest.ini
+2026-11-11T20:14:56.1652672Z collecting ... collected 4 items
+2026-11-11T20:14:56.1653073Z 
+2026-11-11T20:15:06.8033626Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_01_rf02_login_and_logout PASSED [ 25%]
+2026-11-11T20:15:07.5664506Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_02_rf03_create_discipline PASSED [ 50%]
+2026-11-11T20:15:08.2413164Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_03_rf04_create_task PASSED [ 75%]
+2026-11-11T20:15:09.5319092Z 09_SISTEMA_INTERFACE/test_selenium_e2e.py::TestEduTaskSeleniumE2E::test_04_rf05_transition_and_exact_dashboard_rate PASSED [100%]
+2026-11-11T20:15:09.5319972Z 
+2026-11-11T20:15:09.5320609Z - generated xml file: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/09_SISTEMA_INTERFACE/evidencias/selenium.xml -
+2026-11-11T20:15:09.5321539Z ============================== 4 passed in 13.58s ==============================

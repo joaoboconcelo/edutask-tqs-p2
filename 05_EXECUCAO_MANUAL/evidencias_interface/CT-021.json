@@ -1,0 +1,11 @@
+{
+  "caso": "CT-021",
+  "data": "2026-11-11T20:22:30.443Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Data obrigatória",
+  "obtido": "Envio bloqueado pelo navegador porque a data obrigatória está vazia; valueMissing=true.",
+  "url": "http://127.0.0.1:5011/tarefas/nova",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

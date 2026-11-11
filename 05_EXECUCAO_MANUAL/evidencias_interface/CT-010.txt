@@ -1,0 +1,33 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+- alert:
+  - text: Faça login para acessar suas tarefas.
+  - button "Close"
+- main:
+  - generic: 
+  - heading "EduTask" [level=3]
+  - paragraph: Acesso ao Sistema de Gestão Acadêmica
+  - generic: E-mail Institucional
+  - textbox "E-mail Institucional":
+    - /placeholder: nome@unisagrado.edu.br
+  - generic: Senha
+  - textbox "Senha":
+    - /placeholder: Digite sua senha
+  - button " Entrar":
+    - generic: 
+    - text: Entrar
+  - paragraph:
+    - text: Não possui conta?
+    - link "Cadastre-se":
+      - /url: /register
+  - strong: "Conta de Teste / Demonstração:"
+  - text: "E-mail:"
+  - code: aluno@unisagrado.edu.br
+  - text: "Senha:"
+  - code: Senha@123
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

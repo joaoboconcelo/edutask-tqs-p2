@@ -1,0 +1,11 @@
+{
+  "caso": "CT-019",
+  "data": "2026-11-11T20:22:17.205Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Tarefa Inspecao CT-019",
+  "obtido": "Tarefa criada com prazo 30/11/2026, prioridade Alta e status Pendente.",
+  "url": "http://127.0.0.1:5011/tarefas",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

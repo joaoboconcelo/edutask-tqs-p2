@@ -1,0 +1,11 @@
+{
+  "caso": "UAT-04",
+  "data": "2026-11-11T20:23:53.559Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "100.0%",
+  "obtido": "Única tarefa concluída: painel exibiu 1 concluída de 1 tarefa e progresso de 100,0%.",
+  "url": "http://127.0.0.1:5011/",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

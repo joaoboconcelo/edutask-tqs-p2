@@ -1,0 +1,59 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- main:
+  - heading "Painel Acadêmico" [level=2]
+  - paragraph: Visão geral do progresso de entregas e disciplinas matriculadas
+  - link " Nova Tarefa":
+    - /url: /tarefas/nova
+    - generic: 
+    - text: Nova Tarefa
+  - link " Nova Disciplina":
+    - /url: /disciplinas/nova
+    - generic: 
+    - text: Nova Disciplina
+  - generic: Total de Tarefas
+  - generic: "1"
+  - generic: Concluídas
+  - generic: "1"
+  - generic: Pendentes / Em Aberto
+  - generic: "0"
+  - generic: Disciplinas Cadastradas
+  - generic: "1"
+  - generic: Taxa Geral de Conclusão
+  - generic: 100.0%
+  - progressbar: 100.0%
+  - heading " Próximas Entregas e Atividades" [level=5]:
+    - generic: 
+    - text: Próximas Entregas e Atividades
+  - link "Ver Todas":
+    - /url: /tarefas
+  - table:
+    - rowgroup:
+      - row "Título da Atividade Disciplina Prazo Limite Prioridade Nível de Urgência Status Atual":
+        - columnheader "Título da Atividade"
+        - columnheader "Disciplina"
+        - columnheader "Prazo Limite"
+        - columnheader "Prioridade"
+        - columnheader "Nível de Urgência"
+        - columnheader "Status Atual"
+    - rowgroup:
+      - 'row "Entrega Aceitacao Prazo Proximo CC-UAT01 Disciplina Inspecao CC-UAT01 2026-11-13 Alta Alta Urgência (Score: 75)  Concluída"':
+        - cell "Entrega Aceitacao Prazo Proximo"
+        - cell "CC-UAT01 Disciplina Inspecao CC-UAT01":
+          - generic: CC-UAT01
+          - text: Disciplina Inspecao CC-UAT01
+        - cell "2026-11-13"
+        - cell "Alta":
+          - generic: Alta
+        - 'cell "Alta Urgência (Score: 75)"':
+          - generic: "Alta Urgência (Score: 75)"
+        - cell " Concluída":
+          - generic: 
+          - text: Concluída
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

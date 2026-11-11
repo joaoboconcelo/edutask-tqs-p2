@@ -1,0 +1,11 @@
+{
+  "caso": "CT-003",
+  "data": "2026-11-11T20:19:21.829Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "mínimo 8 caracteres",
+  "obtido": "Senha de sete caracteres rejeitada com mensagem específica.",
+  "url": "http://127.0.0.1:5011/register",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

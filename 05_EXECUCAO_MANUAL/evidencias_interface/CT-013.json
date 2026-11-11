@@ -1,0 +1,11 @@
+{
+  "caso": "CT-013",
+  "data": "2026-11-11T20:21:09.269Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "15h",
+  "obtido": "Carga mínima de 15h aceita e exibida na lista.",
+  "url": "http://127.0.0.1:5011/disciplinas",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

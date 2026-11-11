@@ -1,0 +1,5 @@
+﻿Cenario;Data;Executor;Decisao_tecnica;Resultado_observado;Evidencia;Homologacao_humana
+UAT-01;2026-11-11T20:23:07.789Z;Assistente de validação técnica;Critério atendido na interface;Novo usuário criado em CT-001 conseguiu primeiro login e recebeu painel próprio vazio, com 0 tarefas e 0%.;evidencias_interface/UAT-01.png;Não presumida
+UAT-02;2026-11-11T20:23:13.248Z;Assistente de validação técnica;Critério atendido na interface;Estudante cadastrou disciplina de 80h e consultou apenas a sua disciplina.;evidencias_interface/UAT-02.png;Não presumida
+UAT-03;2026-11-11T20:23:29.734Z;Assistente de validação técnica;Critério atendido na interface;Entrega para 13/11/2026, dois dias após a validação, exibiu Alta Urgência.;evidencias_interface/UAT-03.png;Não presumida
+UAT-04;2026-11-11T20:23:53.559Z;Assistente de validação técnica;Critério atendido na interface;Única tarefa concluída: painel exibiu 1 concluída de 1 tarefa e progresso de 100,0%.;evidencias_interface/UAT-04.png;Não presumida

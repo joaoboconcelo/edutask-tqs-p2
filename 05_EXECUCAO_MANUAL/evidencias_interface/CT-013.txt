@@ -1,0 +1,68 @@
+- navigation:
+  - link " EduTask":
+    - /url: /
+    - generic: 
+    - text: EduTask
+  - button
+  - text:     
+- alert:
+  - text: Disciplina cadastrada com sucesso!
+  - button "Close"
+- main:
+  - heading "Disciplinas Acadêmicas" [level=2]
+  - paragraph: Gerenciamento de matérias do curso de Ciência da Computação
+  - link " Cadastrar Nova Disciplina":
+    - /url: /disciplinas/nova
+    - generic: 
+    - text: Cadastrar Nova Disciplina
+  - table:
+    - rowgroup:
+      - row "Código Nome da Disciplina Docente Responsável Carga Horária Ações":
+        - columnheader "Código"
+        - columnheader "Nome da Disciplina"
+        - columnheader "Docente Responsável"
+        - columnheader "Carga Horária"
+        - columnheader "Ações"
+    - rowgroup:
+      - row "CC-BD02 Banco de Dados Avançado Prof. Roberto Souza 60h  Excluir":
+        - cell "CC-BD02":
+          - generic: CC-BD02
+        - cell "Banco de Dados Avançado"
+        - cell "Prof. Roberto Souza"
+        - cell "60h"
+        - cell " Excluir":
+          - button " Excluir":
+            - generic: 
+            - text: Excluir
+      - row "CC-ES03 Disciplina Inspecao CC-ES03 Professor Teste 80h  Excluir":
+        - cell "CC-ES03":
+          - generic: CC-ES03
+        - cell "Disciplina Inspecao CC-ES03"
+        - cell "Professor Teste"
+        - cell "80h"
+        - cell " Excluir":
+          - button " Excluir":
+            - generic: 
+            - text: Excluir
+      - row "CC-TOP15 Disciplina Inspecao CC-TOP15 Professor Teste 15h  Excluir":
+        - cell "CC-TOP15":
+          - generic: CC-TOP15
+        - cell "Disciplina Inspecao CC-TOP15"
+        - cell "Professor Teste"
+        - cell "15h"
+        - cell " Excluir":
+          - button " Excluir":
+            - generic: 
+            - text: Excluir
+      - row "CC-TQS01 Testes e Qualidade de Software Prof. Dr. Elvio Gilberto da Silva 80h  Excluir":
+        - cell "CC-TQS01":
+          - generic: CC-TQS01
+        - cell "Testes e Qualidade de Software"
+        - cell "Prof. Dr. Elvio Gilberto da Silva"
+        - cell "80h"
+        - cell " Excluir":
+          - button " Excluir":
+            - generic: 
+            - text: Excluir
+- contentinfo:
+  - generic: EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software

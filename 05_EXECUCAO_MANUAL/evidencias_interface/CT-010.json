@@ -1,0 +1,11 @@
+{
+  "caso": "CT-010",
+  "data": "2026-11-11T20:20:43.238Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "Faça login para acessar suas tarefas",
+  "obtido": "Acesso direto à rota privada redirecionou ao login.",
+  "url": "http://127.0.0.1:5011/login",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

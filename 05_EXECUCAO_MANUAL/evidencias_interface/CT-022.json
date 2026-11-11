@@ -1,0 +1,11 @@
+{
+  "caso": "CT-022",
+  "data": "2026-11-11T20:22:44.329Z",
+  "metodo": "Inspeção interativa pela interface",
+  "executor": "Assistente de validação técnica",
+  "esperado": "50.0%",
+  "obtido": "Após concluir a tarefa, painel exibiu 2 concluídas de 4 tarefas: 50,0%.",
+  "url": "http://127.0.0.1:5011/",
+  "resultado": "Critério técnico atendido",
+  "homologacao_humana": false
+}

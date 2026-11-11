@@ -1,0 +1,89 @@
+﻿2026-11-11T20:13:04.9300598Z ##[group]Run actions/checkout@v4
+2026-11-11T20:13:04.9301574Z with:
+2026-11-11T20:13:04.9302105Z   repository: joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:13:04.9306098Z   token: ***
+2026-11-11T20:13:04.9306580Z   ssh-strict: true
+2026-11-11T20:13:04.9307055Z   ssh-user: git
+2026-11-11T20:13:04.9307535Z   persist-credentials: true
+2026-11-11T20:13:04.9308336Z   clean: true
+2026-11-11T20:13:04.9308829Z   sparse-checkout-cone-mode: true
+2026-11-11T20:13:04.9309396Z   fetch-depth: 1
+2026-11-11T20:13:04.9309862Z   fetch-tags: false
+2026-11-11T20:13:04.9310341Z   show-progress: true
+2026-11-11T20:13:04.9310818Z   lfs: false
+2026-11-11T20:13:04.9311260Z   submodules: false
+2026-11-11T20:13:04.9311765Z   set-safe-directory: true
+2026-11-11T20:13:04.9312329Z   allow-unsafe-pr-checkout: false
+2026-11-11T20:13:04.9313166Z ##[endgroup]
+2026-11-11T20:13:05.7130268Z Syncing repository: joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:13:05.7132820Z ##[group]Getting Git version info
+2026-11-11T20:13:05.7134062Z Working directory is '/home/runner/work/edutask-tqs-p2/edutask-tqs-p2'
+2026-11-11T20:13:05.7135917Z [command]/usr/bin/git version
+2026-11-11T20:13:05.7471035Z git version 2.56.0
+2026-11-11T20:13:05.7484621Z ##[endgroup]
+2026-11-11T20:13:05.7500873Z Temporarily overriding HOME='/home/runner/work/_temp/1efe3c3a-ca19-4cd7-b4a4-87ca10765f0b' before making global git config changes
+2026-11-11T20:13:05.7505955Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T20:13:05.7510605Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:13:05.7994890Z Deleting the contents of '/home/runner/work/edutask-tqs-p2/edutask-tqs-p2'
+2026-11-11T20:13:05.8008732Z ##[group]Initializing the repository
+2026-11-11T20:13:05.8011098Z [command]/usr/bin/git init /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:13:05.8152016Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-11T20:13:05.8154687Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-11T20:13:05.8157074Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-11T20:13:05.8159408Z hint: call:
+2026-11-11T20:13:05.8160528Z hint:
+2026-11-11T20:13:05.8161907Z hint: 	git config --global init.defaultBranch <name>
+2026-11-11T20:13:05.8163607Z hint:
+2026-11-11T20:13:05.8165192Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-11T20:13:05.8168018Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-11T20:13:05.8170147Z hint:
+2026-11-11T20:13:05.8171282Z hint: 	git branch -m <name>
+2026-11-11T20:13:05.8172767Z hint:
+2026-11-11T20:13:05.8174471Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-11T20:13:05.8193668Z Initialized empty Git repository in /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/.git/
+2026-11-11T20:13:05.8208772Z [command]/usr/bin/git remote add origin https://github.com/joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:13:05.8496308Z ##[endgroup]
+2026-11-11T20:13:05.8499796Z ##[group]Disabling automatic garbage collection
+2026-11-11T20:13:05.8502461Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-11T20:13:05.8546701Z ##[endgroup]
+2026-11-11T20:13:05.8549742Z ##[group]Setting up auth
+2026-11-11T20:13:05.8553872Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T20:13:05.8603836Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T20:13:05.9180372Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T20:13:05.9227352Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T20:13:05.9468024Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T20:13:05.9512316Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T20:13:05.9755449Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-11T20:13:05.9852492Z ##[endgroup]
+2026-11-11T20:13:05.9854334Z ##[group]Fetching the repository
+2026-11-11T20:13:05.9866724Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +265bb711b4f0c7638b3030cdb29c56389e346c83:refs/remotes/pull/5/merge
+2026-11-11T20:13:06.5494535Z From https://github.com/joaoboconcelo/edutask-tqs-p2
+2026-11-11T20:13:06.5495869Z  * [new ref]         265bb711b4f0c7638b3030cdb29c56389e346c83 -> pull/5/merge
+2026-11-11T20:13:06.5500181Z ##[endgroup]
+2026-11-11T20:13:06.5500996Z ##[group]Determining the checkout info
+2026-11-11T20:13:06.5503263Z ##[endgroup]
+2026-11-11T20:13:06.5509252Z [command]/usr/bin/git sparse-checkout disable
+2026-11-11T20:13:06.5862727Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-11T20:13:06.5908008Z ##[group]Checking out the ref
+2026-11-11T20:13:06.5913778Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/5/merge
+2026-11-11T20:13:06.6172559Z Note: switching to 'refs/remotes/pull/5/merge'.
+2026-11-11T20:13:06.6173247Z 
+2026-11-11T20:13:06.6173728Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-11T20:13:06.6174496Z changes and commit them, and you can discard any commits you make in this
+2026-11-11T20:13:06.6175198Z state without impacting any branches by switching back to a branch.
+2026-11-11T20:13:06.6175618Z 
+2026-11-11T20:13:06.6175962Z If you want to create a new branch to retain commits you create, you may
+2026-11-11T20:13:06.6177014Z do so (now or later) by using -c with the switch command. Example:
+2026-11-11T20:13:06.6177436Z 
+2026-11-11T20:13:06.6177888Z   git switch -c <new-branch-name>
+2026-11-11T20:13:06.6178191Z 
+2026-11-11T20:13:06.6251476Z Or undo this operation with:
+2026-11-11T20:13:06.6251905Z 
+2026-11-11T20:13:06.6252119Z   git switch -
+2026-11-11T20:13:06.6252411Z 
+2026-11-11T20:13:06.6252875Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-11T20:13:06.6253607Z 
+2026-11-11T20:13:06.6254385Z HEAD is now at 265bb71 Merge 018467182875469c7eb57214fdcdc75eefd600e1 into 33d441c7f6dc4599da735727f232c5c1aa5d41f3
+2026-11-11T20:13:06.6486228Z ##[endgroup]
+2026-11-11T20:13:06.6541515Z [command]/usr/bin/git log -1 --format=%H
+2026-11-11T20:13:06.6576468Z 265bb711b4f0c7638b3030cdb29c56389e346c83

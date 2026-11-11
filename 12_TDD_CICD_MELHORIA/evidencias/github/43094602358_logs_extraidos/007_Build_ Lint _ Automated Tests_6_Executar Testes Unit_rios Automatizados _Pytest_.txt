@@ -1,0 +1,52 @@
+﻿2026-11-11T20:14:40.0037810Z ##[group]Run mkdir -p 07_AUTOMACAO_UNITARIA/evidencias
+2026-11-11T20:14:40.0038241Z [36;1mmkdir -p 07_AUTOMACAO_UNITARIA/evidencias[0m
+2026-11-11T20:14:40.0038765Z [36;1mpytest -v 07_AUTOMACAO_UNITARIA --junitxml=07_AUTOMACAO_UNITARIA/evidencias/unitarios.xml[0m
+2026-11-11T20:14:40.0062211Z shell: /usr/bin/bash -e {0}
+2026-11-11T20:14:40.0062481Z env:
+2026-11-11T20:14:40.0062770Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.0063231Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+2026-11-11T20:14:40.0063654Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.0064037Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.0064436Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+2026-11-11T20:14:40.0064817Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+2026-11-11T20:14:40.0065142Z ##[endgroup]
+2026-11-11T20:14:40.2869686Z ============================= test session starts ==============================
+2026-11-11T20:14:40.2871000Z platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+2026-11-11T20:14:40.2871825Z cachedir: .pytest_cache
+2026-11-11T20:14:40.2872301Z rootdir: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2
+2026-11-11T20:14:40.2872843Z configfile: pytest.ini
+2026-11-11T20:14:40.4055190Z collecting ... collected 30 items
+2026-11-11T20:14:40.4055622Z 
+2026-11-11T20:14:40.4299589Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[-1-100] PASSED [  3%]
+2026-11-11T20:14:40.4307967Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[0-100] PASSED [  6%]
+2026-11-11T20:14:40.4315683Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[1-75] PASSED [ 10%]
+2026-11-11T20:14:40.4323198Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[2-75] PASSED [ 13%]
+2026-11-11T20:14:40.4351596Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[3-50] PASSED [ 16%]
+2026-11-11T20:14:40.4352672Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[7-50] PASSED [ 20%]
+2026-11-11T20:14:40.4353703Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_urgency_boundaries[8-25] PASSED [ 23%]
+2026-11-11T20:14:40.4354900Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_invalid_dates[2026-02-30] PASSED [ 26%]
+2026-11-11T20:14:40.4363437Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_invalid_dates[abc] PASSED [ 30%]
+2026-11-11T20:14:40.4370976Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_invalid_dates[11/11/2026] PASSED [ 33%]
+2026-11-11T20:14:40.4379234Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_completion_invalid_values[-1-0-ValueError] PASSED [ 36%]
+2026-11-11T20:14:40.4387233Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_completion_invalid_values[3--1-ValueError] PASSED [ 40%]
+2026-11-11T20:14:40.4395977Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_completion_invalid_values[3-1-TypeError] PASSED [ 43%]
+2026-11-11T20:14:40.4404237Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Pendente-Alta-None-ids0] PASSED [ 46%]
+2026-11-11T20:14:40.4412021Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Pendente-Baixa-None-ids1] PASSED [ 50%]
+2026-11-11T20:14:40.4419540Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Conclu\xedda-Alta-None-ids2] PASSED [ 53%]
+2026-11-11T20:14:40.4427043Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Conclu\xedda-Baixa-None-ids3] PASSED [ 56%]
+2026-11-11T20:14:40.4434785Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Todos-Todas- M\xc9TRICAS -ids4] PASSED [ 60%]
+2026-11-11T20:14:40.4443200Z 07_AUTOMACAO_UNITARIA/test_limites_e_filtros.py::test_filter_decision_table[Todos-Todas-INEXISTENTE-ids5] PASSED [ 63%]
+2026-11-11T20:14:40.4450999Z 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-1] PASSED [ 66%]
+2026-11-11T20:14:40.4457859Z 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-5] PASSED [ 70%]
+2026-11-11T20:14:40.4465615Z 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[2-3] PASSED [ 73%]
+2026-11-11T20:14:40.4473601Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_calculate_completion_rate PASSED [ 76%]
+2026-11-11T20:14:40.4481417Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_calculate_task_urgency PASSED [ 80%]
+2026-11-11T20:14:40.4488310Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_password_strength_invalid_rules PASSED [ 83%]
+2026-11-11T20:14:40.4494705Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_password_strength_valid PASSED [ 86%]
+2026-11-11T20:14:40.4501343Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_discipline_code PASSED [ 90%]
+2026-11-11T20:14:40.4507277Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_email_invalid_formats PASSED [ 93%]
+2026-11-11T20:14:40.4513615Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_email_valid_formats PASSED [ 96%]
+2026-11-11T20:14:40.4730994Z 07_AUTOMACAO_UNITARIA/test_unitarios.py::TestTaskServiceUnit::test_validate_workload_boundary_values PASSED [100%]
+2026-11-11T20:14:40.4731462Z 
+2026-11-11T20:14:40.4731860Z - generated xml file: /home/runner/work/edutask-tqs-p2/edutask-tqs-p2/07_AUTOMACAO_UNITARIA/evidencias/unitarios.xml -
+2026-11-11T20:14:40.4732474Z ============================== 30 passed in 0.18s ==============================
