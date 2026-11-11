@@ -1,0 +1,9 @@
+{
+  "caso": "CT-021",
+  "metodo": "Flask test client automatizado",
+  "resultado": "Aprovado",
+  "status_http": 200,
+  "verificacao_textual": "data limite de entrega é obrigatória",
+  "banco": "isolado por cenário",
+  "data_execucao": "2026-11-11T12:32:34.452342-03:00"
+}

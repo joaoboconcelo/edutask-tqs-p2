@@ -1,15 +1,15 @@
 # PRODUTO P03 - PLANO DE TESTES DE SOFTWARE (APÊNDICE D)
-**Projeto:** EduTask Web v1.0.0-p2  
-**Instituição:** UNISAGRADO - Curso de Ciência da Computação (2026)  
-**Disciplina:** Testes e Qualidade de Software  
-**Docente:** Prof. Dr. Elvio Gilberto da Silva  
-**Equipe Responsável:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga  
+**Projeto:** EduTask Web v1.0.1-p2
+**Instituição:** UNISAGRADO - Curso de Ciência da Computação (2026)
+**Disciplina:** Testes e Qualidade de Software
+**Docente:** Prof. Dr. Elvio Gilberto da Silva
+**Equipe Responsável:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga
 
 ---
 
 ## 1. Identificação e Versão do Sistema
 * **Nome do Sistema:** EduTask Web (Sistema de Gestão Acadêmica e Atividades)
-* **Versão Avaliada:** v1.0.0-p2
+* **Versão Avaliada:** v1.0.1-p2
 * **Repositório:** `https://github.com/joaoboconcelo/edutask-tqs-p2`
 * **Tipo de Aplicação:** Aplicação Web com backend Python Flask, banco SQLite e frontend responsivo Bootstrap.
 
@@ -140,4 +140,16 @@ Validar formalmente o comportamento funcional, a confiabilidade, a segurança b�
 
 ## 12. Produtos e Controle de Comunicação
 * **Canais de Comunicação:** Reuniões presenciais em aula, mensagens no grupo técnico e commits rastreados via Git.
-* **Controle de Versão:** Versão final do plano: v1.0.0-p2 (Revisada e aprovada pelo grupo).
+* **Controle de Versão:** Versão final do plano: v1.0.1-p2 (Revisada e aprovada pelo grupo).
+## Plano da revisão de 11/11/2026
+
+Versão revisada: v1.0.1-p2 (identificação documental; sem tag Git publicada). Linha de base: código do HEAD anterior à revisão.
+Automação planejada do catálogo: 24 cenários; denominador de automação =24, sem usar os 15 mínimos do manual como plano fictício.
+Suíte atual: 30 cenários unitários, 36 de integração/API, 24 do catálogo, 4 de aceitação técnica e 4 de navegador, total 98.
+As parametrizações contam como cenários executados. Há quatro fluxos distintos no Selenium.
+Ambiente de cada teste: SQLite temporário; sem escrita no banco de demonstração. E2E e latências usam porta HTTP efêmera.
+Entrada: dependências instaladas, testes coletáveis e dados fictícios. Saída técnica: suíte aprovada, nenhum erro Flake8 e latências inferiores a 500 ms na carga definida.
+Saída documental: correlação entre requisitos/casos/resultados, DOCX/PDF consistentes e pendências humanas explicitadas.
+Suspender em falha de servidor, driver ou banco; corrigir o ambiente e repetir apenas as verificações afetadas antes da consolidação.
+Apresentação e vídeo dispensados conforme informação do solicitante. Sem comprovação docente anexada ou redistribuição de pesos presumida.
+Não presumir aprovação do sistema, homologação manual ou entrega no Drive por conclusão dos testes locais.

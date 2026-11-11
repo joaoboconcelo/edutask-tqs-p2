@@ -4,7 +4,11 @@ on:
   push:
     branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
@@ -27,19 +31,35 @@ jobs:
 
       - name: Executar Análise Estática de Código (Flake8)
         run: |
-          python -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8 --exit-zero
+          mkdir -p 11_METRICAS_E_QUALIDADE/evidencias
+          python -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8
 
       - name: Executar Testes Unitários Automatizados (Pytest)
         run: |
-          cd 07_AUTOMACAO_UNITARIA
-          pytest -v test_unitarios.py
+          mkdir -p 07_AUTOMACAO_UNITARIA/evidencias
+          pytest -v 07_AUTOMACAO_UNITARIA --junitxml=07_AUTOMACAO_UNITARIA/evidencias/unitarios.xml
 
       - name: Executar Testes de Integração e API
         run: |
-          cd 08_INTEGRACAO_API
-          pytest -v test_api_integracao.py
+          mkdir -p 08_INTEGRACAO_API/evidencias
+          pytest -v 08_INTEGRACAO_API 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py 10_ACEITACAO_NAO_FUNCIONAIS --junitxml=08_INTEGRACAO_API/evidencias/integracao_catalogo.xml
+
+      - name: Executar Interface no Chrome
+        run: |
+          pytest -v 09_SISTEMA_INTERFACE --junitxml=09_SISTEMA_INTERFACE/evidencias/selenium.xml
+
+      - name: Preservar Evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-de-testes
+          path: |
+            05_EXECUCAO_MANUAL/evidencias_reexecucao/
+            07_AUTOMACAO_UNITARIA/evidencias/
+            08_INTEGRACAO_API/evidencias/
+            09_SISTEMA_INTERFACE/evidencias/
 
       - name: Publicar Resumo da Execução dos Testes
         if: always()
         run: |
-          echo "Pipeline concluído com sucesso em $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "Resultado do job: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY

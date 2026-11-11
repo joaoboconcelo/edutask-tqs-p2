@@ -1,8 +1,8 @@
 # PRODUTO P02 - DOCUMENTO DE REQUISITOS, ESCOPO E RISCOS
-**Projeto:** EduTask Web v1.0.0-p2  
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**  
-**Docente:** Prof. Dr. Elvio Gilberto da Silva  
-**Equipe:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga  
+**Projeto:** EduTask Web v1.0.1-p2
+**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
+**Docente:** Prof. Dr. Elvio Gilberto da Silva
+**Equipe:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga
 
 ---
 
@@ -38,7 +38,7 @@ Para garantir a viabilidade e foco na qualidade, ficam expressamente fora do esc
 | **RF-05** | O sistema deve permitir a atualização do status da tarefa (`Pendente`, `Em Andamento`, `Concluída`) e recalcular automaticamente a taxa percentual de conclusão no painel. | Funcional | Média | **Dado** que uma tarefa existente está com status "Pendente",<br>**Quando** o usuário alterar seu status para "Concluída",<br>**Então** a alteração é persistida e a taxa de conclusão no Dashboard é atualizada imediatamente. |
 | **RF-06** | O sistema deve disponibilizar busca textual e filtros dinâmicos de tarefas combináveis por status e prioridade. | Funcional | Média | **Dado** que existem múltiplas tarefas cadastradas,<br>**Quando** o usuário selecionar o filtro de status "Pendente" e prioridade "Alta",<br>**Então** apenas as tarefas que satisfazem simultaneamente ambos os critérios devem ser exibidas. |
 | **RNF-01** | **Desempenho e Tempo de Resposta:** As operações de consulta e retorno da API REST devem responder em tempo inferior a 500 milissegundos em ambiente local controlado. | Não Funcional | Alta | **Dado** que o servidor está em execução sob carga padrão de testes,<br>**Quando** for realizada uma requisição `GET /api/tarefas` ou `GET /api/metricas`,<br>**Então** o tempo de resposta medido deve ser estritamente menor que 500ms. |
-| **RNF-02** | **Segurança e Proteção de Senhas:** Todas as senhas dos usuários devem ser armazenadas exclusivamente em formato de hash criptográfico seguro (PBKDF2-SHA256), sem jamais persistir senhas em texto puro. | Não Funcional | Alta | **Dado** que um usuário efetua seu cadastro,<br>**Quando** o registro for gravado no banco SQLite,<br>**Então** a coluna `password_hash` deve conter um hash criptográfico válido e a senha em texto puro não deve ser identificável. |
+| **RNF-02** | **Segurança e Proteção de Senhas:** Todas as senhas dos usuários devem ser armazenadas exclusivamente em formato de hash criptográfico seguro (scrypt ou PBKDF2-SHA256), sem jamais persistir senhas em texto puro. | Não Funcional | Alta | **Dado** que um usuário efetua seu cadastro,<br>**Quando** o registro for gravado no banco SQLite,<br>**Então** a coluna `password_hash` deve conter um hash criptográfico válido e a senha em texto puro não deve ser identificável. |
 
 ---
 
@@ -46,7 +46,7 @@ Para garantir a viabilidade e foco na qualidade, ficam expressamente fora do esc
 
 | ID | Descrição do Risco | Probabilidade | Impacto | Prioridade | Resposta / Estratégia de Teste Planejada |
 | :---: | :--- | :---: | :---: | :---: | :--- |
-| **R-01** | **Vazamento ou armazenamento inseguro de senhas em texto plano no banco de dados.** | Baixo | Alto | **Alta** | Teste de segurança verificando inspeção direta do banco de dados SQLite e validação do uso do algoritmo Werkzeug Security (hash PBKDF2/SHA256). |
+| **R-01** | **Vazamento ou armazenamento inseguro de senhas em texto plano no banco de dados.** | Baixo | Alto | **Alta** | Teste de segurança verificando inspeção direta do banco de dados SQLite e validação do uso do algoritmo Werkzeug Security (hash scrypt ou PBKDF2/SHA256). |
 | **R-02** | **Acesso indevido a rotas e dados privados sem autenticação prévia de sessão.** | Médio | Alto | **Alta** | Testes de controle de acesso acessando diretamente as URLs `/`, `/disciplinas` e `/tarefas` em modo anônimo e verificando redirecionamento forçado para `/login`. |
 | **R-03** | **Injeção de códigos ou dados inconsistentes em campos de cadastro (ex: e-mails malformados e senhas fracas).** | Alto | Médio | **Alta** | Testes unitários e manuais com técnicas de Particionamento de Equivalência e Análise de Valor Limite cobrindo entradas inválidas, vazias e caracteres especiais. |
 | **R-04** | **Duplicidade de códigos de disciplinas gerando ambiguidade no histórico escolar.** | Médio | Médio | **Média** | Testes funcionais e de API tentando cadastrar o mesmo código de disciplina duas vezes, validando o código de erro HTTP 409 (Conflict). |
@@ -54,3 +54,6 @@ Para garantir a viabilidade e foco na qualidade, ficam expressamente fora do esc
 | **R-06** | **Cálculo errôneo da taxa de conclusão no Dashboard quando o total de tarefas for igual a zero (Divisão por zero).** | Médio | Alto | **Alta** | Teste unitário e de fronteira executando `calculate_completion_rate(0, 0)` garantindo retorno de 0.0% sem lançamento de exceção não tratada. |
 | **R-07** | **Inconsistência no cálculo de urgência de tarefas com prazos vencidos ou datas malformadas.** | Médio | Médio | **Média** | Testes no serviço de urgência com datas no passado, hoje e futuro distante, verificando a atribuição precisa do score e nível de alerta. |
 | **R-08** | **Degradação de desempenho ou lentidão nas consultas da API REST.** | Baixo | Médio | **Baixa** | Testes não-funcionais com medições repetidas de tempo de resposta em milissegundos para os endpoints principais. |
+## Esclarecimentos da revisão de 11/11/2026
+
+RF-05 continua sendo atualização de status e taxa de conclusão. O cálculo de urgência é regra complementar de RF-04, mitigando R-07: <=0 dias =100; 1-2=75; 3-7=50; >7=25. Datas vencidas são aceitas com aviso na interface. A API exige sessão, e tarefas, disciplinas e indicadores são restritos ao usuário autenticado. Códigos de disciplinas permanecem únicos globalmente. RNF-02 é atualizado nesta revisão para aceitar scrypt, padrão efetivamente usado, ou PBKDF2-SHA256; a validação dessa alteração de requisito cabe ao grupo/professor.

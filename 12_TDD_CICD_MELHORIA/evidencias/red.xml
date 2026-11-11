@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="0.858" timestamp="2026-11-11T12:06:46.196641-03:00" hostname="DESKTOP-8SCEV21"><testcase classname="07_AUTOMACAO_UNITARIA.test_tdd_consistencia" name="test_rejects_completed_tasks_above_total[0-1]" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">total = 0, completed = 1
+
+    @pytest.mark.parametrize('total,completed', [(0, 1), (0, 5), (2, 3)])
+    def test_rejects_completed_tasks_above_total(total, completed):
+        """RF-05 / R-06: inclusive total zero não aceita concluídas positivas."""
+&gt;       with pytest.raises(ValueError, match='exceder'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+07_AUTOMACAO_UNITARIA\test_tdd_consistencia.py:14: Failed</failure></testcase><testcase classname="07_AUTOMACAO_UNITARIA.test_tdd_consistencia" name="test_rejects_completed_tasks_above_total[0-5]" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">total = 0, completed = 5
+
+    @pytest.mark.parametrize('total,completed', [(0, 1), (0, 5), (2, 3)])
+    def test_rejects_completed_tasks_above_total(total, completed):
+        """RF-05 / R-06: inclusive total zero não aceita concluídas positivas."""
+&gt;       with pytest.raises(ValueError, match='exceder'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+07_AUTOMACAO_UNITARIA\test_tdd_consistencia.py:14: Failed</failure></testcase><testcase classname="07_AUTOMACAO_UNITARIA.test_tdd_consistencia" name="test_rejects_completed_tasks_above_total[2-3]" time="0.001" /></testsuite></testsuites>

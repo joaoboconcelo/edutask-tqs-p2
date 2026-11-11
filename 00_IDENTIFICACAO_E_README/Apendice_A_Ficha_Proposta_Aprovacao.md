@@ -1,6 +1,6 @@
 # Apêndice A - Ficha de Proposta e Aprovação do Sistema
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**  
-**Professor:** Prof. Dr. Elvio Gilberto da Silva  
+**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
+**Professor:** Prof. Dr. Elvio Gilberto da Silva
 
 ---
 
@@ -9,9 +9,9 @@
 | **Turma e grupo** | Ciência da Computação - Turma A / Grupo 01 |
 | **Integrantes** | Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga |
 | **Nome do sistema** | EduTask Web - Sistema de Gestão Acadêmica e Atividades |
-| **Origem do sistema** | Projeto público de código aberto com licença acadêmica permissiva (MIT License) no GitHub, adaptado e modularizado para testes. |
+| **Origem do sistema** | Aplicação acadêmica do grupo; origem exata e eventual projeto-base precisam ser confirmados pelos integrantes. |
 | **Link do repositório** | `https://github.com/joaoboconcelo/edutask-tqs-p2` |
-| **Licença/autorização** | Licença MIT (permissão integral para estudo, alteração e execução de testes em ambiente local). |
+| **Licença/autorização** | Licença e autorização a confirmar pelo grupo; não foi encontrado arquivo LICENSE que comprove a declaração anterior. |
 | **Tecnologias principais** | Python 3.13, Flask 3.1.3, SQLite 3, Werkzeug Security, Bootstrap 5.3, Pytest, Selenium WebDriver, Postman. |
 | **Como executar** | Executar `python -m pip install -r requirements.txt` e iniciar o servidor via `python run.py`. Acessar `http://127.0.0.1:5000`. |
 | **Fluxos selecionados** | 1. Autenticação e cadastro seguro de estudantes.<br>2. Cadastro, validação e manutenção de disciplinas acadêmicas.<br>3. Criação, gestão de prazos e atualização de status de atividades.<br>4. Painel de métricas (dashboard), filtros dinâmicos e taxa de conclusão. |

@@ -1,0 +1,9 @@
+{
+  "caso": "CT-012",
+  "metodo": "Flask test client automatizado",
+  "resultado": "Aprovado",
+  "status_http": 200,
+  "verificacao_textual": "Código de disciplina inválido",
+  "banco": "isolado por cenário",
+  "data_execucao": "2026-11-11T12:32:31.374844-03:00"
+}

@@ -1,8 +1,8 @@
 # PRODUTO P04 - CATÁLOGO DE CASOS DE TESTE (APÊNDICE E)
-**Projeto:** EduTask Web v1.0.0-p2  
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**  
-**Docente:** Prof. Dr. Elvio Gilberto da Silva  
-**Equipe:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga  
+**Projeto:** EduTask Web v1.0.1-p2
+**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
+**Docente:** Prof. Dr. Elvio Gilberto da Silva
+**Equipe:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga
 
 ---
 
@@ -71,6 +71,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Negativo
 * **Técnica Aplicada:** Particionamento de Equivalência (Critério de complexidade ausente)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Nome: "Usuario Sem Especial", E-mail: "semespecial@unisagrado.edu.br", Senha: "SenhaForte2026", Confirmar: "SenhaForte2026"
 * **Passos Numerados:**
   1. Preencher os dados com a senha contendo maiúsculas, minúsculas e números, porém sem caracteres especiais.
@@ -103,6 +104,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Alternativo Negativo
 * **Técnica Aplicada:** Particionamento de Equivalência
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Nome: "Usuario Divergente", E-mail: "divergente@unisagrado.edu.br", Senha: "SenhaForte@1", Confirmar: "SenhaForte@2"
 * **Passos Numerados:**
   1. Informar senhas diferentes nos dois campos.
@@ -135,6 +137,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Negativo
 * **Técnica Aplicada:** Particionamento de Equivalência
 * **Prioridade:** Alta
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** E-mail: "aluno@unisagrado.edu.br", Senha: "SenhaIncorreta@99"
 * **Passos Numerados:**
   1. Acessar `/login`.
@@ -151,6 +154,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Negativo
 * **Técnica Aplicada:** Particionamento de Equivalência
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** E-mail: "fantasma@unisagrado.edu.br", Senha: "QualquerSenha@123"
 * **Passos Numerados:**
   1. Informar e-mail não cadastrado.
@@ -199,6 +203,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Negativo
 * **Técnica Aplicada:** Particionamento de Equivalência (Expressão Regular Inválida)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Código: "CODIGOERRADO123", Nome: "Compiladores", Professor: "Prof. Dr. Silva", Carga Horária: 60
 * **Passos Numerados:**
   1. Preencher o formulário com código sem hífen ou formato irregular.
@@ -214,6 +219,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Limite Positivo
 * **Técnica Aplicada:** Análise de Valor Limite (BVA - Limite Mínimo Permitido)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Código: "CC-TOP15", Nome: "Tópicos Especiais I", Professor: "Prof. Especialista", Carga Horária: 15
 * **Passos Numerados:**
   1. Preencher o formulário informando exatamente 15 horas de carga horária.
@@ -229,6 +235,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Limite Negativo
 * **Técnica Aplicada:** Análise de Valor Limite (BVA - Valor imediatamente abaixo do mínimo permitido)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Código: "CC-SUB14", Nome: "Seminário Curto", Professor: "Prof. Teste", Carga Horária: 14
 * **Passos Numerados:**
   1. Preencher o formulário com 14 horas.
@@ -244,6 +251,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Limite Positivo
 * **Técnica Aplicada:** Análise de Valor Limite (BVA - Limite Máximo Permitido)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Código: "CC-EST400", Nome: "Estágio Supervisionado", Professor: "Prof. Coordenador", Carga Horária: 400
 * **Passos Numerados:**
   1. Preencher com exatamente 400 horas.
@@ -259,6 +267,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Limite Negativo
 * **Técnica Aplicada:** Análise de Valor Limite (BVA - Valor imediatamente acima do máximo permitido)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Código: "CC-EXT401", Nome: "Matéria Extensa", Professor: "Prof. Teste", Carga Horária: 401
 * **Passos Numerados:**
   1. Preencher o formulário com 401 horas.
@@ -307,6 +316,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Positivo
 * **Técnica Aplicada:** Fluxo Principal (Caminho Feliz)
 * **Prioridade:** Alta
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Título: "Implementação do Pipeline CI/CD", Descrição: "Configurar actions para build e testes automáticos", Prazo: "2026-12-10", Prioridade: "Alta", Disciplina: `CC-TQS01`
 * **Passos Numerados:**
   1. Acessar "Tarefas" -> "Cadastrar Nova Tarefa".
@@ -323,6 +333,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Limite Negativo
 * **Técnica Aplicada:** Análise de Valor Limite (BVA - Valor abaixo do mínimo de 3 caracteres)
 * **Prioridade:** Média
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Título: "AB" (2 caracteres), Prazo: "2026-11-30", Disciplina: Selecionada
 * **Passos Numerados:**
   1. Informar título com apenas 2 caracteres.
@@ -338,6 +349,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Negativo
 * **Técnica Aplicada:** Particionamento de Equivalência (Campo Obrigatório Ausente)
 * **Prioridade:** Alta
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Título: "Atividade Sem Data", Prazo: Vazio `""`, Disciplina: Selecionada
 * **Passos Numerados:**
   1. Preencher título e disciplina, deixando o campo de data vazio.
@@ -386,6 +398,7 @@ O catálogo contém **24 casos de teste manuais** estruturados de forma independ
 * **Nível/Tipo:** Sistema / Funcional Alternativo
 * **Técnica Aplicada:** Particionamento de Equivalência (Busca sem correspondência)
 * **Prioridade:** Baixa
+* **Pré-condições:** Aplicação e banco fictício inicializados; para CT-011 em diante, usuário de demonstração autenticado. Restabelecer a base entre cenários.
 * **Dados de Entrada:** Termo de busca: `XYZ999TERMOINEXISTENTE`
 * **Passos Numerados:**
   1. Digitar o termo inexistente no campo "Buscar por Palavra-Chave".

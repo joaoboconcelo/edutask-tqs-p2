@@ -1,0 +1,40 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\Jo�o.B\AppData\Local\Programs\Python\Python313\python.exe
+rootdir: C:\Users\Jo�o.B\Desktop\Faculdade\Trabalho Testes\P2_TQS_2026_TURMAA_GRUPO01_EDUTASK-WEB
+plugins: anyio-4.9.0
+collecting ... collected 3 items
+
+07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-1] FAILED [ 33%]
+07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-5] FAILED [ 66%]
+07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[2-3] PASSED [100%]
+
+================================== FAILURES ===================================
+________________ test_rejects_completed_tasks_above_total[0-1] ________________
+
+total = 0, completed = 1
+
+    @pytest.mark.parametrize('total,completed', [(0, 1), (0, 5), (2, 3)])
+    def test_rejects_completed_tasks_above_total(total, completed):
+        """RF-05 / R-06: inclusive total zero n�o aceita conclu�das positivas."""
+>       with pytest.raises(ValueError, match='exceder'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+07_AUTOMACAO_UNITARIA\test_tdd_consistencia.py:14: Failed
+________________ test_rejects_completed_tasks_above_total[0-5] ________________
+
+total = 0, completed = 5
+
+    @pytest.mark.parametrize('total,completed', [(0, 1), (0, 5), (2, 3)])
+    def test_rejects_completed_tasks_above_total(total, completed):
+        """RF-05 / R-06: inclusive total zero n�o aceita conclu�das positivas."""
+>       with pytest.raises(ValueError, match='exceder'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+07_AUTOMACAO_UNITARIA\test_tdd_consistencia.py:14: Failed
+- generated xml file: C:\Users\Jo�o.B\Desktop\Faculdade\Trabalho Testes\P2_TQS_2026_TURMAA_GRUPO01_EDUTASK-WEB\12_TDD_CICD_MELHORIA\evidencias\red.xml -
+=========================== short test summary info ===========================
+FAILED 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-1]
+FAILED 07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-5]
+========================= 2 failed, 1 passed in 1.00s =========================

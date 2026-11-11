@@ -1,0 +1,41 @@
+{
+  "data": "2026-11-11T12:31:56-03:00",
+  "tests": {
+    "total": 98,
+    "passed": 98,
+    "failed": 0,
+    "skipped": 0
+  },
+  "catalogo": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0
+  },
+  "coverage": {
+    "covered_lines": 517,
+    "num_statements": 574,
+    "percent_covered": 87.90760869565217,
+    "percent_covered_display": "88",
+    "missing_lines": 57,
+    "excluded_lines": 0,
+    "percent_statements_covered": 90.06968641114983,
+    "percent_statements_covered_display": "90",
+    "num_branches": 162,
+    "num_partial_branches": 30,
+    "covered_branches": 130,
+    "missing_branches": 32,
+    "percent_branches_covered": 80.24691358024691,
+    "percent_branches_covered_display": "80"
+  },
+  "unidade": 30,
+  "integracao": 36,
+  "aceitacao_tecnica": 4,
+  "navegador": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "nota": "Parâmetros do pytest são contados como cenários; não são funções distintas."
+}

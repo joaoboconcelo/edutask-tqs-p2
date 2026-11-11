@@ -1,0 +1,179 @@
+01_SISTEMA_ALVO/edutask\__init__.py:1:1: F401 '.app.create_app' imported but unused
+01_SISTEMA_ALVO/edutask\app.py:6:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\app.py:29:1: E305 expected 2 blank lines after class or function definition, found 1
+01_SISTEMA_ALVO/edutask\models.py:3:1: F401 'werkzeug.security.check_password_hash' imported but unused
+01_SISTEMA_ALVO/edutask\models.py:7:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\models.py:12:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\models.py:15:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:27:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:40:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:59:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:63:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\models.py:67:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:78:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:85:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:91:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\models.py:94:121: E501 line too long (170 > 120 characters)
+01_SISTEMA_ALVO/edutask\models.py:95:121: E501 line too long (173 > 120 characters)
+01_SISTEMA_ALVO/edutask\models.py:98:121: E501 line too long (170 > 120 characters)
+01_SISTEMA_ALVO/edutask\models.py:99:121: E501 line too long (150 > 120 characters)
+01_SISTEMA_ALVO/edutask\models.py:102:121: E501 line too long (170 > 120 characters)
+01_SISTEMA_ALVO/edutask\models.py:103:121: E501 line too long (141 > 120 characters)
+01_SISTEMA_ALVO/edutask\models.py:105:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\__init__.py:1:1: F401 '.auth_routes.auth_bp' imported but unused
+01_SISTEMA_ALVO/edutask\routes\__init__.py:2:1: F401 '.discipline_routes.discipline_bp' imported but unused
+01_SISTEMA_ALVO/edutask\routes\__init__.py:3:1: F401 '.task_routes.task_bp' imported but unused
+01_SISTEMA_ALVO/edutask\routes\__init__.py:4:1: F401 '.api_routes.api_bp' imported but unused
+01_SISTEMA_ALVO/edutask\routes\__init__.py:5:1: F401 '.main_routes.main_bp' imported but unused
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:13:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:18:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:21:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:27:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:30:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:41:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:45:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:52:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:56:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:60:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:64:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:68:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:73:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:81:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:92:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:99:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:103:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:111:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:115:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:119:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:123:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:127:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:132:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:134:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:136:121: E501 line too long (132 > 120 characters)
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:139:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:143:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:157:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:161:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:171:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:177:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:183:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:187:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:192:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:197:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:204:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:208:121: E501 line too long (137 > 120 characters)
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:209:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:216:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:222:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:225:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:228:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:231:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:235:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\api_routes.py:237:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:8:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:15:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:19:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:23:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:28:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:32:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:40:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:48:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:51:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:54:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:59:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:63:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:69:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:73:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:78:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:81:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\auth_routes.py:84:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:7:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:10:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:15:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:19:47: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:20:27: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:21:52: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:22:22: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:27:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:30:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:35:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:41:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:43:121: E501 line too long (142 > 120 characters)
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:45:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:49:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:53:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:57:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:65:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:72:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:75:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:78:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:82:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:87:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\discipline_routes.py:92:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:7:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:11:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:14:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:18:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:21:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:24:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:27:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:31:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:34:73: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:42:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:45:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\main_routes.py:50:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:8:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:11:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:16:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:20:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:23:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:31:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:37:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:39:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:44:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:45:43: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:46:49: W291 trailing whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:52:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:57:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:60:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:67:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:72:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:77:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:86:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:89:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:94:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:96:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:98:121: E501 line too long (132 > 120 characters)
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:100:121: E501 line too long (124 > 120 characters)
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:101:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:106:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:110:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:114:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:117:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:121:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:126:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:132:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:136:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:140:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\routes\task_routes.py:146:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.validate_email' imported but unused
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.validate_password_strength' imported but unused
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.validate_discipline_code' imported but unused
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.validate_workload' imported but unused
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.calculate_completion_rate' imported but unused
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.calculate_task_urgency' imported but unused
+01_SISTEMA_ALVO/edutask\services\__init__.py:2:1: F401 '.task_service.filter_task_list' imported but unused
+01_SISTEMA_ALVO/edutask\services\task_service.py:12:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:21:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:41:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:51:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:59:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:71:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:75:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\services\task_service.py:84:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\services\task_service.py:87:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\services\task_service.py:92:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\services\task_service.py:94:1: W293 blank line contains whitespace
+01_SISTEMA_ALVO/edutask\services\task_service.py:104:1: E302 expected 2 blank lines, found 1
+01_SISTEMA_ALVO/edutask\services\task_service.py:104:121: E501 line too long (121 > 120 characters)
+01_SISTEMA_ALVO/edutask\services\task_service.py:114:32: W291 trailing whitespace

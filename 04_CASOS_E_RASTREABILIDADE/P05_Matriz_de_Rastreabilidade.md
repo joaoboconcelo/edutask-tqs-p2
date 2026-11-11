@@ -1,7 +1,7 @@
 # PRODUTO P05 - MATRIZ DE RASTREABILIDADE (APÊNDICE H)
-**Projeto:** EduTask Web v1.0.0-p2 | **UNISAGRADO 2026**  
-**Disciplina:** Testes e Qualidade de Software  
-**Equipe:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga  
+**Projeto:** EduTask Web v1.0.1-p2 | **UNISAGRADO 2026**
+**Disciplina:** Testes e Qualidade de Software
+**Equipe:** Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga
 
 ---
 
@@ -28,15 +28,27 @@
 | **RF-04** (Criação de Tarefa Válida) | R-07 (Inconsistência de prazos) | CT-019 | EX-019 | Nenhum | Conforme / Aprovado |
 | **RF-04** (Título Curto de Tarefa) | R-03 (Título inválido) | CT-020 | EX-020 | Nenhum | Conforme / Aprovado |
 | **RF-04** (Data Limite Obrigatória) | R-07 (Data nula) | CT-021 | EX-021 | Nenhum | Conforme / Aprovado |
-| **RF-05** / **R-06** (Atualização de Status e Taxa) | R-06 (Cálculo de progresso) | CT-022 | EX-022 | Nenhum | Conforme / Aprovado |
+| **RF-05** (Atualização de Status e Taxa) | R-06 (Cálculo de progresso) | CT-022 | EX-022 | Nenhum | Conforme / Aprovado |
 | **RF-06** (Filtro Combinado Status/Prioridade) | R-08 (Lentidão/erro de busca) | CT-023 | EX-023 | Nenhum | Conforme / Aprovado |
 | **RF-06** (Busca Textual Inexistente) | R-08 (Tratamento de vazio) | CT-024 | EX-024 | Nenhum | Conforme / Aprovado |
 
 ---
 
-### Resumo da Rastreabilidade:
-* **Total de Requisitos Cobertos:** 8 de 8 (100% de Cobertura de Requisitos).
-* **Total de Riscos Mitigados com Testes:** 8 de 8 (100% de Cobertura de Riscos).
-* **Total de Casos Manuais Vinculados:** 24 casos (CT-001 a CT-024).
-* **Total de Execuções Vinculadas:** 24 execuções (EX-001 a EX-024).
-* **Defeitos Identificados e Tratados:** 2 defeitos corrigidos com reteste aprovado (DEF-01 e DEF-02).
+## Complemento da revisão e cobertura demonstrada
+
+Os vínculos históricos acima são preservados. Abaixo estão as verificações executáveis da revisão, incluindo os dois requisitos não funcionais.
+
+| Requisito | Riscos | Verificação executada | Evidência |
+|---|---|---|---|
+| RF-01 | R-01, R-03 | CT-001 a CT-006; validações unitárias; hash após cadastro | CT-001 a CT-006 HTML/JSON; testes.xml |
+| RF-02 | R-02 | CT-007 a CT-010; sessão API; isolamento entre usuários | CT-007 a CT-010 HTML/JSON; testes.xml; E2E-01 |
+| RF-03 | R-03, R-04, R-05 | CT-011 a CT-018; limites, duplicidade e exclusão protegida | CT-011 a CT-018 HTML/JSON; testes.xml; E2E-02 |
+| RF-04 | R-07 | CT-019 a CT-021; datas inválidas; fronteiras de urgência | CT-019 a CT-021 HTML/JSON; testes.xml; E2E-03 |
+| RF-05 | R-06 | CT-022; taxa exata; inconsistência total zero | CT-022 HTML/JSON; testes.xml; E2E-04; red/green/refactor.xml |
+| RF-06 | R-03, R-08 | CT-023/024; tabela de decisão dos filtros | CT-023/024 HTML/JSON; testes.xml |
+| RNF-01 | R-08 | 30 requisições HTTP por rota, após aquecimento | latencias_http.csv; desempenho.json |
+| RNF-02 | R-01 | Cadastro, consulta do hash e check_password_hash | test_rnf02_password_hash_and_login; testes.xml |
+
+Cobertura por requisito: 8/8 com verificação executada. Cobertura por risco: R-01 a R-08 com vínculo explícito.
+Isso não significa cobertura de todos os caminhos possíveis. A cobertura de linhas é medida separadamente em `cobertura.json`.
+Cada CT-NNN tem reexecução atual em `05_EXECUCAO_MANUAL/evidencias_reexecucao/CT-NNN.json`.

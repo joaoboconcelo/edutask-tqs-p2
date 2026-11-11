@@ -1,0 +1,25 @@
+﻿Execucao;Caso;Titulo;Data_real;Versao;Executor;Resultado_obtido;Status;Captura;Defeito
+EX-M-001;CT-001;Cadastro de usuario com dados validos e senha forte;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-002;CT-002;Cadastro de usuario com e-mail em formato invalido;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-003;CT-003;Cadastro com senha de 7 caracteres (Limite inferior);;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-004;CT-004;Cadastro com senha sem caractere especial;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-005;CT-005;Cadastro com e-mail ja existente no banco de dados;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-006;CT-006;Cadastro com senhas divergentes na confirmacao;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-007;CT-007;Autenticacao de usuario com credenciais validas;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-008;CT-008;Autenticacao com senha incorreta;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-009;CT-009;Autenticacao com e-mail nao existente;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-010;CT-010;Tentativa de acesso direto a rota restrita sem sessao;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-011;CT-011;Cadastro de disciplina com dados validos e codigo padrao;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-012;CT-012;Cadastro de disciplina com codigo fora do padrao;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-013;CT-013;Cadastro de disciplina com carga horaria limite inferior (15h);;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-014;CT-014;Cadastro de disciplina com carga horaria abaixo do limite (14h);;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-015;CT-015;Cadastro de disciplina com carga horaria limite superior (400h);;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-016;CT-016;Cadastro de disciplina com carga horaria acima do limite (401h);;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-017;CT-017;Tentativa de cadastrar disciplina com codigo duplicado;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-018;CT-018;Tentativa de exclusao de disciplina com tarefas vinculadas;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-019;CT-019;Criacao de atividade com dados validos e data futura;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-020;CT-020;Criacao de atividade com titulo de 2 caracteres (Abaixo min);;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-021;CT-021;Criacao de atividade sem informar data limite de entrega;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-022;CT-022;Atualizacao de status da tarefa e recalculao da taxa no Dashboard;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-023;CT-023;Filtragem combinada por status Pendente e prioridade Alta;;v1.0.1-p2;;;Pendente de execucao humana;;
+EX-M-024;CT-024;Busca textual por termo inexistente;;v1.0.1-p2;;;Pendente de execucao humana;;

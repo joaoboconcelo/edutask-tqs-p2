@@ -1,9 +1,11 @@
+> **Nota da revisão de 11/11/2026:** os registros de outubro abaixo são relatos históricos do grupo, sem capturas contemporâneas ou issues externas disponibilizadas. A reexecução atual comprova o comportamento da versão revisada, mas não comprova as datas nem o ciclo original de defeitos.
+
 # PRODUTO P07 - RELATÓRIO E GESTÃO DE DEFEITOS (APÊNDICE G)
-**Projeto:** EduTask Web v1.0.0-p2  
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**  
-**Ferramenta Adotada:** Padrão GitHub Issues  
-**Responsável pelo Registro e Acompanhamento:** Lucas Braga  
-**Responsável pela Correção (Dev):** João Lucas de Antonio Boconcelo  
+**Projeto:** EduTask Web v1.0.0-p2
+**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
+**Ferramenta Adotada:** Padrão GitHub Issues
+**Responsável pelo Registro e Acompanhamento:** Lucas Braga
+**Responsável pela Correção (Dev):** João Lucas de Antonio Boconcelo
 
 ---
 

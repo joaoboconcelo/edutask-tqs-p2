@@ -1,0 +1,15 @@
+Name                                                  Stmts   Miss Branch BrPart  Cover
+---------------------------------------------------------------------------------------
+01_SISTEMA_ALVO\edutask\__init__.py                       2      0      0      0   100%
+01_SISTEMA_ALVO\edutask\app.py                           21      2      4      2    84%
+01_SISTEMA_ALVO\edutask\models.py                        34      0      2      1    97%
+01_SISTEMA_ALVO\edutask\routes\__init__.py                6      0      0      0   100%
+01_SISTEMA_ALVO\edutask\routes\api_routes.py            167     18     48      8    87%
+01_SISTEMA_ALVO\edutask\routes\auth_routes.py            68      5     18      3    91%
+01_SISTEMA_ALVO\edutask\routes\discipline_routes.py      69     11     20      5    82%
+01_SISTEMA_ALVO\edutask\routes\main_routes.py            29      0      4      0   100%
+01_SISTEMA_ALVO\edutask\routes\task_routes.py           107     18     28      8    81%
+01_SISTEMA_ALVO\edutask\services\__init__.py              2      0      0      0   100%
+01_SISTEMA_ALVO\edutask\services\task_service.py         69      3     38      3    94%
+---------------------------------------------------------------------------------------
+TOTAL                                                   574     57    162     30    88%

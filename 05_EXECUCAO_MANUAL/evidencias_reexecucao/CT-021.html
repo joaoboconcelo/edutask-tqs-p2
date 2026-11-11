@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Tarefa - EduTask</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .navbar-brand { font-weight: 700; color: #0d6efd !important; }
+        .card { border-radius: 10px; border: 1px solid #e9ecef; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+        .badge-alta { background-color: #dc3545; color: white; }
+        .badge-media { background-color: #fd7e14; color: white; }
+        .badge-baixa { background-color: #198754; color: white; }
+        .badge-urgente { background-color: #6f42c1; color: white; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="/">
+                <i class="bi bi-mortarboard-fill"></i> EduTask
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-dashboard" href="/">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-disciplinas" href="/disciplinas">
+                            <i class="bi bi-book"></i> Disciplinas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-tarefas" href="/tarefas">
+                            <i class="bi bi-check2-square"></i> Tarefas
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> Aluno Demonstração
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><span class="dropdown-item-text text-muted small">aluno@unisagrado.edu.br</span></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item text-danger" id="btn-logout" href="/logout">
+                                    <i class="bi bi-box-arrow-right"></i> Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mensagens Flash -->
+    <div class="container mt-3">
+        
+            
+                
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" id="flash-alert">
+                        Bem-vindo(a), Aluno Demonstração!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="flash-alert">
+                        A data limite de entrega é obrigatória.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                
+            
+        
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container my-4 flex-grow-1">
+        
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card p-4 shadow-sm">
+            <h3 class="fw-bold mb-1">Cadastrar Atividade Acadêmica</h3>
+            <p class="text-muted mb-4">Adicione uma nova tarefa com prazo e prioridade para monitoramento</p>
+
+            <form action="/tarefas/nova" method="POST" id="form-task">
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-semibold">Título da Atividade</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Ex: Projeto Integrado P2 - Testes de Software" required>
+                    <div class="form-text">Mínimo de 3 caracteres.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="discipline_id" class="form-label fw-semibold">Disciplina Vinculada</label>
+                    <select class="form-select" id="discipline_id" name="discipline_id" required>
+                        <option value="" disabled selected>Selecione uma disciplina...</option>
+                        
+                        <option value="2">CC-BD02 - Banco de Dados Avançado</option>
+                        
+                        <option value="1">CC-TQS01 - Testes e Qualidade de Software</option>
+                        
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="due_date" class="form-label fw-semibold">Data Limite de Entrega</label>
+                        <input type="date" class="form-control" id="due_date" name="due_date" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="priority" class="form-label fw-semibold">Prioridade</label>
+                        <select class="form-select" id="priority" name="priority">
+                            <option value="Baixa">Baixa</option>
+                            <option value="Média" selected>Média</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label fw-semibold">Descrição / Detalhes (Opcional)</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" placeholder="Critérios de aceitação, links, diretrizes..."></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="/tarefas" class="btn btn-outline-secondary" id="btn-cancel-task">
+                        <i class="bi bi-arrow-left"></i> Voltar
+                    </a>
+                    <button type="submit" class="btn btn-primary px-4 fw-semibold" id="btn-save-task">
+                        <i class="bi bi-check-circle"></i> Salvar Atividade
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-light text-center text-muted py-3 border-top mt-auto">
+        <div class="container">
+            <small>EduTask &copy; 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

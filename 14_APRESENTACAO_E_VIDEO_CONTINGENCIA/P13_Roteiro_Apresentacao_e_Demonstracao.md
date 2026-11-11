@@ -1,8 +1,8 @@
 # PRODUTO P13 - APRESENTAÇÃO FINAL E ROTEIRO DE DEMONSTRAÇÃO
-**Projeto:** EduTask Web v1.0.0-p2  
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**  
-**Docente:** Prof. Dr. Elvio Gilberto da Silva  
-**Tempo Previsto:** 12 a 15 minutos de exposição + 5 minutos de arguição da banca.  
+**Projeto:** EduTask Web v1.0.0-p2
+**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
+**Docente:** Prof. Dr. Elvio Gilberto da Silva
+**Tempo Previsto:** 12 a 15 minutos de exposição + 5 minutos de arguição da banca.
 
 ---
 

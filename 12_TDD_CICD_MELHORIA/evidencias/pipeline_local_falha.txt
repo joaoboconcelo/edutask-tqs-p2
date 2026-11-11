@@ -1,0 +1,12 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+____________________________ test_falha_controlada ____________________________
+
+    def test_falha_controlada():
+>       assert 25 == 100
+E       assert 25 == 100
+
+..\..\..\..\AppData\Local\Packages\sandbox.{2b99de2c-e22f-423a-881f-e5bc83976ff4}\AC\Temp\tmpf8yi19i8\test_falha_controlada.py:2: AssertionError
+=========================== short test summary info ===========================
+FAILED ..\..\..\..\AppData\Local\Packages\sandbox.{2b99de2c-e22f-423a-881f-e5bc83976ff4}\AC\Temp\tmpf8yi19i8\test_falha_controlada.py::test_falha_controlada
+1 failed in 0.66s

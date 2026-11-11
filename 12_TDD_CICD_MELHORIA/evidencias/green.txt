@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\João.B\AppData\Local\Programs\Python\Python313\python.exe
+rootdir: C:\Users\João.B\Desktop\Faculdade\Trabalho Testes\P2_TQS_2026_TURMAA_GRUPO01_EDUTASK-WEB
+plugins: anyio-4.9.0
+collecting ... collected 3 items
+
+07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-1] PASSED [ 33%]
+07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[0-5] PASSED [ 66%]
+07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py::test_rejects_completed_tasks_above_total[2-3] PASSED [100%]
+
+- generated xml file: C:\Users\João.B\Desktop\Faculdade\Trabalho Testes\P2_TQS_2026_TURMAA_GRUPO01_EDUTASK-WEB\12_TDD_CICD_MELHORIA\evidencias\green.xml -
+============================== 3 passed in 0.57s ==============================

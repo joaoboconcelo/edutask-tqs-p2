@@ -1,154 +1,77 @@
-# PROJETO INTEGRADO P2 - TESTES E QUALIDADE DE SOFTWARE
-**UNISAGRADO - Ciência da Computação (2026)**  
-**Disciplina:** Testes e Qualidade de Software  
-**Professor:** Prof. Dr. Elvio Gilberto da Silva  
-**Turma:** Turma A  
+# EduTask Web Projeto Integrado P2
 
----
+UNISAGRADO, Ciência da Computação, Turma A, Grupo 01. Professor: Prof. Dr. Elvio Gilberto da Silva.
+Integrantes: Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo e Lucas Braga.
 
-## 1. Identificação dos Integrantes
-| Nome Completo | Função Principal no Projeto | Turma / Curso |
-| :--- | :--- | :--- |
-| **Gabriel Henrique Moreira** | Coordenação e Planejamento de Testes | Ciência da Computação - Turma A |
-| **João Lucas de Antonio Boconcelo** | Automação e Engenharia de Qualidade (TDD/CI) | Ciência da Computação - Turma A |
-| **Lucas Braga** | Análise e Execução Manual de Testes | Ciência da Computação - Turma A |
+## Sistema e versão
 
----
+EduTask Web v1.0.1-p2, revisão de 11/11/2026; versão documental sem tag Git publicada. Aplicação acadêmica local de disciplinas e tarefas.
+Repositório: https://github.com/joaoboconcelo/edutask-tqs-p2 . Esta revisão ainda precisa ser publicada pelo grupo.
 
-## 2. Nome e Versão do Sistema
-* **Nome do Sistema:** EduTask Web - Sistema de Gestão Acadêmica e Atividades
-* **Versão Avaliada:** v1.0.0-p2
-* **Ambiente de Operação:** Ambiente Local de Homologação / Testes (`http://127.0.0.1:5000`)
+## Tecnologias e pré requisitos
 
----
+Python 3.10+, Flask, Werkzeug, SQLite, Jinja2, Bootstrap, pytest e Selenium. Chrome instalado para E2E e driver compatível; Selenium Manager pode precisar de rede na primeira execução.
+O servidor e os testes de API são locais. Bootstrap e ícones usam CDN; não se promete interface estilizada totalmente offline.
 
-## 3. Link do Repositório
-* **Repositório GitHub:** `https://github.com/joaoboconcelo/edutask-tqs-p2`
-* **Branch de Trabalho:** `main`
+## Instalação e configuração
 
----
-
-## 4. Tecnologias Utilizadas
-* **Backend:** Python 3.13, Flask 3.1.3, Werkzeug
-* **Banco de Dados:** SQLite 3 (embutido)
-* **Frontend:** HTML5, CSS3, JavaScript, Bootstrap 5.3 (CDN), Bootstrap Icons
-* **Testes Unitários:** Pytest 9.1+ / Unittest
-* **Testes de Integração e API:** Coleção Postman (v2.1) + Requests + TestClient
-* **Testes de Sistema / Interface:** Selenium WebDriver 4.51 (Google Chrome / Microsoft Edge)
-* **Análise Estática de Qualidade:** Flake8, Radon (complexidade ciclomática)
-* **CI/CD:** GitHub Actions (`.github/workflows/ci.yml`)
-
----
-
-## 5. Pré-requisitos
-* Sistema Operacional: Windows 10/11 ou Linux Ubuntu 22.04+
-* Python 3.10 ou superior instalado e adicionado ao `PATH`
-* Navegador Google Chrome ou Microsoft Edge instalado
-* Git instalado
-
----
-
-## 6. Instalação
-Clone ou extraia o pacote do projeto e instale as dependências:
+Da raiz da entrega, preferencialmente em ambiente virtual:
 ```powershell
-cd 01_SISTEMA_ALVO
-python -m pip install -r requirements.txt
+python -m venv .venv
+.venv/Scripts/Activate.ps1
+python -m pip install -r 01_SISTEMA_ALVO/requirements.txt
 ```
 
----
+SECRET_KEY pode ser configurada no ambiente; o valor padrão serve apenas ao laboratório. Não expor o servidor de desenvolvimento na internet.
 
-## 7. Configuração
-A aplicação vem pré-configurada para rodar em ambiente de desenvolvimento/testes isolado. O arquivo de banco SQLite `edutask.db` é criado e inicializado automaticamente no primeiro carregamento.
-* Variável de ambiente opcional: `SECRET_KEY=unisagrado-tqs-p2-secret-2026`
+## Banco e dados
 
----
+SQLite de demonstração em `01_SISTEMA_ALVO/edutask.db`, criado automaticamente com um usuário, duas disciplinas e três tarefas.
+Cada teste usa banco temporário por configuração DATABASE; não altera o banco de demonstração. Não apagar a base para rodar os testes.
+Para reinicializar apenas a demonstração, parar o servidor, remover esse arquivo específico e reiniciar. As datas de seed são fixas; urgência na interface acompanha a data atual.
 
-## 8. Banco e Dados
-* **Mecanismo:** SQLite 3
-* **Criação de Tabelas:** O método `init_db()` cria automaticamente as tabelas `users`, `disciplines` e `tasks`.
-* **Carga de Dados Fictícios:** O método `seed_initial_data()` popula registros controlados (1 usuário de teste, 2 disciplinas acadêmicas e 3 tarefas com diferentes níveis de prioridade e prazos).
-* **Restauração de Dados:** Para restaurar o banco ao estado inicial limpo entre execuções, basta apagar o arquivo `01_SISTEMA_ALVO/edutask.db` e reiniciar o servidor.
+## Execução
 
----
-
-## 9. Execução do Sistema
-Inicie o servidor web local executando:
 ```powershell
-cd 01_SISTEMA_ALVO
-python run.py
+python 01_SISTEMA_ALVO/run.py
 ```
-Acesse no navegador: **`http://127.0.0.1:5000`**
+Acesso: http://127.0.0.1:5000 . Credenciais fictícias: `aluno@unisagrado.edu.br` / `Senha@123`.
 
----
+## Testes
 
-## 10. Execução dos Testes Automatizados
-
-### 10.1 Testes Unitários
-Para executar a suíte de testes unitários:
+Da raiz:
 ```powershell
-cd 07_AUTOMACAO_UNITARIA
-pytest -v test_unitarios.py
+python -m pytest -v 07_AUTOMACAO_UNITARIA
+python -m pytest -v 08_INTEGRACAO_API
+python -m pytest -v 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py 10_ACEITACAO_NAO_FUNCIONAIS
+python -m pytest -v 09_SISTEMA_INTERFACE
+python -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8
+python tools/medir_qualidade.py
+python tools/verificar_pipeline.py
 ```
 
-### 10.2 Testes de Integração e API
-Para executar os testes de API automatizados:
-```powershell
-cd 08_INTEGRACAO_API
-python test_api_integracao.py
-```
-*(A coleção Postman editável também está disponível em `08_INTEGRACAO_API/edutask_api_collection.json`).*
+Selenium inicia seu próprio servidor local em porta livre; não requer servidor na porta 5000. Se necessário, definir CHROMEDRIVER como caminho do executável compatível e CHROME_BINARY como caminho do Chrome.
+Resultado consolidado desta revisão: 98/98 cenários; logs e ambiente na pasta 11. Parametrizações são contadas como cenários.
 
-### 10.3 Testes de Sistema e Interface (Selenium)
-Com a aplicação em execução na porta 5000, rode os testes E2E:
-```powershell
-cd 09_SISTEMA_INTERFACE
-python test_selenium_e2e.py
-```
+## API e Postman
 
----
+Importar `08_INTEGRACAO_API/edutask_api_collection.postman_collection.json` e `edutask_environment.postman_environment.json`.
+Executar login válido primeiro e manter cookies na mesma sessão; demais endpoints exigem autenticação. Os testes Python usam Flask test client integrado ao SQLite, não requests de rede.
+As medições de latência usam requests e HTTP real separadamente. A coleção Postman é fornecida; não há resultado Newman comprovado nesta revisão.
 
-## 11. Acesso ao Pipeline CI/CD
-O arquivo de configuração do pipeline de Integração Contínua está localizado em:
-* `12_TDD_CICD_MELHORIA/.github/workflows/ci.yml`
-* Gatilhos configurados: `push` e `pull_request` nas branches `main` e `develop`.
-* Passos automatizados: Preparação do ambiente Python, instalação de dependências, checagem de qualidade com Flake8 e execução de todos os testes unitários e de integração.
+## Pipeline
 
----
+Arquivo canônico: `.github/workflows/ci.yml`. Instala dependências, executa linter bloqueante e os testes e preserva artefatos.
+Sem URL de run desta revisão: publicar e executar no GitHub é pendência. `tools/verificar_pipeline.py` comprova falha e sucesso locais e identifica o ambiente corretamente.
 
-## 12. Localização dos Documentos e Entregáveis
-* `00_IDENTIFICACAO_E_README/`: Este README, Comprovante de Entrega e Apêndice A.
-* `01_SISTEMA_ALVO/`: Código-fonte completo e funcional da aplicação EduTask Web.
-* `02_REQUISITOS_ESCOPO_RISCOS/`: Requisitos (RF-01 a RF-06, RNF-01 a RNF-02) e Matriz de Riscos (R-01 a R-08).
-* `03_PLANO_DE_TESTES/`: Plano de testes formal (Apêndice D).
-* `04_CASOS_E_RASTREABILIDADE/`: 24 Casos de teste manuais e Matriz de Rastreabilidade.
-* `05_EXECUCAO_MANUAL/`: Registro detalhado das 24 execuções manuais e evidências.
-* `06_DEFEITOS/`: Registro de defeitos no padrão GitHub Issues / Jira e exportação em CSV.
-* `07_AUTOMACAO_UNITARIA/`: Scripts de testes unitários automatizados.
-* `08_INTEGRACAO_API/`: Coleção Postman e script de teste de API.
-* `09_SISTEMA_INTERFACE/`: Scripts de testes ponta a ponta com Selenium WebDriver.
-* `10_ACEITACAO_NAO_FUNCIONAIS/`: 4 Cenários de Aceitação e 6 Testes Não-Funcionais.
-* `11_METRICAS_E_QUALIDADE/`: Relatório das 8 métricas com gráficos e análise estática.
-* `12_TDD_CICD_MELHORIA/`: Evidências do ciclo TDD (Red-Green-Refactor) e arquivo de CI/CD.
-* `13_RELATORIO_FINAL/`: Relatório Final Integrado em formatos DOCX e PDF.
-* `14_APRESENTACAO_E_VIDEO_CONTINGENCIA/`: Slides da apresentação (PPTX e PDF) e roteiro do vídeo.
-* `15_DIARIO_DE_PARTICIPACAO/`: Diário semanal de contribuições e Declaração assinada.
-* `16_BACKUP_ENTREGA/`: Cópia de segurança e checklist final de verificação.
+## Documentos e evidências
 
----
+00 identificação e pendências; 01 sistema; 02 requisitos e riscos; 03 plano; 04 catálogo e matriz; 05 relatos manuais e reexecução automatizada; 06 defeitos históricos e confirmados; 07 unidade; 08 integração/Postman; 09 Selenium e capturas; 10 aceitação e não funcionais; 11 métricas, planilha e dados brutos; 12 TDD e CI; 13 relatório DOCX/PDF; 14 dispensa de apresentação/vídeo; 15 diário para conferência; 16 backup e checklist.
 
-## 13. Credenciais Fictícias de Demonstração
-* **Usuário Padrão:** `aluno@unisagrado.edu.br`
-* **Senha:** `Senha@123`
-* **Perfil:** Estudante / Gestor de Atividades
+Relatório atual: `13_RELATORIO_FINAL/RELATORIO_FINAL_PROJETO_P2.docx` e PDF correspondente. O memorial na raiz é cópia do relatório revisado; materiais antigos da apresentação não são fonte dos resultados atuais.
 
----
+## Limitações e contato
 
-## 14. Problemas Conhecidos
-* O Selenium em modo visual requer que o navegador Google Chrome ou Edge esteja instalado no sistema operacional. Caso executado em ambiente sem display (servidores headless), utilize o parâmetro `--headless` já previsto no script.
-
----
-
-## 15. Contato do Grupo
-* **Gabriel Henrique Moreira** (Ciência da Computação - Turma A)
-* **João Lucas de Antonio Boconcelo** (Ciência da Computação - Turma A)
-* **Lucas Braga** (Ciência da Computação - Turma A)
+Consulte `PENDENCIAS_PARA_ENTREGA.md`: aprovação docente, registros manuais e humanos, origem/licença, publicação/Actions/Issues e entrega oficial ainda dependem do grupo.
+Não há auditoria completa de segurança, carga concorrente, CSRF dedicado ou aceitação externa comprovada. Parecer limitado ao laboratório acadêmico.
+Contato: os três integrantes identificados no início; nenhum contato pessoal foi inventado.

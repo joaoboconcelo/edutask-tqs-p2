@@ -1,8 +1,10 @@
+> **Nota da revisão de 11/11/2026:** os registros de outubro abaixo são relatos históricos do grupo, sem capturas contemporâneas ou issues externas disponibilizadas. A reexecução atual comprova o comportamento da versão revisada, mas não comprova as datas nem o ciclo original de defeitos.
+
 # PRODUTO P06 - REGISTRO DE EXECUÇÕES MANUAIS (APÊNDICE F)
-**Projeto:** EduTask Web v1.0.0-p2  
-**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**  
-**Responsável pelas Execuções:** Lucas Braga (com apoio de Gabriel Moreira e João Lucas Boconcelo)  
-**Ambiente de Teste:** Localhost (`http://127.0.0.1:5000`), Python 3.13, Navegador Chrome v131 e Edge v131.  
+**Projeto:** EduTask Web v1.0.0-p2
+**Disciplina:** Testes e Qualidade de Software | **UNISAGRADO 2026**
+**Responsável pelas Execuções:** Lucas Braga (com apoio de Gabriel Moreira e João Lucas Boconcelo)
+**Ambiente de Teste:** Localhost (`http://127.0.0.1:5000`), Python 3.13, Navegador Chrome v131 e Edge v131.
 
 ---
 

@@ -6,3 +6,8 @@ edutask.db
 dist/
 build/
 .env
+
+tools/.deps/
+node_modules/
+tmp/
+.coverage*

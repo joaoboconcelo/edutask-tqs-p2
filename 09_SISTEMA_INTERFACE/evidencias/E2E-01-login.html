@@ -1,0 +1,244 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EduTask</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .navbar-brand { font-weight: 700; color: #0d6efd !important; }
+        .card { border-radius: 10px; border: 1px solid #e9ecef; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+        .badge-alta { background-color: #dc3545; color: white; }
+        .badge-media { background-color: #fd7e14; color: white; }
+        .badge-baixa { background-color: #198754; color: white; }
+        .badge-urgente { background-color: #6f42c1; color: white; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="/">
+                <i class="bi bi-mortarboard-fill"></i> EduTask
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-dashboard" href="/">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-disciplinas" href="/disciplinas">
+                            <i class="bi bi-book"></i> Disciplinas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-tarefas" href="/tarefas">
+                            <i class="bi bi-check2-square"></i> Tarefas
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> Aluno Demonstração
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><span class="dropdown-item-text text-muted small">aluno@unisagrado.edu.br</span></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item text-danger" id="btn-logout" href="/logout">
+                                    <i class="bi bi-box-arrow-right"></i> Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mensagens Flash -->
+    <div class="container mt-3">
+        
+            
+                
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" id="flash-alert">
+                        Bem-vindo(a), Aluno Demonstração!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                
+            
+        
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container my-4 flex-grow-1">
+        
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1">Painel Acadêmico</h2>
+        <p class="text-muted mb-0">Visão geral do progresso de entregas e disciplinas matriculadas</p>
+    </div>
+    <div>
+        <a href="/tarefas/nova" class="btn btn-primary" id="btn-quick-task">
+            <i class="bi bi-plus-lg"></i> Nova Tarefa
+        </a>
+        <a href="/disciplinas/nova" class="btn btn-outline-secondary" id="btn-quick-disc">
+            <i class="bi bi-journal-plus"></i> Nova Disciplina
+        </a>
+    </div>
+</div>
+
+<!-- Cards de Métricas -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-primary border-4 shadow-sm" id="card-total-tasks">
+            <div class="text-muted small fw-bold text-uppercase">Total de Tarefas</div>
+            <div class="fs-2 fw-bold text-dark mt-1" id="stat-total-tasks">3</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-success border-4 shadow-sm" id="card-completed-tasks">
+            <div class="text-muted small fw-bold text-uppercase">Concluídas</div>
+            <div class="fs-2 fw-bold text-success mt-1" id="stat-completed-tasks">1</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-warning border-4 shadow-sm" id="card-pending-tasks">
+            <div class="text-muted small fw-bold text-uppercase">Pendentes / Em Aberto</div>
+            <div class="fs-2 fw-bold text-warning mt-1" id="stat-pending-tasks">2</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 border-start border-info border-4 shadow-sm" id="card-total-disciplines">
+            <div class="text-muted small fw-bold text-uppercase">Disciplinas Cadastradas</div>
+            <div class="fs-2 fw-bold text-info mt-1" id="stat-total-disciplines">2</div>
+        </div>
+    </div>
+</div>
+
+<!-- Barra de Progresso Geral -->
+<div class="card p-4 mb-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="fw-bold">Taxa Geral de Conclusão</span>
+        <span class="fw-bold text-primary" id="stat-rate-text">33.33%</span>
+    </div>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 33.33%;" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" id="progress-bar-completion">
+            33.33%
+        </div>
+    </div>
+</div>
+
+<!-- Próximas Entregas -->
+<div class="card shadow-sm">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="fw-bold mb-0"><i class="bi bi-clock-history text-primary"></i> Próximas Entregas e Atividades</h5>
+        <a href="/tarefas" class="btn btn-sm btn-outline-primary" id="link-view-all-tasks">Ver Todas</a>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="table-upcoming-tasks">
+                <thead class="table-light">
+                    <tr>
+                        <th>Título da Atividade</th>
+                        <th>Disciplina</th>
+                        <th>Prazo Limite</th>
+                        <th>Prioridade</th>
+                        <th>Nível de Urgência</th>
+                        <th>Status Atual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="fw-semibold">Entrega do Plano de Testes P2</td>
+                        <td><span class="badge bg-light text-dark border">CC-TQS01</span> Testes e Qualidade de Software</td>
+                        <td>2026-11-15</td>
+                        <td>
+                            
+                                <span class="badge badge-alta">Alta</span>
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="badge bg-info text-dark">Média Urgência</span>
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Concluída</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="fw-semibold">Automação com Selenium</td>
+                        <td><span class="badge bg-light text-dark border">CC-TQS01</span> Testes e Qualidade de Software</td>
+                        <td>2026-11-20</td>
+                        <td>
+                            
+                                <span class="badge badge-alta">Alta</span>
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="badge bg-info text-dark">Normal</span>
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="fw-semibold">Modelagem Conceitual de Dados</td>
+                        <td><span class="badge bg-light text-dark border">CC-BD02</span> Banco de Dados Avançado</td>
+                        <td>2026-11-25</td>
+                        <td>
+                            
+                                <span class="badge badge-media">Média</span>
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="badge bg-info text-dark">Normal</span>
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="badge bg-secondary"><i class="bi bi-clock"></i> Pendente</span>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-light text-center text-muted py-3 border-top mt-auto">
+        <div class="container">
+            <small>EduTask © 2026 - UNISAGRADO Ciência da Computação | Disciplina de Testes e Qualidade de Software</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body></html>

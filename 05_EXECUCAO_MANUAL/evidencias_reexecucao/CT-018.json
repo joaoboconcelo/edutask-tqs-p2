@@ -1,0 +1,9 @@
+{
+  "caso": "CT-018",
+  "metodo": "Flask test client automatizado",
+  "resultado": "Aprovado",
+  "status_http": 200,
+  "verificacao_textual": "Não é possível excluir",
+  "banco": "isolado por cenário",
+  "data_execucao": "2026-11-11T12:32:33.419970-03:00"
+}

@@ -1,0 +1,9 @@
+{
+  "caso": "CT-003",
+  "metodo": "Flask test client automatizado",
+  "resultado": "Aprovado",
+  "status_http": 200,
+  "verificacao_textual": "mínimo 8 caracteres",
+  "banco": "isolado por cenário",
+  "data_execucao": "2026-11-11T12:32:28.998747-03:00"
+}
