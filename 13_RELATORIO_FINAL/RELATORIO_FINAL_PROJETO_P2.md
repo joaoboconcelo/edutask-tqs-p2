@@ -4,11 +4,11 @@
 
 O Projeto Integrado P2 aplicou planejamento, especificação, execução, automação e análise de qualidade ao EduTask Web. A versão revisada v1.0.1-p2 possui código executável, banco SQLite, interface web, API e regras de domínio separadas. A entrega reúne documentos rastreáveis, arquivos-fonte e evidências que permitem repetir a avaliação.
 
-Foram aprovados **98 cenários automatizados**: 30 unitários, 36 de integração/API, 24 de reexecução do catálogo e quatro de aceitação técnica, além de quatro fluxos Selenium incluídos nesse total. A cobertura da suíte sem navegador é de **90.07% das linhas executáveis**. O Flake8 passou de 179 ocorrências na linha de base para zero depois da revisão.
+Foram aprovados **145 cenários automatizados**: 34 unitários, 79 de integração/API, 24 de reexecução do catálogo e quatro de aceitação técnica, além de quatro fluxos Selenium incluídos nesse total. A cobertura da suíte sem navegador é de **98.32% das linhas executáveis**. O Flake8 passou de 179 ocorrências na linha de base para zero depois da revisão.
 
 Além da suíte, foram realizadas **28 observações interativas pela interface**, sendo 24 casos do catálogo e quatro cenários de aceitação técnica. As capturas e os snapshots foram preservados. Essas observações não são contadas novamente como testes da suíte e não constituem assinatura ou homologação humana.
 
-Quatro defeitos confirmados foram corrigidos e registrados nas issues #1 a #4. A revisão publicada passou no GitHub Actions. Um PR separado demonstrou falha intencional detectada pelo pipeline e uma execução aprovada depois da remoção da asserção falsa. O experimento foi encerrado sem merge na versão principal.
+Seis defeitos confirmados foram corrigidos e registrados nas issues #1, #2, #3, #4, #6 e #7. A revisão publicada passou no GitHub Actions. Um PR separado demonstrou falha intencional detectada pelo pipeline e uma execução aprovada depois da remoção da asserção falsa. O experimento foi encerrado sem merge na versão principal.
 
 O parecer é favorável ao uso no laboratório acadêmico dentro do escopo verificado. Permanecem dependentes das pessoas responsáveis a aprovação docente, a conferência de participação e assinaturas, a homologação humana quando exigida e a entrega na pasta oficial do Drive.
 
@@ -136,14 +136,14 @@ Tipo: Não Funcional. Prioridade: Alta.
 Critério de aceitação: **Dado** que o servidor está em execução sob carga padrão de testes, **Quando** for realizada uma requisição `GET /api/tarefas` ou `GET /api/metricas`, **Então** o tempo de resposta medido deve ser estritamente menor que 500ms.
 ### RNF-02
 
-**Segurança e Proteção de Senhas:** Todas as senhas dos usuários devem ser armazenadas exclusivamente em formato de hash criptográfico seguro (scrypt ou PBKDF2-SHA256), sem jamais persistir senhas em texto puro.
+**Segurança e Proteção de Senhas:** Todas as senhas dos usuários devem ser armazenadas exclusivamente em formato de hash criptográfico seguro (PBKDF2-SHA256), sem jamais persistir senhas em texto puro.
 
 Tipo: Não Funcional. Prioridade: Alta.
 
 Critério de aceitação: **Dado** que um usuário efetua seu cadastro, **Quando** o registro for gravado no banco SQLite, **Então** a coluna `password_hash` deve conter um hash criptográfico válido e a senha em texto puro não deve ser identificável.
 
 
-RF-05 mantém seu significado de atualização de status e percentual. O cálculo de urgência complementa RF-04 e mitiga R-07. RNF-02 foi explicitado na revisão para aceitar scrypt ou PBKDF2-SHA256, compatíveis com a verificação realizada; a redação revisada deve ser confirmada pelo grupo/professor.
+RF-05 mantém seu significado de atualização de status e percentual. O cálculo de urgência complementa RF-04 e mitiga R-07. RNF-02 mantém PBKDF2-SHA256 conforme a especificação original. O cadastro e o seed usam o método explicitamente; hashes antigos são atualizados após login válido, sem alterar a senha. A migração foi verificada nos caminhos web e API.
 
 ### 3.3 Matriz de riscos
 
@@ -253,7 +253,7 @@ A reexecução por cliente Flask não aplica as restrições HTML e por isso con
 
 ### 6.3 Registro e correção dos defeitos
 
-Os quatro defeitos confirmados foram registrados depois de observados na revisão. A linha de base de referência é o commit `a0df9e6a2dd69687bc88222fca707bdc6f877583`. A correção foi publicada no commit `33d441c7f6dc4599da735727f232c5c1aa5d41f3`. As issues foram encerradas após aprovação da suíte no Actions, e os metadados foram conservados na pasta 06.
+Os seis defeitos foram registrados depois de observados na revisão. Os quatro primeiros foram corrigidos na rodada inicial; DEF-07 e DEF-08 foram corrigidos na rodada complementar. A linha de base de referência é o commit `a0df9e6a2dd69687bc88222fca707bdc6f877583`. A correção foi publicada no commit `33d441c7f6dc4599da735727f232c5c1aa5d41f3`. As quatro primeiras issues foram encerradas após aprovação remota. As duas complementares foram encerradas após correção publicada no commit 4acc9d5, aprovação local dos 145 cenários e reteste remoto aprovado na execução 43099616601. Os metadados ficam na pasta 06.
 
 | Defeito | Severidade | Correção | Issue |
 |---|---|---|---|
@@ -261,6 +261,8 @@ Os quatro defeitos confirmados foram registrados depois de observados na revisã
 | DEF-04 Configuração de banco ignorada | Média | Ler DATABASE por instância e inicializar em contexto | #2 |
 | DEF-05 API e dados sem isolamento adequado | Alta | Exigir sessão e restringir consultas e alterações ao proprietário | #3 |
 | DEF-06 Data inválida provoca exceção | Alta | Responder HTTP 400 sem persistência | #4 |
+| DEF-07 JSON ou credenciais com tipo inválido | Média | Validar contrato antes de acessar campos e responder 400 | #6 |
+| DEF-08 Hash divergente do RNF-02 original | Média | PBKDF2 explícito e migração transparente após login válido | #7 |
 
 Os detalhes reproduzíveis estão no apêndice B e no P07. Severidade descreve o impacto; prioridade orienta a ordem de correção. O registro local conserva o identificador DEF, enquanto o número da ferramenta é o número da issue. Os dois não são intercambiáveis.
 
@@ -270,12 +272,12 @@ Os detalhes reproduzíveis estão no apêndice B e no P07. Severidade descreve o
 
 | Conjunto | Cenários executados | Propósito |
 |---|---|---|
-| Unidade | 30 | Regras de validação, cálculo, filtros, fronteiras e regressão TDD |
-| Integração e API | 36 | Comunicação de rotas, domínio e banco, incluindo sessão e proprietário |
+| Unidade | 34 | Regras de validação, cálculo, filtros, fronteiras e regressão TDD |
+| Integração e API | 79 | Comunicação de rotas, domínio e banco, incluindo sessão, proprietário, tipos de JSON, migração de hash e fluxos alternativos |
 | Reexecução do catálogo | 24 | Confrontar cada CT com resposta e persistência |
 | Aceitação técnica | 4 | Exercitar objetivos do estudante |
 | Sistema com Selenium | 4 | Completar fluxos reais de navegador com verificações |
-| Total automatizado | 98 | Todos aprovados, sem casos ignorados na consolidação local |
+| Total automatizado | 145 | Todos aprovados, sem casos ignorados na consolidação local |
 
 Os casos parametrizados são contados por combinação executada, não como funções independentes. A inspeção interativa de 28 cenários é um conjunto adicional de observações, sem alterar o total de testes pytest. Os XMLs permitem conferir os nomes e os resultados individuais.
 
@@ -342,9 +344,9 @@ O procedimento faz três requisições de aquecimento e 30 medições por rota, 
 
 | Rota | N | Mínimo ms | Média ms | P95 ms | Máximo ms |
 |---|---|---|---|---|---|
-| `/api/metricas` | 30 | 4.165 | 6.144 | 23.647 | 27.635 |
-| `/api/tarefas` | 30 | 3.247 | 3.497 | 3.822 | 4.038 |
-| `/tarefas` | 30 | 3.808 | 4.843 | 4.497 | 25.521 |
+| `/api/metricas` | 30 | 4.098 | 4.572 | 5.146 | 5.250 |
+| `/api/tarefas` | 30 | 3.193 | 4.206 | 4.147 | 26.937 |
+| `/tarefas` | 30 | 3.801 | 4.157 | 4.578 | 5.488 |
 
 Todas as amostras ficaram abaixo de 500 ms, atendendo RNF-01 na carga documentada. O P95 é o 29º valor da lista ordenada de 30 amostras, método do posto mais próximo. Essa medição não é tempo de renderização completa do navegador, não inclui internet e não demonstra capacidade sob concorrência ou volume elevado.
 
@@ -358,7 +360,7 @@ TNF-04 verifica feedback de validação: senhas curtas ou sem símbolo, divergê
 
 ### 9.4 Segurança TNF 05 e TNF 06
 
-TNF-05 cadastra um usuário, consulta password_hash em banco temporário, rejeita a presença da senha em texto claro e confirma o hash com check_password_hash. TNF-06 verifica ausência de sessão, tentativa de acesso a registros de outro usuário e entradas de SQL injection sem autenticação ou alteração indevida da base.
+TNF-05 cadastra um usuário, consulta password_hash em banco temporário, exige o prefixo PBKDF2-SHA256, rejeita senha em texto claro e confirma a verificação da senha. O seed segue o mesmo algoritmo, e os testes verificam migração de hashes antigos após login válido, tanto pela interface quanto pela API. TNF-06 verifica ausência de sessão, tentativa de acesso a registros de outro usuário e entradas de SQL injection sem autenticação ou alteração indevida da base.
 
 Os testes não constituem pentest completo. Permanecem fora da validação uma defesa CSRF dedicada, limitação de tentativas, implantação HTTPS e configurações de produção. Por esse motivo o parecer de uso se limita ao laboratório acadêmico controlado.
 
@@ -373,15 +375,15 @@ Os testes não constituem pentest completo. Permanecem fora da validação uma d
 | Taxa de reprovação | CTs reprovados / CTs executados | 0/24 = 0% | catalogo.xml |
 | Cobertura de requisitos | Requisitos com verificação executada / escopo | 8/8 = 100% | P05, testes e latências |
 | Taxa de automação | CTs automatizados / CTs selecionados para automação | 24/24 = 100% | P03 e script da pasta 05 |
-| Defeitos por severidade | Contagem dos quatro confirmados | 2 médios, 2 altos | issues e P07 |
-| Defeitos por status | Contagem após reteste | 4 encerrados, 0 abertos | GitHub Issues |
-| Taxa de reabertura | Defeitos reabertos / retestados | 0/4 = 0% | registros da revisão |
+| Defeitos por severidade | Contagem dos seis confirmados | 4 médios, 2 altos | issues e P07 |
+| Defeitos por status | Contagem após reteste | 6 encerrados, 0 abertos | GitHub Issues |
+| Taxa de reabertura | Defeitos reabertos / retestados | 0/6 = 0% | registros da revisão |
 
-A planilha Planilha_Metricas.xlsx contém dados identificados e 12 fórmulas, incluindo os indicadores de execução, aprovação, reprovação, requisitos, automação, defeitos, cobertura de linhas e aprovação da suíte. Os indicadores por severidade/status são contagens. Os dados históricos sem evidência não foram incorporados aos quatro defeitos confirmados.
+A planilha Planilha_Metricas.xlsx contém dados identificados e 12 fórmulas, incluindo os indicadores de execução, aprovação, reprovação, requisitos, automação, defeitos, cobertura de linhas e aprovação da suíte. Os indicadores por severidade/status são contagens. Os dados históricos sem evidência não foram incorporados aos seis defeitos confirmados.
 
 ### 10.2 Cobertura de código e seus limites
 
-Linhas executadas: 517/574 = **90.07%**. Ramos cobertos: 130/162 = **80.25%**. A cobertura foi medida na suíte sem Selenium; os XMLs do navegador são contabilizados separadamente.
+Linhas executadas: 586/596 = **98.32%**. Ramos cobertos: 162/172 = **94.19%**. A cobertura foi medida na suíte sem Selenium; os XMLs do navegador são contabilizados separadamente.
 
 Cobertura de requisito e cobertura de código são medidas diferentes. Um requisito com ao menos um teste não significa que todas as suas alternativas foram exercitadas. Da mesma forma, uma linha executada não prova que todos os seus resultados foram confrontados com uma asserção. O JSON de cobertura preserva informações por arquivo e linhas não cobertas.
 
@@ -399,15 +401,25 @@ O workflow usa o código de saída real do Flake8, sem --exit-zero. Portanto, um
 
 ## 11 TDD integração contínua e melhoria
 
-### 11.1 Experiência TDD registrada
+### 11.1 Experiência TDD com commits cronológicos reais
 
-A regra selecionada foi rejeitar uma contagem de tarefas concluídas superior ao total, inclusive quando o total é zero. Antes da correção, calculate_completion_rate(0,1) retornava 0.0 porque o caso vazio era tratado antes da verificação de consistência. O resultado esperado era ValueError, preservando calculate_completion_rate(0,0)=0.0.
+O comportamento escolhido foi rejeitar corpos JSON não objeto e credenciais de tipos não textuais com resposta HTTP 400. Antes da correção, entradas como [1], texto, números e campos email/password não textuais podiam provocar exceção. Os testes de integração foram escritos e executados antes da implementação e registrados no primeiro commit do ciclo.
 
-RED: o arquivo test_tdd_consistencia.py foi escrito antes da correção. As entradas (0,1) e (0,5) falharam porque a exceção esperada não foi lançada; (2,3) já era rejeitada e passou. O XML preserva duas falhas e uma aprovação.
+| Etapa | Commit | Data e fuso | Resultado real |
+|---|---|---|---|
+| RED | e2ad848831f6 | 2026-11-11T17:53:29-03:00 | 17 falhas e 3 aprovados antes da correção |
+| GREEN | 9feabf493df3 | 2026-11-11T17:54:13-03:00 | 20 aprovados após implementação mínima |
+| REFACTOR | 4e55cbbaa515 | 2026-11-11T17:54:33-03:00 | 20 aprovados após isolamento da validação |
 
-GREEN: a verificação de concluídas maior que total foi movida para antes do retorno do caso vazio. Os três cenários passaram. REFACTOR: o retorno foi simplificado sem modificar a regra, e a regressão unitária/API então existente permaneceu aprovada. A suíte foi ampliada posteriormente para os 98 cenários documentados.
+RED registrou 17 falhas e três aprovações: as falhas revelaram erros do comportamento existente. GREEN implementou a guarda mínima de JSON e tipos de credenciais, aprovando os 20 cenários. REFACTOR extraiu a validação para a função pura json_payload_error, preservando as 20 aprovações. São três commits reais e sucessivos; não foram criados retrospectivamente como se fossem históricos de outubro.
 
-Os logs RED/GREEN/REFACTOR e os snapshots de código estão na pasta 12, identificados por SHA-256. Hash de arquivo não é hash de commit. O ciclo não recebeu três commits cronológicos separados; a evidência temporal disponível é o registro de execução e os snapshots preservados. O histórico da função de urgência não foi apresentado como se comprovasse TDD anterior.
+Links verificáveis dos commits:
+
+- RED: https://github.com/joaoboconcelo/edutask-tqs-p2/commit/e2ad848831f68d84b2976ca20c85c59f3123b73c
+- GREEN: https://github.com/joaoboconcelo/edutask-tqs-p2/commit/9feabf493df34e27a876651d08037ac668d67a30
+- REFACTOR: https://github.com/joaoboconcelo/edutask-tqs-p2/commit/4e55cbbaa515950dbdcb50b02483deb37e01d131
+
+Os arquivos red/green/refactor.txt e .xml, além de commits.json, ficam em 12_TDD_CICD_MELHORIA/evidencias/tdd_json. A primeira experiência com cálculo de percentual continua como evidência complementar de logs/snapshots, mas a comprovação principal do requisito TDD agora é este ciclo com Git. A falha intencional de CI descrita a seguir tem outra finalidade e não é confundida com um defeito encontrado por TDD.
 
 ### 11.2 Pipeline real no GitHub Actions
 
@@ -418,12 +430,14 @@ O arquivo canônico é `.github/workflows/ci.yml`, na raiz do repositório. Os g
 | principal | 33d441c7f6dc | success | 43094289919 |
 | falha controlada | 018467182875 | failure | 43094396473 |
 | correcao | 7407afef2a4d | success | 43094602358 |
+| complementar | 4acc9d5d7c1d | success | 43099616601 |
 
 URLs verificáveis:
 
 - Revisão publicada aprovada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919
 - Falha intencional detectada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094396473
 - Correção aprovada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094602358
+- Suíte ampliada e PBKDF2 aprovados: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43099616601
 - PR de demonstração encerrado sem merge: https://github.com/joaoboconcelo/edutask-tqs-p2/pull/5
 
 O teste temporário continha assert False e falhou na etapa de testes unitários, como planejado. Depois de removido, o pipeline voltou a passar. A versão principal permaneceu funcional. Os logs originais do GitHub foram baixados e extraídos na pasta 12 para que a comprovação não dependa apenas de um ícone na interface.
@@ -445,7 +459,7 @@ Publicação, issues e demonstração de CI estão concluídas. Os responsáveis
 
 Os resultados mais relevantes são a correção de falhas reais de isolamento e validação, o fortalecimento das asserções, a preservação de dados brutos e a demonstração remota de que o pipeline aceita uma versão correta e bloqueia uma regressão intencional. A inspeção da interface acrescenta observações sobre mensagens nativas e navegação que o cliente Flask não reproduz.
 
-Os 98 cenários aprovados não provam ausência geral de falhas. A cobertura de linhas e ramos é parcial, o desempenho foi medido em carga pequena, a interface usa recursos externos por CDN e a segurança não foi auditada de forma exaustiva. Esses limites orientam o plano de melhoria e restringem o parecer ao uso acadêmico local.
+Os 145 cenários aprovados não provam ausência geral de falhas. A cobertura de linhas e ramos é parcial, o desempenho foi medido em carga pequena, a interface usa recursos externos por CDN e a segurança não foi auditada de forma exaustiva. Esses limites orientam o plano de melhoria e restringem o parecer ao uso acadêmico local.
 
 O solicitante não confirmou aprovação docente ou validações humanas anteriores. Por isso, a ficha do professor, o aceite humano e as assinaturas permanecem sem preenchimento. Os registros interativos deixam explícito o executor técnico. A entrega oficial no Google Drive e a conferência de permissões e prazo também não são substituídas pela publicação no GitHub.
 
@@ -461,7 +475,7 @@ SILVA, Elvio Gilberto da. Testes e Qualidade de Software Projeto P2. Manual forn
 
 EduTask Web. Código-fonte e documentos P01 a P14 desta entrega. Linha de base a0df9e6 e revisão publicada 33d441c. Repositório: https://github.com/joaoboconcelo/edutask-tqs-p2 .
 
-Evidências efetivamente utilizadas: relatórios JUnit XML; JSON de cobertura e ambiente; CSV de latências; logs Flake8; snapshots de TDD; capturas e metadados da inspeção interativa; issues #1 a #4; runs de CI e PR #5 indicados na seção 11.
+Evidências efetivamente utilizadas: relatórios JUnit XML; JSON de cobertura e ambiente; CSV de latências; logs Flake8; snapshots de TDD; capturas e metadados da inspeção interativa; issues #1, #2, #3, #4, #6 e #7; runs de CI e PR #5 indicados na seção 11.
 
 <!-- pagebreak -->
 
@@ -930,9 +944,27 @@ Reprodução e reteste: `test_rf04_invalid_task_does_not_persist`. Linha de base
 
 Responsabilidade: revisão técnica; validação dos integrantes pendente.
 
+### DEF-07 API recebe JSON ou credenciais de tipos inválidos
+
+Requisito: RF-02. Risco: R-03. Severidade: Média. Prioridade: Alta. Status: corrigido e retestado local e remotamente; issue #6 encerrada após publicação.
+
+Reprodução: enviar POST /api/auth/login com JSON [1], um escalar ou e-mail/senha não textuais. Antes, havia AttributeError ou erro interno. Esperado: HTTP 400 com erro JSON.
+
+Correção: json_payload_error verifica o contrato antes do acesso a campos. O ciclo TDD novo registrou 17 falhas e três aprovações no RED, seguido de 20 aprovações no GREEN e no REFACTOR. Commits reais e logs estão em evidencias/tdd_json da pasta 12.
+
+Reteste: test_tdd_validacao_json.py e suíte ampliada. Correção publicada no commit 4acc9d5d7c1d065e152ded6c19699e7c94057f49. A conclusão da nova execução remota é acompanhada separadamente.
+
+### DEF-08 Hash divergente do RNF-02 original
+
+Requisito: RNF-02. Risco: R-01. Severidade: Média. Prioridade: Alta. Status: corrigido e retestado local e remotamente; issue #7 encerrada após publicação.
+
+Antes: o cadastro usava scrypt por padrão, enquanto RNF-02 especificava PBKDF2-SHA256. A divergência é de requisito, sem declarar scrypt inseguro. Esperado: novos cadastros e seed em PBKDF2-SHA256 e compatibilidade com dados existentes.
+
+Correção: método explícito no cadastro e seed, com atualização transparente do hash antigo após autenticação válida, preservando a senha. Reteste: test_hash_requisito.py cobre seed e migração por login web/API; o cadastro exige PBKDF2 no teste RNF-02. Commit: 4acc9d5d7c1d065e152ded6c19699e7c94057f49.
 
 
-Vínculos: DEF-03 = https://github.com/joaoboconcelo/edutask-tqs-p2/issues/1 ; DEF-04 = https://github.com/joaoboconcelo/edutask-tqs-p2/issues/2 ; DEF-05 = https://github.com/joaoboconcelo/edutask-tqs-p2/issues/3 ; DEF-06 = https://github.com/joaoboconcelo/edutask-tqs-p2/issues/4 .
+
+Vínculos: DEF-03 = issue #1; DEF-04 = #2; DEF-05 = #3; DEF-06 = #4; DEF-07 = #6; DEF-08 = #7. URLs completas e metadados estão no P07 e no diretório de evidências da pasta 06.
 
 <!-- pagebreak -->
 
@@ -1004,7 +1036,7 @@ python tools/verificar_pipeline.py
 | 03_PLANO_DE_TESTES | Estratégia, ambiente, dados, critérios e responsabilidades planejadas |
 | 04_CASOS_E_RASTREABILIDADE | Catálogo, matriz e CSV editável |
 | 05_EXECUCAO_MANUAL | Registro atual de inspeção, 24 capturas e reexecução automatizada |
-| 06_DEFEITOS | Quatro defeitos, exportação e metadados das issues |
+| 06_DEFEITOS | Seis defeitos, exportação e metadados das issues |
 | 07_AUTOMACAO_UNITARIA | Trinta cenários unitários |
 | 08_INTEGRACAO_API | Testes integrados, coleção e ambiente Postman |
 | 09_SISTEMA_INTERFACE | Quatro fluxos Selenium e suas evidências |
@@ -1024,4 +1056,4 @@ O manifesto SHA-256 identifica os conteúdos do pacote de backup, excluindo o pr
 
 ### Confirmações finais
 
-Antes da entrega oficial, o grupo deve conferir a ficha docente, a redação revisada de RNF-02, eventual licença de redistribuição, participação, assinaturas, dispensa de apresentação e permissões do Drive. O comprovante é uma minuta e deve receber data e hora reais somente após o envio. Nenhum desses atos foi antecipado no relatório.
+Antes da entrega oficial, o grupo deve conferir a ficha docente, o atendimento do RNF-02 original, eventual licença de redistribuição, participação, assinaturas, dispensa de apresentação e permissões do Drive. O comprovante é uma minuta e deve receber data e hora reais somente após o envio. Nenhum desses atos foi antecipado no relatório.

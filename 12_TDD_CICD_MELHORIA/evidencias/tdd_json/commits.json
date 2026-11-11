@@ -1,0 +1,26 @@
+{
+  "comportamento": "API rejeita corpos JSON não objeto e credenciais não textuais com HTTP 400",
+  "etapas": [
+    {
+      "etapa": "RED",
+      "commit": "e2ad848831f68d84b2976ca20c85c59f3123b73c",
+      "data": "2026-11-11T17:53:29-03:00",
+      "resultado": "17 falhas e 3 aprovados antes da correção",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/commit/e2ad848831f68d84b2976ca20c85c59f3123b73c"
+    },
+    {
+      "etapa": "GREEN",
+      "commit": "9feabf493df34e27a876651d08037ac668d67a30",
+      "data": "2026-11-11T17:54:13-03:00",
+      "resultado": "20 aprovados após implementação mínima",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/commit/9feabf493df34e27a876651d08037ac668d67a30"
+    },
+    {
+      "etapa": "REFACTOR",
+      "commit": "4e55cbbaa515950dbdcb50b02483deb37e01d131",
+      "data": "2026-11-11T17:54:33-03:00",
+      "resultado": "20 aprovados após isolamento da validação",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/commit/4e55cbbaa515950dbdcb50b02483deb37e01d131"
+    }
+  ]
+}

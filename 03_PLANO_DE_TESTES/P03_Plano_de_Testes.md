@@ -145,7 +145,7 @@ Validar formalmente o comportamento funcional, a confiabilidade, a segurança b�
 
 Versão revisada: v1.0.1-p2 (identificação documental; sem tag Git publicada). Linha de base: código do HEAD anterior à revisão.
 Automação planejada do catálogo: 24 cenários; denominador de automação =24, sem usar os 15 mínimos do manual como plano fictício.
-Suíte atual: 30 cenários unitários, 36 de integração/API, 24 do catálogo, 4 de aceitação técnica e 4 de navegador, total 98.
+Suíte atual: 34 cenários unitários, 79 de integração/API, 24 do catálogo, 4 de aceitação técnica e 4 de navegador, total 145.
 As parametrizações contam como cenários executados. Há quatro fluxos distintos no Selenium.
 Ambiente de cada teste: SQLite temporário; sem escrita no banco de demonstração. E2E e latências usam porta HTTP efêmera.
 Entrada: dependências instaladas, testes coletáveis e dados fictícios. Saída técnica: suíte aprovada, nenhum erro Flake8 e latências inferiores a 500 ms na carga definida.

@@ -17,3 +17,7 @@ Gabriel Henrique Moreira: _______________________ Data: ______________
 João Lucas de Antonio Boconcelo: _______________________ Data: ______________
 
 Lucas Braga: _______________________ Data: ______________
+
+## Complemento técnico de 11/11/2026
+
+Executado ciclo TDD com três commits cronológicos para validação do contrato JSON; ajustado RNF-02 para PBKDF2-SHA256 com migração após login válido; ampliadas verificações de entradas, autorização e persistência. Resultado: 145 cenários aprovados e CI 43099616601 aprovada. Relatório, planilha, gráficos e pacote foram atualizados a partir das evidências. Este registro técnico não atribui horas ou participação individual aos integrantes.

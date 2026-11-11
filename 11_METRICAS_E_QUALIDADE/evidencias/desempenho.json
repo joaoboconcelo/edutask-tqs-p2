@@ -1,5 +1,5 @@
 {
-  "data": "2026-11-11T12:30:10.879348-03:00",
+  "data": "2026-11-11T18:05:55.423669-03:00",
   "python": "3.13.2",
   "sistema": "Windows-11-10.0.26200-SP0",
   "metodo": "HTTP loopback real com requests, Flask/Werkzeug, SQLite temporário, 3 aquecimentos e 30 amostras por rota, 1 cliente sequencial",
@@ -7,28 +7,28 @@
   "rotas": {
     "/api/metricas": {
       "n": 30,
-      "min_ms": 4.1648,
-      "media_ms": 6.1445,
-      "max_ms": 27.6346,
-      "p95_ms": 23.6467,
+      "min_ms": 4.0975,
+      "media_ms": 4.5724,
+      "max_ms": 5.2504,
+      "p95_ms": 5.1465,
       "criterio_ms": 500,
       "atende": true
     },
     "/api/tarefas": {
       "n": 30,
-      "min_ms": 3.2474,
-      "media_ms": 3.4973,
-      "max_ms": 4.0379,
-      "p95_ms": 3.8219,
+      "min_ms": 3.1928,
+      "media_ms": 4.2062,
+      "max_ms": 26.9368,
+      "p95_ms": 4.1466,
       "criterio_ms": 500,
       "atende": true
     },
     "/tarefas": {
       "n": 30,
-      "min_ms": 3.8081,
-      "media_ms": 4.843,
-      "max_ms": 25.5207,
-      "p95_ms": 4.4968,
+      "min_ms": 3.8011,
+      "media_ms": 4.1574,
+      "max_ms": 5.4881,
+      "p95_ms": 4.5781,
       "criterio_ms": 500,
       "atende": true
     }

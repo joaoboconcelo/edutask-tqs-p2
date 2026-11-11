@@ -1,6 +1,6 @@
 # 07_AUTOMACAO_UNITARIA
 
-30 cenários unitários, incluindo parametrizações de limites, filtros e regressão TDD.
+34 cenários unitários, incluindo parametrizações de limites, filtros e regressão TDD.
 
 Da raiz: `python -m pytest -v 07_AUTOMACAO_UNITARIA`.
 

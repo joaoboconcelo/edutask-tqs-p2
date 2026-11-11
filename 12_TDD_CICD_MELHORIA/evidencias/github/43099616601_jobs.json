@@ -1,0 +1,137 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 130786551956,
+      "run_id": 43099616601,
+      "workflow_name": "EduTask CI/CD Pipeline",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/joaoboconcelo/edutask-tqs-p2/actions/runs/43099616601",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVgtmLc8AAAAec3xolA",
+      "head_sha": "4acc9d5d7c1d065e152ded6c19699e7c94057f49",
+      "url": "https://api.github.com/repos/joaoboconcelo/edutask-tqs-p2/actions/jobs/130786551956",
+      "html_url": "https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43099616601/job/130786551956",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-11T21:02:12Z",
+      "started_at": "2026-11-11T21:02:15Z",
+      "completed_at": "2026-11-11T21:03:48Z",
+      "name": "Build, Lint & Automated Tests",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-11T21:02:16Z",
+          "completed_at": "2026-11-11T21:02:18Z"
+        },
+        {
+          "name": "Checkout do Repositório",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-11T21:02:18Z",
+          "completed_at": "2026-11-11T21:02:19Z"
+        },
+        {
+          "name": "Configurar Ambiente Python 3.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-11T21:02:19Z",
+          "completed_at": "2026-11-11T21:02:19Z"
+        },
+        {
+          "name": "Instalar Dependências do Projeto",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-11T21:02:19Z",
+          "completed_at": "2026-11-11T21:02:34Z"
+        },
+        {
+          "name": "Executar Análise Estática de Código (Flake8)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-11T21:02:34Z",
+          "completed_at": "2026-11-11T21:02:34Z"
+        },
+        {
+          "name": "Executar Testes Unitários Automatizados (Pytest)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-11T21:02:34Z",
+          "completed_at": "2026-11-11T21:02:35Z"
+        },
+        {
+          "name": "Executar Testes de Integração e API",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-11T21:02:35Z",
+          "completed_at": "2026-11-11T21:03:24Z"
+        },
+        {
+          "name": "Executar Interface no Chrome",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-11T21:03:24Z",
+          "completed_at": "2026-11-11T21:03:42Z"
+        },
+        {
+          "name": "Preservar Evidências",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-11T21:03:42Z",
+          "completed_at": "2026-11-11T21:03:45Z"
+        },
+        {
+          "name": "Publicar Resumo da Execução dos Testes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-11T21:03:45Z",
+          "completed_at": "2026-11-11T21:03:45Z"
+        },
+        {
+          "name": "Post Configurar Ambiente Python 3.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-11T21:03:45Z",
+          "completed_at": "2026-11-11T21:03:45Z"
+        },
+        {
+          "name": "Post Checkout do Repositório",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-11T21:03:45Z",
+          "completed_at": "2026-11-11T21:03:45Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-11T21:03:45Z",
+          "completed_at": "2026-11-11T21:03:45Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/joaoboconcelo/edutask-tqs-p2/check-runs/130786551956",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000006,
+      "runner_name": "GitHub Actions 1000000006",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

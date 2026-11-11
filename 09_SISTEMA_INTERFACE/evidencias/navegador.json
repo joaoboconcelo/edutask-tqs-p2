@@ -4,13 +4,13 @@
   "browserVersion": "157.0.8103.50",
   "chrome": {
     "chromedriverVersion": "157.0.8103.50 (049750111b1e5c11565c792b2aeed5541f332bad-refs/branch-heads/8103_38@{#8})",
-    "userDataDir": "C:\\Users\\JOO~1.B\\AppData\\Local\\Temp\\scoped_dir14540_274670589"
+    "userDataDir": "C:\\Users\\JOO~1.B\\AppData\\Local\\Temp\\scoped_dir8500_362645762"
   },
   "fedcm:accounts": true,
   "goog:chromeOptions": {
-    "debuggerAddress": "localhost:49231"
+    "debuggerAddress": "localhost:58036"
   },
-  "goog:processID": 32532,
+  "goog:processID": 33396,
   "networkConnectionEnabled": false,
   "pageLoadStrategy": "normal",
   "platformName": "windows",

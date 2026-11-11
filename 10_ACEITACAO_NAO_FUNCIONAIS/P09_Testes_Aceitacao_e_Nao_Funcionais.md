@@ -1,6 +1,6 @@
 # Aceitação e testes não funcionais
 
-Revisão: 2026-11-11T12:31:56-03:00. Sistema: EduTask Web v1.0.1-p2.
+Revisão: 2026-11-11T18:05:55-03:00. Sistema: EduTask Web v1.0.1-p2.
 
 ## Quatro cenários de aceitação
 
@@ -21,9 +21,9 @@ Métrica: todas as respostas abaixo de 500 ms, de acordo com RNF-01. Banco de 1 
 
 | Rota | Amostras | Média ms | P95 ms | Máximo ms | Critério <500 ms |
 |---|---|---|---|---|---|
-| /api/metricas | 30 | 6.144 | 23.647 | 27.635 | Atende |
-| /api/tarefas | 30 | 3.497 | 3.822 | 4.038 | Atende |
-| /tarefas | 30 | 4.843 | 4.497 | 25.521 | Atende |
+| /api/metricas | 30 | 4.572 | 5.146 | 5.250 | Atende |
+| /api/tarefas | 30 | 4.206 | 4.147 | 26.937 | Atende |
+| /tarefas | 30 | 4.157 | 4.578 | 5.488 | Atende |
 
 Fonte: `11_METRICAS_E_QUALIDADE/evidencias/latencias_http.csv` e `desempenho.json`. Reproduzir: `python tools/medir_qualidade.py`.
 
@@ -31,7 +31,7 @@ TNF-03 Usabilidade por inspeção de navegação: quatro fluxos Selenium com con
 
 TNF-04 Usabilidade por feedback: CT-002, CT-003, CT-004, CT-008, CT-014, CT-020 e CT-021 verificam mensagens específicas na resposta HTML; o template utiliza role=alert. Resultado: verificações aprovadas. Limitação: contraste, leitores de tela e compreensão por usuários não foram avaliados.
 
-TNF-05 Segurança de armazenamento: cadastro real em banco temporário, hash seguro scrypt ou PBKDF2, senha original ausente e check_password_hash positivo. Evidência: test_rnf02_password_hash_and_login em testes.xml. Atende ao requisito revisado RNF-02.
+TNF-05 Segurança de armazenamento: cadastro real em banco temporário, hash PBKDF2-SHA256 exigido por RNF-02, senha original ausente e check_password_hash positivo. Evidência: test_rnf02_password_hash_and_login em testes.xml. Atende ao requisito original RNF-02. Hashes antigos são migrados após login válido; o teste cobre os caminhos web e API.
 
 TNF-06 Segurança de acesso e entradas: API sem sessão retorna 401, páginas privadas redirecionam, usuário não acessa registros alheios, tentativa de SQL injection não autentica nem altera a base. Evidência: test_r02_api_requires_session, test_r02_users_cannot_read_or_modify_each_others_records e test_r03_sql_injection_does_not_authenticate_or_delete. Resultado: aprovado.
 

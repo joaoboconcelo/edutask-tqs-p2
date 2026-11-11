@@ -4,7 +4,9 @@
     "DEF-03": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/1",
     "DEF-04": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/2",
     "DEF-05": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/3",
-    "DEF-06": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/4"
+    "DEF-06": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/4",
+    "DEF-07": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/6",
+    "DEF-08": "https://github.com/joaoboconcelo/edutask-tqs-p2/issues/7"
   },
   "execucoes": {
     "principal": {
@@ -24,6 +26,12 @@
       "commit": "7407afef2a4d9744661295ccc99d795dd6be2db5",
       "conclusao": "success",
       "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094602358"
+    },
+    "complementar": {
+      "id": 43099616601,
+      "commit": "4acc9d5d7c1d065e152ded6c19699e7c94057f49",
+      "conclusao": "success",
+      "url": "https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43099616601"
     }
   }
 }

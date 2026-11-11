@@ -52,3 +52,7 @@ Os vínculos acima identificam a inspeção interativa atual. Abaixo estão as v
 Cobertura por requisito: 8/8 com verificação executada. Cobertura por risco: R-01 a R-08 com vínculo explícito.
 Isso não significa cobertura de todos os caminhos possíveis. A cobertura de linhas é medida separadamente em `cobertura.json`.
 Cada CT-NNN tem reexecução atual em `05_EXECUCAO_MANUAL/evidencias_reexecucao/CT-NNN.json`.
+
+## Regressões complementares
+
+RF-02/R-03: test_tdd_validacao_json.py verifica 20 cenários de JSON não objeto e credenciais não textuais; DEF-07 / issue #6. RNF-02/R-01: test_hash_requisito.py verifica PBKDF2 no seed e migração após login web/API; DEF-08 / issue #7. Os fluxos alternativos, exclusão e validações de identidade estão em test_fluxos_e_excecoes.py. Todos estão associados ao JUnit consolidado da pasta 11.

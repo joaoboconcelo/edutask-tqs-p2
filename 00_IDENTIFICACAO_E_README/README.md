@@ -51,7 +51,7 @@ python tools/verificar_pipeline.py
 ```
 
 Selenium inicia seu próprio servidor local em porta livre; não requer servidor na porta 5000. Se necessário, definir CHROMEDRIVER como caminho do executável compatível e CHROME_BINARY como caminho do Chrome.
-Resultado consolidado desta revisão: 98/98 cenários; logs e ambiente na pasta 11. Parametrizações são contadas como cenários.
+Resultado consolidado desta revisão: 98/145 cenários; logs e ambiente na pasta 11. Parametrizações são contadas como cenários.
 
 ## API e Postman
 
@@ -78,4 +78,8 @@ Contato: os três integrantes identificados no início; nenhum contato pessoal f
 
 ## Inspeção interativa e organização final
 
-A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. Esses registros não são assinaturas humanas. O relatório detalha os bloqueios nativos do navegador e separa os 98 cenários automatizados das 28 observações adicionais. A pasta tools contém apenas utilitários necessários à medição, reprodução e documentação.
+A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. Esses registros não são assinaturas humanas. O relatório detalha os bloqueios nativos do navegador e separa os 145 cenários automatizados das 28 observações adicionais. A pasta tools contém apenas utilitários necessários à medição, reprodução e documentação.
+
+## Revisão complementar para fechamento técnico
+
+A suíte atual possui 145 cenários, com 34 de unidade e 79 de integração/API. A cobertura de linhas é 98.32% e de ramos 94.19%. O ciclo TDD de contrato JSON tem três commits reais registrados na pasta 12. RNF-02 é atendido com PBKDF2-SHA256; hashes antigos são atualizados após login válido, sem alterar a senha. Os seis defeitos estão no P07 e nas issues correspondentes.

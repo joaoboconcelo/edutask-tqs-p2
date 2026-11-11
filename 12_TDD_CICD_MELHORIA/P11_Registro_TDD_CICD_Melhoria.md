@@ -1,15 +1,16 @@
 # TDD integração contínua e melhoria
 
-## TDD efetivamente registrado nesta revisão
+## Ciclo principal com três commits cronológicos reais
 
-Data: 11/11/2026. Comportamento: RF-05/R-06 deve rejeitar concluídas positivas quando total é zero, preservando 0/0=0%.
-O ciclo antigo de urgência não possui commits fornecidos. Por isso, ele não é usado como comprovação histórica de TDD.
+Comportamento: a API deve rejeitar JSON não objeto e credenciais não textuais com HTTP 400, sem erro interno. O teste foi escrito e executado antes da correção. As falhas do RED correspondem ao defeito observado, não a uma asserção falsa inserida apenas para a demonstração de CI.
 
-1. RED: escrito `07_AUTOMACAO_UNITARIA/test_tdd_consistencia.py` antes da correção. Resultado real: 2 falhas e 1 aprovação. Evidências: `evidencias/red.txt` e `red.xml`.
-2. GREEN: movida a validação de concluídas>total para antes do retorno por total zero. Resultado real: 3 aprovações. Evidências: `green.txt`, `green.xml`, `task_service_green.py`.
-3. REFACTOR: simplificado o retorno do cálculo vazio, sem alterar a regra; após os ajustes da revisão, a regressão unitária/API registrou 17 aprovações. Evidências: `refactor.txt`, `refactor.xml`, `task_service_refactor.py`. A suíte final ampliada está em testes.xml.
+| Etapa | Commit real | Data | Resultado |
+|---|---|---|---|
+| RED | e2ad848831f68d84b2976ca20c85c59f3123b73c | 2026-11-11T17:53:29-03:00 | 17 falhas e 3 aprovados antes da correção |
+| GREEN | 9feabf493df34e27a876651d08037ac668d67a30 | 2026-11-11T17:54:13-03:00 | 20 aprovados após implementação mínima |
+| REFACTOR | 4e55cbbaa515950dbdcb50b02483deb37e01d131 | 2026-11-11T17:54:33-03:00 | 20 aprovados após isolamento da validação |
 
-O snapshot baseline foi extraído do HEAD anterior à revisão, e os arquivos GREEN/REFACTOR foram salvos durante o trabalho. SHA-256 em `evidencias/snapshots_sha256.json` identifica os conteúdos. Não são apresentados hashes de arquivo como commits. Commits específicos do ciclo não foram criados; eventual exigência de commits cronológicos depende de validação docente dos logs/snapshots disponíveis.
+GREEN acrescentou a validação mínima antes do acesso a campos. REFACTOR extraiu a função pura json_payload_error sem alterar o comportamento e manteve os 20 cenários aprovados. Código, datas e resultados podem ser confrontados com o Git e os arquivos red/green/refactor em evidencias/tdd_json. O histórico da primeira experiência do cálculo de percentual continua como evidência complementar, claramente separado deste ciclo com commits.
 
 ## Pipeline preparado e demonstração local
 
@@ -42,3 +43,9 @@ Análise de qualidade: 179 ocorrências Flake8 antes e 0 depois, com logs na pas
 | correcao | 7407afef2a4d9744661295ccc99d795dd6be2db5 | success | https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094602358 |
 
 PR de demonstração: https://github.com/joaoboconcelo/edutask-tqs-p2/pull/5 . Metadados e logs originais extraídos em evidencias/github. As execuções remotas são de CI; os registros RED/GREEN/REFACTOR continuam identificados separadamente.
+
+## Regressão ampliada publicada
+
+145 cenários aprovados localmente; 98,32% de linhas e 94,19% de ramos. A execução remota 43099616601 aprovou o commit 4acc9d5, incluindo contrato JSON, PBKDF2-SHA256 e migração de hashes. Evidências originais em evidencias/github.
+
+https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43099616601

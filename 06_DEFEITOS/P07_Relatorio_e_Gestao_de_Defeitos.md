@@ -1,6 +1,6 @@
 # Defeitos confirmados na revisão de 11 de novembro de 2026
 
-Os IDs DEF-03 a DEF-06 estão vinculados às issues #1 a #4. Todas foram encerradas após publicação da correção e aprovação da suíte no GitHub Actions. A decisão humana de homologação é separada do reteste técnico.
+DEF-03 a DEF-06 correspondem às issues #1 a #4, encerradas com reteste remoto. DEF-07 e DEF-08 correspondem às issues #6 e #7, encerradas após correção publicada, regressão local e reteste remoto aprovado na execução 43099616601. A decisão humana de homologação é separada do reteste técnico.
 
 ## DEF-03 Taxa de conclusão aceita concluídas positivas com total zero
 
@@ -66,6 +66,24 @@ Reprodução e reteste: `test_rf04_invalid_task_does_not_persist`. Linha de base
 
 Responsabilidade: revisão técnica; validação dos integrantes pendente.
 
+## DEF-07 API recebe JSON ou credenciais de tipos inválidos
+
+Requisito: RF-02. Risco: R-03. Severidade: Média. Prioridade: Alta. Status: corrigido e retestado local e remotamente; issue #6 encerrada após publicação.
+
+Reprodução: enviar POST /api/auth/login com JSON [1], um escalar ou e-mail/senha não textuais. Antes, havia AttributeError ou erro interno. Esperado: HTTP 400 com erro JSON.
+
+Correção: json_payload_error verifica o contrato antes do acesso a campos. O ciclo TDD novo registrou 17 falhas e três aprovações no RED, seguido de 20 aprovações no GREEN e no REFACTOR. Commits reais e logs estão em evidencias/tdd_json da pasta 12.
+
+Reteste: test_tdd_validacao_json.py e suíte ampliada. Correção publicada no commit 4acc9d5d7c1d065e152ded6c19699e7c94057f49. A conclusão da nova execução remota é acompanhada separadamente.
+
+## DEF-08 Hash divergente do RNF-02 original
+
+Requisito: RNF-02. Risco: R-01. Severidade: Média. Prioridade: Alta. Status: corrigido e retestado local e remotamente; issue #7 encerrada após publicação.
+
+Antes: o cadastro usava scrypt por padrão, enquanto RNF-02 especificava PBKDF2-SHA256. A divergência é de requisito, sem declarar scrypt inseguro. Esperado: novos cadastros e seed em PBKDF2-SHA256 e compatibilidade com dados existentes.
+
+Correção: método explícito no cadastro e seed, com atualização transparente do hash antigo após autenticação válida, preservando a senha. Reteste: test_hash_requisito.py cobre seed e migração por login web/API; o cadastro exige PBKDF2 no teste RNF-02. Commit: 4acc9d5d7c1d065e152ded6c19699e7c94057f49.
+
 ## Vínculos e reteste remoto
 
 - DEF-03: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/1
@@ -74,3 +92,6 @@ Responsabilidade: revisão técnica; validação dos integrantes pendente.
 - DEF-06: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/4
 
 Suíte publicada aprovada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919 . Os defeitos são registros da revisão de 11/11/2026, sem retrodatação.
+
+- DEF-07: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/6
+- DEF-08: https://github.com/joaoboconcelo/edutask-tqs-p2/issues/7
