@@ -1,0 +1,1052 @@
+FFFF.FFFF.FFFF.FFFFF                                                     [100%]
+================================== FAILURES ===================================
+_________ test_non_object_json_returns_400[/api/auth/login-payload0] __________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = [1]
+path = '/api/auth/login'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^
+E       AttributeError: 'list' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+___________ test_non_object_json_returns_400[/api/auth/login-texto] ___________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = 'texto'
+path = '/api/auth/login'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^
+E       AttributeError: 'str' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+_____________ test_non_object_json_returns_400[/api/auth/login-7] _____________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = 7
+path = '/api/auth/login'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^
+E       AttributeError: 'int' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+___________ test_non_object_json_returns_400[/api/auth/login-True] ____________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = True
+path = '/api/auth/login'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^
+E       AttributeError: 'bool' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+_________ test_non_object_json_returns_400[/api/disciplinas-payload0] _________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = [1]
+path = '/api/disciplinas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/disciplinas", methods=["GET", "POST"])
+    def api_disciplines():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           code = str(data.get("code", "")).strip().upper()
+                       ^^^^^^^^
+E           AttributeError: 'list' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:65: AttributeError
+__________ test_non_object_json_returns_400[/api/disciplinas-texto] ___________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = 'texto'
+path = '/api/disciplinas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/disciplinas", methods=["GET", "POST"])
+    def api_disciplines():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           code = str(data.get("code", "")).strip().upper()
+                       ^^^^^^^^
+E           AttributeError: 'str' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:65: AttributeError
+____________ test_non_object_json_returns_400[/api/disciplinas-7] _____________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = 7
+path = '/api/disciplinas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/disciplinas", methods=["GET", "POST"])
+    def api_disciplines():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           code = str(data.get("code", "")).strip().upper()
+                       ^^^^^^^^
+E           AttributeError: 'int' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:65: AttributeError
+___________ test_non_object_json_returns_400[/api/disciplinas-True] ___________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = True
+path = '/api/disciplinas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/disciplinas", methods=["GET", "POST"])
+    def api_disciplines():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           code = str(data.get("code", "")).strip().upper()
+                       ^^^^^^^^
+E           AttributeError: 'bool' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:65: AttributeError
+___________ test_non_object_json_returns_400[/api/tarefas-payload0] ___________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = [1]
+path = '/api/tarefas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/tarefas", methods=["GET", "POST"])
+    def api_tasks():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           title = str(data.get("title", "")).strip()
+                        ^^^^^^^^
+E           AttributeError: 'list' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:129: AttributeError
+____________ test_non_object_json_returns_400[/api/tarefas-texto] _____________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = 'texto'
+path = '/api/tarefas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/tarefas", methods=["GET", "POST"])
+    def api_tasks():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           title = str(data.get("title", "")).strip()
+                        ^^^^^^^^
+E           AttributeError: 'str' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:129: AttributeError
+______________ test_non_object_json_returns_400[/api/tarefas-7] _______________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = 7, path = '/api/tarefas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/tarefas", methods=["GET", "POST"])
+    def api_tasks():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           title = str(data.get("title", "")).strip()
+                        ^^^^^^^^
+E           AttributeError: 'int' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:129: AttributeError
+_____________ test_non_object_json_returns_400[/api/tarefas-True] _____________
+
+client = <FlaskClient <Flask 'edutask.app'>>, payload = True
+path = '/api/tarefas'
+
+    @pytest.mark.parametrize('payload', [[1], 'texto', 7, True, None])
+    @pytest.mark.parametrize('path', ['/api/auth/login', '/api/disciplinas', '/api/tarefas'])
+    def test_non_object_json_returns_400(client, payload, path):
+        if path != '/api/auth/login':
+            client.post('/api/auth/login', json={'email': 'aluno@unisagrado.edu.br', 'password': 'Senha@123'})
+>       response = client.post(path, json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/tarefas", methods=["GET", "POST"])
+    def api_tasks():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+    
+        if request.method == "POST":
+            data = request.get_json(silent=True) or {}
+>           title = str(data.get("title", "")).strip()
+                        ^^^^^^^^
+E           AttributeError: 'bool' object has no attribute 'get'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:129: AttributeError
+______________ test_non_string_credentials_return_400[payload0] _______________
+
+client = <FlaskClient <Flask 'edutask.app'>>
+payload = {'email': None, 'password': 'Senha@123'}
+
+    @pytest.mark.parametrize('payload', [
+        {'email': None, 'password': 'Senha@123'},
+        {'email': 123, 'password': 'Senha@123'},
+        {'email': ['aluno'], 'password': 'Senha@123'},
+        {'email': 'aluno@unisagrado.edu.br', 'password': 123},
+        {'email': 'aluno@unisagrado.edu.br', 'password': ['senha']},
+    ])
+    def test_non_string_credentials_return_400(client, payload):
+>       response = client.post('/api/auth/login', json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'strip'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+______________ test_non_string_credentials_return_400[payload1] _______________
+
+client = <FlaskClient <Flask 'edutask.app'>>
+payload = {'email': 123, 'password': 'Senha@123'}
+
+    @pytest.mark.parametrize('payload', [
+        {'email': None, 'password': 'Senha@123'},
+        {'email': 123, 'password': 'Senha@123'},
+        {'email': ['aluno'], 'password': 'Senha@123'},
+        {'email': 'aluno@unisagrado.edu.br', 'password': 123},
+        {'email': 'aluno@unisagrado.edu.br', 'password': ['senha']},
+    ])
+    def test_non_string_credentials_return_400(client, payload):
+>       response = client.post('/api/auth/login', json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'int' object has no attribute 'strip'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+______________ test_non_string_credentials_return_400[payload2] _______________
+
+client = <FlaskClient <Flask 'edutask.app'>>
+payload = {'email': ['aluno'], 'password': 'Senha@123'}
+
+    @pytest.mark.parametrize('payload', [
+        {'email': None, 'password': 'Senha@123'},
+        {'email': 123, 'password': 'Senha@123'},
+        {'email': ['aluno'], 'password': 'Senha@123'},
+        {'email': 'aluno@unisagrado.edu.br', 'password': 123},
+        {'email': 'aluno@unisagrado.edu.br', 'password': ['senha']},
+    ])
+    def test_non_string_credentials_return_400(client, payload):
+>       response = client.post('/api/auth/login', json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    @api_bp.route("/auth/login", methods=["POST"])
+    def api_login():
+        data = request.get_json(silent=True) or {}
+>       email = data.get("email", "").strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'list' object has no attribute 'strip'
+
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:23: AttributeError
+______________ test_non_string_credentials_return_400[payload3] _______________
+
+client = <FlaskClient <Flask 'edutask.app'>>
+payload = {'email': 'aluno@unisagrado.edu.br', 'password': 123}
+
+    @pytest.mark.parametrize('payload', [
+        {'email': None, 'password': 'Senha@123'},
+        {'email': 123, 'password': 'Senha@123'},
+        {'email': ['aluno'], 'password': 'Senha@123'},
+        {'email': 'aluno@unisagrado.edu.br', 'password': 123},
+        {'email': 'aluno@unisagrado.edu.br', 'password': ['senha']},
+    ])
+    def test_non_string_credentials_return_400(client, payload):
+>       response = client.post('/api/auth/login', json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:35: in api_login
+    if not user or not check_password_hash(user["password_hash"], password):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\security.py:142: in check_password_hash
+    return hmac.compare_digest(_hash_internal(method, salt, password)[0], hashval)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+method = 'scrypt', salt = 'AgsGORyOO8ixLiix', password = 123
+
+    def _hash_internal(method: str, salt: str, password: str) -> tuple[str, str]:
+        method, *args = method.split(":")
+        salt_bytes = salt.encode()
+>       password_bytes = password.encode()
+                         ^^^^^^^^^^^^^^^
+E       AttributeError: 'int' object has no attribute 'encode'
+
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\security.py:39: AttributeError
+______________ test_non_string_credentials_return_400[payload4] _______________
+
+client = <FlaskClient <Flask 'edutask.app'>>
+payload = {'email': 'aluno@unisagrado.edu.br', 'password': ['senha']}
+
+    @pytest.mark.parametrize('payload', [
+        {'email': None, 'password': 'Senha@123'},
+        {'email': 123, 'password': 'Senha@123'},
+        {'email': ['aluno'], 'password': 'Senha@123'},
+        {'email': 'aluno@unisagrado.edu.br', 'password': 123},
+        {'email': 'aluno@unisagrado.edu.br', 'password': ['senha']},
+    ])
+    def test_non_string_credentials_return_400(client, payload):
+>       response = client.post('/api/auth/login', json=payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+08_INTEGRACAO_API\test_tdd_validacao_json.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1167: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1116: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:988: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\test.py:1264: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:917: in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py:902: in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+01_SISTEMA_ALVO\edutask\routes\api_routes.py:35: in api_login
+    if not user or not check_password_hash(user["password_hash"], password):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\security.py:142: in check_password_hash
+    return hmac.compare_digest(_hash_internal(method, salt, password)[0], hashval)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+method = 'scrypt', salt = 'LuZRUdftmMhkYxIE', password = ['senha']
+
+    def _hash_internal(method: str, salt: str, password: str) -> tuple[str, str]:
+        method, *args = method.split(":")
+        salt_bytes = salt.encode()
+>       password_bytes = password.encode()
+                         ^^^^^^^^^^^^^^^
+E       AttributeError: 'list' object has no attribute 'encode'
+
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\security.py:39: AttributeError
+=========================== short test summary info ===========================
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/auth/login-payload0]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/auth/login-texto]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/auth/login-7]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/auth/login-True]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/disciplinas-payload0]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/disciplinas-texto]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/disciplinas-7]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/disciplinas-True]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/tarefas-payload0]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/tarefas-texto]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/tarefas-7]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_object_json_returns_400[/api/tarefas-True]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_string_credentials_return_400[payload0]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_string_credentials_return_400[payload1]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_string_credentials_return_400[payload2]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_string_credentials_return_400[payload3]
+FAILED 08_INTEGRACAO_API/test_tdd_validacao_json.py::test_non_string_credentials_return_400[payload4]
+17 failed, 3 passed in 7.64s
