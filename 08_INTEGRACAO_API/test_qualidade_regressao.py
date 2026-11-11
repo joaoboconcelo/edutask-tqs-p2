@@ -56,7 +56,7 @@ def test_rnf02_password_hash_and_login(app):
         ).fetchone()
         conn.close()
     assert row is not None
-    assert row["password_hash"].startswith(("scrypt:", "pbkdf2:sha256:"))
+    assert row["password_hash"].startswith("pbkdf2:sha256:")
     assert "NovaSenha@123" not in row["password_hash"]
     assert check_password_hash(row["password_hash"], "NovaSenha@123")
     assert (

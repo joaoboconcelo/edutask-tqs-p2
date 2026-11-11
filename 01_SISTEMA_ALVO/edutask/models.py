@@ -10,6 +10,22 @@ def get_db_connection():
     return conn
 
 
+def upgrade_password_hash(user_id, password, stored_hash):
+    """Atualiza hashes antigos após autenticação válida, sem mudar a senha."""
+    if stored_hash.startswith("pbkdf2:sha256:"):
+        return False
+    conn = get_db_connection()
+    try:
+        conn.execute(
+            "UPDATE users SET password_hash = ? WHERE id = ?",
+            (generate_password_hash(password, method="pbkdf2:sha256"), user_id),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return True
+
+
 def init_db():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -71,7 +87,7 @@ def seed_initial_data():
     cursor.execute("SELECT id FROM users WHERE email = 'aluno@unisagrado.edu.br'")
     user = cursor.fetchone()
     if not user:
-        p_hash = generate_password_hash("Senha@123")
+        p_hash = generate_password_hash("Senha@123", method="pbkdf2:sha256")
         cursor.execute(
             "INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, ?)",
             ("Aluno Demonstração", "aluno@unisagrado.edu.br", p_hash, "student"),

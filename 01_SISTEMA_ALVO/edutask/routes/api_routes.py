@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, session
 from werkzeug.security import check_password_hash
-from ..models import get_db_connection
+from ..models import get_db_connection, upgrade_password_hash
 from ..services.request_validation import json_payload_error
 from ..services.task_service import (
     validate_discipline_code,
@@ -42,6 +42,7 @@ def api_login():
     if not user or not check_password_hash(user["password_hash"], password):
         return jsonify({"error": "Credenciais inválidas."}), 401
 
+    upgrade_password_hash(user["id"], password, user["password_hash"])
     session.clear()
     session["user_id"] = user["id"]
     session["user_name"] = user["name"]
@@ -213,8 +214,10 @@ def api_tasks():
     status_filter = request.args.get("status")
     priority_filter = request.args.get("priority")
 
-    query = ("SELECT t.*, d.name as discipline_name FROM tasks t "
-             "JOIN disciplines d ON t.discipline_id = d.id WHERE t.user_id = ?")
+    query = (
+        "SELECT t.*, d.name as discipline_name FROM tasks t "
+        "JOIN disciplines d ON t.discipline_id = d.id WHERE t.user_id = ?"
+    )
     params = [session["user_id"]]
     if status_filter:
         query += " AND t.status = ?"
@@ -227,7 +230,7 @@ def api_tasks():
     cursor.execute(query, params)
     rows = [dict(r) for r in cursor.fetchall()]
     for row in rows:
-        row['urgency_score'], row['urgency_level'] = calculate_task_urgency(row['due_date'])
+        row["urgency_score"], row["urgency_level"] = calculate_task_urgency(row["due_date"])
     conn.close()
     return jsonify(rows), 200
 
@@ -245,7 +248,7 @@ def api_task_detail(task_id):
 
     if request.method == "GET":
         res = dict(task)
-        res['urgency_score'], res['urgency_level'] = calculate_task_urgency(res['due_date'])
+        res["urgency_score"], res["urgency_level"] = calculate_task_urgency(res["due_date"])
         conn.close()
         return jsonify(res), 200
 

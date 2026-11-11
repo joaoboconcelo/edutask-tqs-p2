@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from ..models import get_db_connection
+from ..models import get_db_connection, upgrade_password_hash
 from ..services.task_service import validate_email, validate_password_strength
 
 auth_bp = Blueprint("auth", __name__)
@@ -39,7 +39,7 @@ def register():
             flash("Este e-mail já está cadastrado no sistema.", "warning")
             return render_template("register.html")
 
-        p_hash = generate_password_hash(password)
+        p_hash = generate_password_hash(password, method="pbkdf2:sha256")
         cursor.execute(
             "INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, 'student')",
             (name, email, p_hash),
@@ -73,6 +73,7 @@ def login():
             flash("Credenciais inválidas. Verifique seu e-mail e senha.", "danger")
             return render_template("login.html")
 
+        upgrade_password_hash(user["id"], password, user["password_hash"])
         session.clear()
         session["user_id"] = user["id"]
         session["user_name"] = user["name"]
