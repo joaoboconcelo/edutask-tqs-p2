@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify, session
 from werkzeug.security import check_password_hash
 from ..models import get_db_connection
+from ..services.request_validation import json_payload_error
 from ..services.task_service import (
     validate_discipline_code,
     validate_workload,
@@ -16,13 +17,11 @@ def require_api_session():
     if request.endpoint != "api.api_login" and "user_id" not in session:
         return jsonify({"error": "Autenticação necessária."}), 401
     if request.method in ("POST", "PUT"):
-        payload = request.get_json(silent=True)
-        if not isinstance(payload, dict):
-            return jsonify({"error": "O corpo JSON deve ser um objeto."}), 400
-        if request.endpoint == "api.api_login" and any(
-            not isinstance(payload.get(field, ""), str) for field in ("email", "password")
-        ):
-            return jsonify({"error": "E-mail e senha devem ser textos."}), 400
+        error = json_payload_error(
+            request.get_json(silent=True), credentials=request.endpoint == "api.api_login"
+        )
+        if error:
+            return jsonify({"error": error}), 400
 
 
 @api_bp.route("/auth/login", methods=["POST"])
