@@ -11,7 +11,8 @@
 - [x] Relatório detalhado em DOCX e PDF, exportados do mesmo documento.
 - [x] Estrutura das 17 pastas mantida, sem duplicatas de relatórios ou materiais dispensados.
 - [x] Backup com manifesto SHA-256 verificado.
-- [ ] Aprovação docente, homologação humana e assinaturas efetivas.
+- [x] Autorização docente para usar o sistema, conforme confirmação do solicitante em 11/11/2026.
+- [ ] Homologação humana e assinaturas efetivas.
 - [ ] Confirmação de licença e dispensa/redistribuição dos pesos.
 - [ ] Entrega na pasta oficial do Drive, permissões e prazo conferidos pelo grupo.
 

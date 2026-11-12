@@ -32,6 +32,6 @@ Apresentação e vídeo foram marcados como dispensados conforme informação do
 
 ## O que ainda precisa do grupo
 
-Consultar `PENDENCIAS_PARA_ENTREGA.md`: aprovação do sistema, publicação/execuções do Actions, issues, confirmação manual, aceitação humana, origem/licença, participação/assinaturas e entrega oficial. Os formulários CSV para registros manuais e aceite foram preparados sem resultados humanos presumidos.
+Consultar `PENDENCIAS_PARA_ENTREGA.md`: dados complementares da ficha docente, aceitação humana, licença, participação/assinaturas e entrega oficial. Os formulários CSV para registros manuais e aceite foram preparados sem resultados humanos presumidos.
 
-A revisão técnica foi publicada e aprovada no Actions. Seis issues foram registradas e encerradas, e o PR de demonstração comprovou falha controlada e correção. A inspeção interativa cobriu 24 casos e quatro cenários de aceitação técnica. A entrega no Drive, a aprovação docente e as assinaturas continuam dependentes do grupo.
+A revisão técnica foi publicada e aprovada no Actions. Seis issues foram registradas e encerradas, e o PR de demonstração comprovou falha controlada e correção. A inspeção interativa cobriu 24 casos e quatro cenários de aceitação técnica. A autorização docente foi confirmada pelo solicitante em 11/11/2026. A entrega no Drive e as assinaturas continuam dependentes do grupo.

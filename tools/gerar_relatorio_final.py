@@ -58,7 +58,7 @@ Além da suíte, foram realizadas **28 observações interativas pela interface*
 
 Seis defeitos confirmados foram corrigidos e registrados nas issues #1, #2, #3, #4, #6 e #7. A revisão publicada passou no GitHub Actions. Um PR separado demonstrou falha intencional detectada pelo pipeline e uma execução aprovada depois da remoção da asserção falsa. O experimento foi encerrado sem merge na versão principal.
 
-O parecer é favorável ao uso no laboratório acadêmico dentro do escopo verificado. Permanecem dependentes das pessoas responsáveis a aprovação docente, a conferência de participação e assinaturas, a homologação humana quando exigida e a entrega na pasta oficial do Drive.
+O parecer é favorável ao uso no laboratório acadêmico dentro do escopo verificado. A autorização docente para uso do EduTask Web foi confirmada pelo solicitante em 11/11/2026. Permanecem dependentes das pessoas responsáveis a conferência de participação e assinaturas, a homologação humana quando exigida e a entrega na pasta oficial do Drive.
 
 <!-- pagebreak -->
 
@@ -396,7 +396,7 @@ O teste temporário continha assert False e falhou na etapa de testes unitários
 
 | Prioridade | Ação | Critério de verificação |
 |---|---|---|
-| Alta | Conferir aprovação docente, homologação e assinaturas | Registros reais das pessoas responsáveis |
+| Alta | Conferir homologação humana e assinaturas | Registros reais das pessoas responsáveis |
 | Alta | Adicionar proteção CSRF antes de exposição pública | POST sem token rejeitado, regressão aprovada |
 | Média | Paginar consultas e avaliar 500 registros | Medição por volume e comparação com a base pequena |
 | Média | Empacotar Bootstrap e ícones localmente | Fluxos estilizados com rede externa desativada |
@@ -411,13 +411,13 @@ Os resultados mais relevantes são a correção de falhas reais de isolamento e 
 
 Os {summary['tests']['total']} cenários aprovados não provam ausência geral de falhas. A cobertura de linhas e ramos é parcial, o desempenho foi medido em carga pequena, a interface usa recursos externos por CDN e a segurança não foi auditada de forma exaustiva. Esses limites orientam o plano de melhoria e restringem o parecer ao uso acadêmico local.
 
-O solicitante não confirmou aprovação docente ou validações humanas anteriores. Por isso, a ficha do professor, o aceite humano e as assinaturas permanecem sem preenchimento. Os registros interativos deixam explícito o executor técnico. A entrega oficial no Google Drive e a conferência de permissões e prazo também não são substituídas pela publicação no GitHub.
+O solicitante confirmou em 11/11/2026 que o professor autorizou o uso do EduTask Web no trabalho. A ficha registra essa confirmação do solicitante, sem atribuir data à conversa original nem reproduzir assinatura do professor. O aceite humano do sistema e as assinaturas dos integrantes permanecem separados dessa autorização acadêmica. Os registros interativos deixam explícito o executor técnico. A entrega oficial no Google Drive e a conferência de permissões e prazo também não são substituídas pela publicação no GitHub.
 
 ## 13 Conclusão e parecer de qualidade
 
 A versão revisada apresenta comportamento aprovado nos cenários selecionados, rastreabilidade entre requisitos e evidências, métricas calculadas a partir de resultados preservados, defeitos acompanhados na ferramenta e execução real de CI. A estrutura final conserva as 17 pastas do manual, elimina duplicatas de relatório e mantém o material necessário para instalação, execução e avaliação.
 
-O parecer é favorável ao uso do EduTask Web no laboratório acadêmico dentro do escopo testado. A conclusão deve ser lida com as limitações de cobertura, carga e segurança apresentadas. As confirmações humanas e a aprovação docente dependem das pessoas responsáveis; o relatório não apresenta declarações ou assinaturas em nome delas.
+O parecer é favorável ao uso do EduTask Web no laboratório acadêmico dentro do escopo testado. A conclusão deve ser lida com as limitações de cobertura, carga e segurança apresentadas. A autorização docente foi informada pelo solicitante. As demais confirmações humanas dependem das pessoas responsáveis; o relatório não apresenta assinaturas em nome delas.
 
 ## Referências
 
@@ -524,7 +524,7 @@ O manifesto SHA-256 identifica os conteúdos do pacote de backup, excluindo o pr
 
 ### Confirmações finais
 
-Antes da entrega oficial, o grupo deve conferir a ficha docente, o atendimento do RNF-02 original, eventual licença de redistribuição, participação, assinaturas, dispensa de apresentação e permissões do Drive. O comprovante é uma minuta e deve receber data e hora reais somente após o envio. Nenhum desses atos foi antecipado no relatório.
+Antes da entrega oficial, o grupo deve conferir os dados complementares da ficha docente, eventual licença de redistribuição, participação, assinaturas, dispensa de apresentação e permissões do Drive. O comprovante é uma minuta e deve receber data e hora reais somente após o envio. Nenhum desses atos foi antecipado no relatório.
 '''
 
 

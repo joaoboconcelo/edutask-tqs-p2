@@ -2,6 +2,7 @@
 
 ## Concluído tecnicamente
 
+- Autorização docente para uso do EduTask Web confirmada pelo solicitante em 11/11/2026.
 - Revisão publicada no GitHub com suite aprovada no Actions.
 - Falha controlada e correção demonstradas em PR separado, encerrado sem merge.
 - Seis defeitos registrados nas issues #1 a #4, #6 e #7 e encerrados com correção e reteste remoto.
@@ -11,7 +12,7 @@
 
 ## Não pode ser preenchido por inferência
 
-1. Aprovação do sistema pelo professor: o solicitante não confirmou aprovação; a ficha continua em branco.
+1. Dados complementares da ficha docente: a autorização foi confirmada pelo solicitante; a data da conversa original não foi informada.
 2. Homologação humana: a validação técnica por assistente está identificada e não é assinatura de um integrante ou representante humano.
 3. Conferência de participação, horas efetivas e assinaturas pelos próprios integrantes.
 4. Confirmação da dispensa de apresentação/vídeo e da distribuição dos pesos pelo professor.

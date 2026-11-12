@@ -72,7 +72,7 @@ Relatório atual: `13_RELATORIO_FINAL/RELATORIO_FINAL_PROJETO_P2.docx` e PDF cor
 
 ## Limitações e contato
 
-Consulte `PENDENCIAS_PARA_ENTREGA.md`: aprovação docente, homologação humana, licença, assinaturas e entrega oficial ainda dependem do grupo. A publicação, as issues e as evidências do Actions foram concluídas.
+Consulte `PENDENCIAS_PARA_ENTREGA.md`: homologação humana, licença, assinaturas e entrega oficial ainda dependem do grupo. A autorização docente para usar o sistema foi confirmada pelo solicitante em 11/11/2026. A publicação, as issues e as evidências do Actions foram concluídas.
 Não há auditoria completa de segurança, carga concorrente, CSRF dedicado ou aceitação externa comprovada. Parecer limitado ao laboratório acadêmico.
 Contato: os três integrantes identificados no início; nenhum contato pessoal foi inventado.
 

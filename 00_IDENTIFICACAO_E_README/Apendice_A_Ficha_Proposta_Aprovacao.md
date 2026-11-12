@@ -18,9 +18,9 @@
 | **Integrações existentes** | Interface Web (HTML/JS) com endpoints Flask; Aplicação Flask com Banco de Dados SQLite; API RESTful com clientes HTTP (Postman/Requests); Componente de cálculo de prazos com serviço de urgência. |
 | **Justificativa da escolha** | O sistema simula um cenário acadêmico real e relevante para o curso, possui arquitetura em camadas clara (rotas, regras de negócio e persistência), permitindo isolamento para testes unitários, testes de contrato em API, automação estável com Selenium, aplicação transparente do ciclo TDD e execução rápida em pipeline de CI/CD. |
 | **Riscos de viabilidade** | Baixo risco: o sistema é executado 100% em ambiente local com SQLite embutido, eliminando dependências de servidores de banco de dados externos ou problemas de portas bloqueadas. |
-| **Decisão do professor** | [ ] Aprovado &nbsp;&nbsp;&nbsp; [ ] Aprovado com ajustes &nbsp;&nbsp;&nbsp; [ ] Não aprovado |
+| **Decisão do professor** | [x] Aprovado &nbsp;&nbsp;&nbsp; [ ] Aprovado com ajustes &nbsp;&nbsp;&nbsp; [ ] Não aprovado |
 | **Ajustes solicitados** | |
-| **Data da aprovação** | ___/___/______ |
+| **Data da aprovação** | Data da conversa original não informada. Confirmação do solicitante registrada em 11/11/2026. |
 
 ---
 
@@ -28,3 +28,5 @@
 * **Gabriel Henrique Moreira:** _______________________________________
 * **João Lucas de Antonio Boconcelo:** _______________________________________
 * **Lucas Braga:** _______________________________________
+
+A autorização do professor para utilizar o EduTask Web foi confirmada pelo solicitante em 11/11/2026. Este registro documenta a informação recebida e não constitui assinatura do professor nem homologação dos resultados de teste.
