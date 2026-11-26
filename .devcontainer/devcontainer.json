@@ -10,7 +10,11 @@
     "CHROME_BINARY": "/usr/bin/chromium",
     "CHROMEDRIVER": "/usr/bin/chromedriver"
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends chromium chromium-driver && python -m pip install -r 01_SISTEMA_ALVO/requirements.txt && npm install -g newman@6.2.1",
+  "postCreateCommand": {
+    "python": "python -m pip install -r 01_SISTEMA_ALVO/requirements.txt",
+    "newman": "npm install -g newman@6.2.1",
+    "chromium": "sudo rm -f /etc/apt/sources.list.d/yarn.list; sudo apt-get update; sudo apt-get install -y --no-install-recommends chromium chromium-driver"
+  },
   "forwardPorts": [5000, 5011],
   "portsAttributes": {
     "5000": {

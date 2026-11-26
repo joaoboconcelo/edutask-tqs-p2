@@ -2,7 +2,7 @@
   "algoritmo": "SHA-256",
   "escopo": "Entrega sem este manifesto, ZIP, banco local, dependências e temporários",
   "arquivos": {
-    ".devcontainer/devcontainer.json": "ca405958cfe03f7f3f2c069dacde1531317cd3762dc580615f1c73d79a0a0059",
+    ".devcontainer/devcontainer.json": "c26568ba54735dac521af63a0cdeb8c4aeaa950b1c6e7d54912efea603b7f18a",
     ".gitattributes": "dc452aa2153f3c47535a02829aa9982cdbd56f8ca797b29f13ee3c40d8a172b0",
     ".github/workflows/ci.yml": "b7e909f4014134b8b92ada1302f35aada3a64c2072e998d2bc58321c4e948359",
     ".gitignore": "a8655e82eb4dc668d67f9044e3abc15543bb78f6ddc3a103c13e03bb5d8f7bc7",
