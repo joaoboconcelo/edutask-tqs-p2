@@ -1,0 +1,32 @@
+{
+  "name": "EduTask Web - P2 TQS",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.13-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "containerEnv": {
+    "CHROME_BINARY": "/usr/bin/chromium",
+    "CHROMEDRIVER": "/usr/bin/chromedriver"
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends chromium chromium-driver && python -m pip install -r 01_SISTEMA_ALVO/requirements.txt && npm install -g newman@6.2.1",
+  "forwardPorts": [5000, 5011],
+  "portsAttributes": {
+    "5000": {
+      "label": "EduTask Web (demonstração)",
+      "onAutoForward": "openBrowser"
+    },
+    "5011": {
+      "label": "Servidor de testes (Newman)",
+      "onAutoForward": "silent"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python"
+      ]
+    }
+  }
+}

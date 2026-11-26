@@ -67,6 +67,15 @@ npx newman@6.2.1 run 08_INTEGRACAO_API/edutask_api_collection.postman_collection
 Arquivo canônico: `.github/workflows/ci.yml`. Instala dependências, executa linter bloqueante e os testes e preserva artefatos.
 Execução aprovada em main: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094289919 . Falha controlada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094396473 . Correção aprovada: https://github.com/joaoboconcelo/edutask-tqs-p2/actions/runs/43094602358 . O PR #5 foi encerrado sem merge. Logs na pasta 12.
 
+## Execução sem instalação local (GitHub Codespaces)
+
+Para executar o sistema e os testes em um computador sem Python, usar o GitHub Codespaces do repositório: **Code → Codespaces → Create codespace on main**. A configuração em `.devcontainer/devcontainer.json` instala Python 3.13, as dependências, Node.js com Newman e Chromium para o Selenium; a primeira criação leva alguns minutos.
+
+No terminal do Codespaces, os comandos das seções Execução e Testes funcionam sem alteração. Ao executar `python 01_SISTEMA_ALVO/run.py`, a porta 5000 é encaminhada e o sistema abre no navegador. Para a coleção Postman, iniciar `python 05_EXECUCAO_MANUAL/servidor_validacao_interativa.py` em um terminal e, em outro:
+```bash
+newman run 08_INTEGRACAO_API/edutask_api_collection.postman_collection.json -e 08_INTEGRACAO_API/edutask_environment.postman_environment.json --env-var base_url=http://127.0.0.1:5011
+```
+
 ## Documentos e evidências
 
 00 identificação e instruções; 01 sistema; 02 requisitos e riscos; 03 plano; 04 catálogo e matriz; 05 relatos manuais e reexecução automatizada; 06 defeitos históricos e confirmados; 07 unidade; 08 integração/Postman; 09 Selenium e capturas; 10 aceitação e não funcionais; 11 métricas, planilha e dados brutos; 12 TDD e CI; 13 relatório DOCX/PDF; 14 dispensa de apresentação/vídeo; 15 diário para conferência; 16 backup e checklist.
