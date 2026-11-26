@@ -1,6 +1,6 @@
 # Métricas e indicadores consolidados
 
-Resultados da revisão de 11/11/2026. Fontes: JUnit, coverage.py, CSV de latências, Flake8 e seis issues de defeitos. A planilha editável conserva 12 fórmulas com dados identificados.
+Resultados da revisão de 11/11/2026. Fontes: JUnit, coverage.py, CSV de latências, Flake8, SonarQube Cloud e seis issues de defeitos. A planilha editável conserva 12 fórmulas com dados identificados.
 
 | Indicador obrigatório | Cálculo | Resultado | Fonte |
 |---|---|---|---|
@@ -17,11 +17,28 @@ Suíte: **145/145 cenários aprovados**. Unidade 34; integração/API 79; catál
 
 Cobertura de linhas sem Selenium: **586/596 = 98.32%**. Ramos: **162/172 = 94.19%**. Há 10 linhas não cobertas, identificadas em cobertura.json; a métrica não foi inflada por excluir linhas do produto.
 
-Além da automação, 24 casos e quatro cenários foram inspecionados interativamente pela interface. Essas 28 observações complementares têm capturas e executor técnico identificado, sem serem somadas novamente ao total pytest ou apresentadas como assinaturas humanas.
+Além da automação, 24 casos e quatro cenários foram inspecionados interativamente pela interface. Essas 28 observações complementares têm capturas e executor identificado e não são somadas novamente ao total pytest.
 
 ## Análise estática antes e depois
 
 O mesmo comando e limite de 120 caracteres registraram 179 ocorrências antes e zero depois: `python -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8`. Os logs foram preservados; não se usa --exit-zero no workflow.
+
+## SonarQube Cloud antes e depois
+
+A análise de qualidade também foi feita no SonarQube Cloud (projeto `joaoboconcelo_edutask-tqs-p2`, análise automática, perfil Sonar way), em duas execuções em 26/11/2026:
+
+| Métrica | Linha de base (commit 08b913a) | Posterior (commit 4b04687) |
+|---|---|---|
+| Linhas analisadas | 8.325 | 3.242 |
+| Vulnerabilidades | 94 (nota E) | 5 (nota E) |
+| Bugs | 40 (nota D) | 0 (nota A) |
+| Code smells | 19 (nota A) | 0 (nota A) |
+| Duplicação | 49,2% | 0,0% |
+| Quality gate | Não calculado | Aprovado |
+
+Interpretação: 134 dos 153 issues da linha de base estavam em arquivos de evidência (HTML salvos das telas nas pastas 05 e 09), que não são código do sistema; esses arquivos também explicam a duplicação de 49,2%. O escopo foi ajustado em `.sonarcloud.properties` para excluir evidências e documentos, o que responde pela maior parte da redução. No código real foram corrigidos: integridade (SRI) dos três recursos de CDN em `base.html`, rótulos associados aos três filtros de `tarefas.html` (6 issues de confiabilidade/acessibilidade) e instalação apenas por pacotes binários no CI; três issues de um script de apoio removido também deixaram de existir.
+
+Permanecem 5 vulnerabilidades: a senha fictícia de demonstração `Senha@123` em `models.py` (classificada como bloqueadora por constar em listas de senhas vazadas, o que mantém a nota E) e no script de medição; a ausência de proteção CSRF em `app.py`, já declarada como limitação; e dependências do CI sem versões travadas com hash. Essas ações compõem o plano de melhoria. Evidências: `11_METRICAS_E_QUALIDADE/evidencias/sonarcloud_linha_de_base_*` e `sonarcloud_posterior_*`.
 
 ## Interpretação
 

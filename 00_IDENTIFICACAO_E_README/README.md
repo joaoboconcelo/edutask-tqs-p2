@@ -81,7 +81,7 @@ Contato: os três integrantes identificados no início.
 
 ## Inspeção interativa e organização final
 
-A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. O relatório detalha os bloqueios nativos do navegador e separa os 145 cenários automatizados das 28 observações adicionais. Os utilitários de apoio ficam junto ao produto que geram: medição (11), pipeline local (12), relatório (13), backup (16) e servidor de inspeção (05).
+A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. O relatório detalha os bloqueios nativos do navegador e separa os 145 cenários automatizados das 28 observações adicionais. Os scripts de apoio aos testes ficam junto às evidências que geram: medição de desempenho (11), pipeline local (12) e servidor de inspeção (05).
 
 ## Revisão complementar para fechamento técnico
 
