@@ -1,0 +1,2338 @@
+{
+  "collection": {
+    "_": {
+      "postman_id": "e93f9c62-edutask-tqs-p2-collection"
+    },
+    "item": [
+      {
+        "id": "38ae3aed-7e1c-4d75-864b-16bac7099356",
+        "name": "01 - Autenticação - Login Válido (Positivo)",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "auth",
+              "login"
+            ],
+            "host": [
+              "{{base_url}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"Senha@123\"\n}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "307ceba6-d9cd-4552-9c61-a2260e7faf5a",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code deve ser 200 OK\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "pm.test(\"Resposta deve conter mensagem de sucesso e dados do usuario\", function () {",
+                "    var jsonData = pm.response.json();",
+                "    pm.expect(jsonData.message).to.eql(\"Autenticação realizada com sucesso.\");",
+                "    pm.expect(jsonData.user).to.be.an(\"object\");",
+                "    pm.expect(jsonData.user.email).to.eql(\"aluno@unisagrado.edu.br\");",
+                "});"
+              ],
+              "_lastExecutionId": "a87e2c52-39c2-48e0-b9e9-ce0a36dffac6"
+            }
+          }
+        ]
+      },
+      {
+        "id": "7ada18ba-bbcc-439b-8108-e6738bfcb8ae",
+        "name": "02 - Autenticação - Credenciais Inválidas (Negativo)",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "auth",
+              "login"
+            ],
+            "host": [
+              "{{base_url}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"SenhaIncorreta@99\"\n}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "2df9e448-222b-4d46-9dc4-b0997f6e6f04",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code deve ser 401 Unauthorized\", function () {",
+                "    pm.response.to.have.status(401);",
+                "});",
+                "pm.test(\"Resposta deve conter mensagem de erro de credenciais\", function () {",
+                "    var jsonData = pm.response.json();",
+                "    pm.expect(jsonData.error).to.eql(\"Credenciais inválidas.\");",
+                "});"
+              ],
+              "_lastExecutionId": "9ae087a0-e8e8-47b6-927e-13e56037913b"
+            }
+          }
+        ]
+      },
+      {
+        "id": "b9c81e57-9174-498a-a08f-3128d00fce43",
+        "name": "03 - Disciplinas - Criar Disciplina Válida (Positivo)",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "disciplinas"
+            ],
+            "host": [
+              "{{base_url}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"code\": \"CC-TEST01\",\n    \"name\": \"Laboratório de Qualidade Integrada\",\n    \"teacher\": \"Prof. Dr. Elvio Gilberto da Silva\",\n    \"workload_hours\": 80\n}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "c7481f40-f922-40f5-b983-231a5eec728e",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code deve ser 201 Created\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "pm.test(\"Validar contrato do objeto da disciplina criada\", function () {",
+                "    var jsonData = pm.response.json();",
+                "    pm.expect(jsonData.discipline).to.have.property(\"id\");",
+                "    pm.expect(jsonData.discipline.code).to.eql(\"CC-TEST01\");",
+                "    pm.expect(jsonData.discipline.workload_hours).to.eql(80);",
+                "    pm.environment.set(\"created_discipline_id\", jsonData.discipline.id);",
+                "});"
+              ],
+              "_lastExecutionId": "f15c89bd-c53c-4a5b-9539-5d3446ea9c51"
+            }
+          }
+        ]
+      },
+      {
+        "id": "05471405-462a-4e3b-a89d-c80215c3454e",
+        "name": "04 - Disciplinas - Código Duplicado (Negativo / Conflito)",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "disciplinas"
+            ],
+            "host": [
+              "{{base_url}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"code\": \"CC-TQS01\",\n    \"name\": \"Disciplina Repetida\",\n    \"teacher\": \"Docente\",\n    \"workload_hours\": 60\n}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "e44f9ca2-6a8b-436d-932e-7678acf61a38",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code deve ser 409 Conflict\", function () {",
+                "    pm.response.to.have.status(409);",
+                "});",
+                "pm.test(\"Mensagem deve reportar duplicidade\", function () {",
+                "    var jsonData = pm.response.json();",
+                "    pm.expect(jsonData.error).to.include(\"já existe\");",
+                "});"
+              ],
+              "_lastExecutionId": "34703e72-d712-464a-b122-cc5e680017b0"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e9512831-09c7-477d-a085-d1f843d32d0c",
+        "name": "05 - Tarefas - Criar Atividade Acadêmica (Positivo)",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "tarefas"
+            ],
+            "host": [
+              "{{base_url}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"title\": \"Atividade de Testes de API Postman\",\n    \"description\": \"Validar contratos e rotas via coleção\",\n    \"due_date\": \"2026-11-28\",\n    \"priority\": \"Alta\",\n    \"discipline_id\": 1\n}"
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "fe2e08f8-54a3-4a58-a588-df6b5048a024",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code deve ser 201 Created\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "pm.test(\"Validar calculo automatico de urgencia e score\", function () {",
+                "    var jsonData = pm.response.json();",
+                "    pm.expect(jsonData.task.title).to.eql(\"Atividade de Testes de API Postman\");",
+                "    pm.expect(jsonData.task.urgency_score).to.be.a(\"number\");",
+                "    pm.expect(jsonData.task.status).to.eql(\"Pendente\");",
+                "});"
+              ],
+              "_lastExecutionId": "9f92332f-9c48-4abb-ac30-310edac56625"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ae551636-2e30-403d-acef-cbdb0e28f5e0",
+        "name": "06 - Métricas - Consulta de Indicadores Gerais (Positivo)",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "metricas"
+            ],
+            "host": [
+              "{{base_url}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "c6019d27-31f9-4ad0-b4aa-bb5b924783be",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code deve ser 200 OK\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "pm.test(\"Validar presenca das metricas de negocio\", function () {",
+                "    var jsonData = pm.response.json();",
+                "    pm.expect(jsonData).to.have.property(\"total_tasks\");",
+                "    pm.expect(jsonData).to.have.property(\"completed_tasks\");",
+                "    pm.expect(jsonData).to.have.property(\"completion_rate_percent\");",
+                "    pm.expect(jsonData.completion_rate_percent).to.be.a(\"number\");",
+                "});"
+              ],
+              "_lastExecutionId": "03751aeb-c54f-4b25-9828-44f1f186de41"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [],
+    "variable": [],
+    "info": {
+      "_postman_id": "e93f9c62-edutask-tqs-p2-collection",
+      "name": "EduTask Web - Suíte de Testes de API e Integração (P2)",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "Coleção oficial de testes de integração e contrato da API RESTful do EduTask Web. UNISAGRADO Ciência da Computação 2026.",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "_": {
+      "postman_variable_scope": "environment"
+    },
+    "id": "c71a39f0-edutask-env-tqs-p2",
+    "name": "EduTask Local Environment",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://127.0.0.1:5011",
+        "key": "base_url"
+      },
+      {
+        "type": "any",
+        "value": "aluno@unisagrado.edu.br",
+        "key": "user_email"
+      },
+      {
+        "type": "any",
+        "value": "Senha@123",
+        "key": "user_password"
+      },
+      {
+        "type": "any",
+        "value": 3,
+        "key": "created_discipline_id"
+      }
+    ]
+  },
+  "globals": {
+    "id": "568a22b4-5436-4601-b439-e5e011c05cfe",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 12,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 0,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 153.16666666666666,
+      "responseMin": 5,
+      "responseMax": 452,
+      "responseSd": 203.65855139314812,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1795675716790,
+      "completed": 1795675718164
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 6,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "ae879bdf-db35-45e3-b550-9f648356859b",
+          "httpRequestId": "a5712c29-fcf6-49a3-a72b-0ef939e24690"
+        },
+        "item": {
+          "id": "38ae3aed-7e1c-4d75-864b-16bac7099356",
+          "name": "01 - Autenticação - Login Válido (Positivo)",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"Senha@123\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "307ceba6-d9cd-4552-9c61-a2260e7faf5a",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code deve ser 200 OK\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Resposta deve conter mensagem de sucesso e dados do usuario\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.message).to.eql(\"Autenticação realizada com sucesso.\");",
+                  "    pm.expect(jsonData.user).to.be.an(\"object\");",
+                  "    pm.expect(jsonData.user.email).to.eql(\"aluno@unisagrado.edu.br\");",
+                  "});"
+                ],
+                "_lastExecutionId": "a87e2c52-39c2-48e0-b9e9-ce0a36dffac6"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "5011",
+            "path": [
+              "api",
+              "auth",
+              "login"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "73590465-d1de-4129-951f-2c2134bb3a18",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:5011",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "71",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"Senha@123\"\n}"
+          }
+        },
+        "response": {
+          "id": "bfed55a3-587d-4cb5-bfda-aeb6f42d70b7",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.8 Python/3.13.2"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 26 Nov 2026 06:48:37 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "165"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "session=.eJyrViotTi2KT81NzMxRslJKzCnNy3cozcssTkwvSkzJ10tNKdVLKlLSgSjLTFGyMoSy8xJzU4E6HEE6FFxSc_PzikuKEmNKDQxSzcGkcb5SLQBcMyEf.awfWRQ.Ebg9rRnOaSThL2KbgJfr2hKfcgw; HttpOnly; Path=/"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              65,
+              117,
+              116,
+              101,
+              110,
+              116,
+              105,
+              99,
+              97,
+              92,
+              117,
+              48,
+              48,
+              101,
+              55,
+              92,
+              117,
+              48,
+              48,
+              101,
+              51,
+              111,
+              32,
+              114,
+              101,
+              97,
+              108,
+              105,
+              122,
+              97,
+              100,
+              97,
+              32,
+              99,
+              111,
+              109,
+              32,
+              115,
+              117,
+              99,
+              101,
+              115,
+              115,
+              111,
+              46,
+              34,
+              44,
+              34,
+              117,
+              115,
+              101,
+              114,
+              34,
+              58,
+              123,
+              34,
+              101,
+              109,
+              97,
+              105,
+              108,
+              34,
+              58,
+              34,
+              97,
+              108,
+              117,
+              110,
+              111,
+              64,
+              117,
+              110,
+              105,
+              115,
+              97,
+              103,
+              114,
+              97,
+              100,
+              111,
+              46,
+              101,
+              100,
+              117,
+              46,
+              98,
+              114,
+              34,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              65,
+              108,
+              117,
+              110,
+              111,
+              32,
+              68,
+              101,
+              109,
+              111,
+              110,
+              115,
+              116,
+              114,
+              97,
+              92,
+              117,
+              48,
+              48,
+              101,
+              55,
+              92,
+              117,
+              48,
+              48,
+              101,
+              51,
+              111,
+              34,
+              44,
+              34,
+              114,
+              111,
+              108,
+              101,
+              34,
+              58,
+              34,
+              115,
+              116,
+              117,
+              100,
+              101,
+              110,
+              116,
+              34,
+              125,
+              125,
+              10
+            ]
+          },
+          "cookie": [],
+          "responseTime": 452,
+          "responseSize": 165
+        },
+        "id": "38ae3aed-7e1c-4d75-864b-16bac7099356",
+        "assertions": [
+          {
+            "assertion": "Status code deve ser 200 OK",
+            "skipped": false
+          },
+          {
+            "assertion": "Resposta deve conter mensagem de sucesso e dados do usuario",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "60292303-5bc4-4abc-bc32-a113335dc403",
+          "length": 6,
+          "cycles": 1,
+          "position": 1,
+          "iteration": 0,
+          "httpRequestId": "9bd0fffd-8104-4b72-b646-c1b1ea3a6a22"
+        },
+        "item": {
+          "id": "7ada18ba-bbcc-439b-8108-e6738bfcb8ae",
+          "name": "02 - Autenticação - Credenciais Inválidas (Negativo)",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"SenhaIncorreta@99\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2df9e448-222b-4d46-9dc4-b0997f6e6f04",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code deve ser 401 Unauthorized\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});",
+                  "pm.test(\"Resposta deve conter mensagem de erro de credenciais\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.error).to.eql(\"Credenciais inválidas.\");",
+                  "});"
+                ],
+                "_lastExecutionId": "9ae087a0-e8e8-47b6-927e-13e56037913b"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "5011",
+            "path": [
+              "api",
+              "auth",
+              "login"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "f1076b93-fa1a-4732-a769-a395b90cc78d",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:5011",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "79",
+              "system": true
+            },
+            {
+              "key": "Cookie",
+              "value": "session=.eJyrViotTi2KT81NzMxRslJKzCnNy3cozcssTkwvSkzJ10tNKdVLKlLSgSjLTFGyMoSy8xJzU4E6HEE6FFxSc_PzikuKEmNKDQxSzcGkcb5SLQBcMyEf.awfWRQ.Ebg9rRnOaSThL2KbgJfr2hKfcgw",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"email\": \"aluno@unisagrado.edu.br\",\n    \"password\": \"SenhaIncorreta@99\"\n}"
+          }
+        },
+        "response": {
+          "id": "3c511a1d-40fb-44c0-906d-42f63e22ad3e",
+          "status": "UNAUTHORIZED",
+          "code": 401,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.8 Python/3.13.2"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 26 Nov 2026 06:48:37 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "40"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              67,
+              114,
+              101,
+              100,
+              101,
+              110,
+              99,
+              105,
+              97,
+              105,
+              115,
+              32,
+              105,
+              110,
+              118,
+              92,
+              117,
+              48,
+              48,
+              101,
+              49,
+              108,
+              105,
+              100,
+              97,
+              115,
+              46,
+              34,
+              125,
+              10
+            ]
+          },
+          "cookie": [],
+          "responseTime": 430,
+          "responseSize": 40
+        },
+        "id": "7ada18ba-bbcc-439b-8108-e6738bfcb8ae",
+        "assertions": [
+          {
+            "assertion": "Status code deve ser 401 Unauthorized",
+            "skipped": false
+          },
+          {
+            "assertion": "Resposta deve conter mensagem de erro de credenciais",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "ab0abea3-f077-4643-8299-02096b5b6a3e",
+          "length": 6,
+          "cycles": 1,
+          "position": 2,
+          "iteration": 0,
+          "httpRequestId": "2d12fc34-0e39-4ddc-be2d-2c8bca711daa"
+        },
+        "item": {
+          "id": "b9c81e57-9174-498a-a08f-3128d00fce43",
+          "name": "03 - Disciplinas - Criar Disciplina Válida (Positivo)",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "disciplinas"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"code\": \"CC-TEST01\",\n    \"name\": \"Laboratório de Qualidade Integrada\",\n    \"teacher\": \"Prof. Dr. Elvio Gilberto da Silva\",\n    \"workload_hours\": 80\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c7481f40-f922-40f5-b983-231a5eec728e",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code deve ser 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Validar contrato do objeto da disciplina criada\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.discipline).to.have.property(\"id\");",
+                  "    pm.expect(jsonData.discipline.code).to.eql(\"CC-TEST01\");",
+                  "    pm.expect(jsonData.discipline.workload_hours).to.eql(80);",
+                  "    pm.environment.set(\"created_discipline_id\", jsonData.discipline.id);",
+                  "});"
+                ],
+                "_lastExecutionId": "f15c89bd-c53c-4a5b-9539-5d3446ea9c51"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "5011",
+            "path": [
+              "api",
+              "disciplinas"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "369e73ca-a554-4b4d-8a46-20295976bce7",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:5011",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "156",
+              "system": true
+            },
+            {
+              "key": "Cookie",
+              "value": "session=.eJyrViotTi2KT81NzMxRslJKzCnNy3cozcssTkwvSkzJ10tNKdVLKlLSgSjLTFGyMoSy8xJzU4E6HEE6FFxSc_PzikuKEmNKDQxSzcGkcb5SLQBcMyEf.awfWRQ.Ebg9rRnOaSThL2KbgJfr2hKfcgw",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"code\": \"CC-TEST01\",\n    \"name\": \"Laboratório de Qualidade Integrada\",\n    \"teacher\": \"Prof. Dr. Elvio Gilberto da Silva\",\n    \"workload_hours\": 80\n}"
+          }
+        },
+        "response": {
+          "id": "a6daef3c-7970-4e7d-a645-e2a8d7c65715",
+          "status": "CREATED",
+          "code": 201,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.8 Python/3.13.2"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 26 Nov 2026 06:48:37 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "201"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              105,
+              115,
+              99,
+              105,
+              112,
+              108,
+              105,
+              110,
+              101,
+              34,
+              58,
+              123,
+              34,
+              99,
+              111,
+              100,
+              101,
+              34,
+              58,
+              34,
+              67,
+              67,
+              45,
+              84,
+              69,
+              83,
+              84,
+              48,
+              49,
+              34,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              51,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              76,
+              97,
+              98,
+              111,
+              114,
+              97,
+              116,
+              92,
+              117,
+              48,
+              48,
+              102,
+              51,
+              114,
+              105,
+              111,
+              32,
+              100,
+              101,
+              32,
+              81,
+              117,
+              97,
+              108,
+              105,
+              100,
+              97,
+              100,
+              101,
+              32,
+              73,
+              110,
+              116,
+              101,
+              103,
+              114,
+              97,
+              100,
+              97,
+              34,
+              44,
+              34,
+              116,
+              101,
+              97,
+              99,
+              104,
+              101,
+              114,
+              34,
+              58,
+              34,
+              80,
+              114,
+              111,
+              102,
+              46,
+              32,
+              68,
+              114,
+              46,
+              32,
+              69,
+              108,
+              118,
+              105,
+              111,
+              32,
+              71,
+              105,
+              108,
+              98,
+              101,
+              114,
+              116,
+              111,
+              32,
+              100,
+              97,
+              32,
+              83,
+              105,
+              108,
+              118,
+              97,
+              34,
+              44,
+              34,
+              119,
+              111,
+              114,
+              107,
+              108,
+              111,
+              97,
+              100,
+              95,
+              104,
+              111,
+              117,
+              114,
+              115,
+              34,
+              58,
+              56,
+              48,
+              125,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              68,
+              105,
+              115,
+              99,
+              105,
+              112,
+              108,
+              105,
+              110,
+              97,
+              32,
+              99,
+              114,
+              105,
+              97,
+              100,
+              97,
+              32,
+              99,
+              111,
+              109,
+              32,
+              115,
+              117,
+              99,
+              101,
+              115,
+              115,
+              111,
+              46,
+              34,
+              125,
+              10
+            ]
+          },
+          "cookie": [],
+          "responseTime": 10,
+          "responseSize": 201
+        },
+        "id": "b9c81e57-9174-498a-a08f-3128d00fce43",
+        "assertions": [
+          {
+            "assertion": "Status code deve ser 201 Created",
+            "skipped": false
+          },
+          {
+            "assertion": "Validar contrato do objeto da disciplina criada",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "578049c0-119f-4029-9f2f-6164b4950dc1",
+          "length": 6,
+          "cycles": 1,
+          "position": 3,
+          "iteration": 0,
+          "httpRequestId": "e8fcdfdf-1287-451f-b986-b9f6a96fb426"
+        },
+        "item": {
+          "id": "05471405-462a-4e3b-a89d-c80215c3454e",
+          "name": "04 - Disciplinas - Código Duplicado (Negativo / Conflito)",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "disciplinas"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"code\": \"CC-TQS01\",\n    \"name\": \"Disciplina Repetida\",\n    \"teacher\": \"Docente\",\n    \"workload_hours\": 60\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e44f9ca2-6a8b-436d-932e-7678acf61a38",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code deve ser 409 Conflict\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});",
+                  "pm.test(\"Mensagem deve reportar duplicidade\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.error).to.include(\"já existe\");",
+                  "});"
+                ],
+                "_lastExecutionId": "34703e72-d712-464a-b122-cc5e680017b0"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "5011",
+            "path": [
+              "api",
+              "disciplinas"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "d505c89c-1764-4703-8d21-9d0f271e43e4",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:5011",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "113",
+              "system": true
+            },
+            {
+              "key": "Cookie",
+              "value": "session=.eJyrViotTi2KT81NzMxRslJKzCnNy3cozcssTkwvSkzJ10tNKdVLKlLSgSjLTFGyMoSy8xJzU4E6HEE6FFxSc_PzikuKEmNKDQxSzcGkcb5SLQBcMyEf.awfWRQ.Ebg9rRnOaSThL2KbgJfr2hKfcgw",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"code\": \"CC-TQS01\",\n    \"name\": \"Disciplina Repetida\",\n    \"teacher\": \"Docente\",\n    \"workload_hours\": 60\n}"
+          }
+        },
+        "response": {
+          "id": "5c716a75-5181-45f7-bba7-3e6c05cfe880",
+          "status": "CONFLICT",
+          "code": 409,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.8 Python/3.13.2"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 26 Nov 2026 06:48:37 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "66"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              68,
+              105,
+              115,
+              99,
+              105,
+              112,
+              108,
+              105,
+              110,
+              97,
+              32,
+              99,
+              111,
+              109,
+              32,
+              99,
+              92,
+              117,
+              48,
+              48,
+              102,
+              51,
+              100,
+              105,
+              103,
+              111,
+              32,
+              39,
+              67,
+              67,
+              45,
+              84,
+              81,
+              83,
+              48,
+              49,
+              39,
+              32,
+              106,
+              92,
+              117,
+              48,
+              48,
+              101,
+              49,
+              32,
+              101,
+              120,
+              105,
+              115,
+              116,
+              101,
+              46,
+              34,
+              125,
+              10
+            ]
+          },
+          "cookie": [],
+          "responseTime": 5,
+          "responseSize": 66
+        },
+        "id": "05471405-462a-4e3b-a89d-c80215c3454e",
+        "assertions": [
+          {
+            "assertion": "Status code deve ser 409 Conflict",
+            "skipped": false
+          },
+          {
+            "assertion": "Mensagem deve reportar duplicidade",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "863f3e5a-f86e-4e46-9b27-b480e7951eaa",
+          "length": 6,
+          "cycles": 1,
+          "position": 4,
+          "iteration": 0,
+          "httpRequestId": "9fb473e1-0abd-4a9f-baec-cdf9502fc190"
+        },
+        "item": {
+          "id": "e9512831-09c7-477d-a085-d1f843d32d0c",
+          "name": "05 - Tarefas - Criar Atividade Acadêmica (Positivo)",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "tarefas"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Atividade de Testes de API Postman\",\n    \"description\": \"Validar contratos e rotas via coleção\",\n    \"due_date\": \"2026-11-28\",\n    \"priority\": \"Alta\",\n    \"discipline_id\": 1\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fe2e08f8-54a3-4a58-a588-df6b5048a024",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code deve ser 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Validar calculo automatico de urgencia e score\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.task.title).to.eql(\"Atividade de Testes de API Postman\");",
+                  "    pm.expect(jsonData.task.urgency_score).to.be.a(\"number\");",
+                  "    pm.expect(jsonData.task.status).to.eql(\"Pendente\");",
+                  "});"
+                ],
+                "_lastExecutionId": "9f92332f-9c48-4abb-ac30-310edac56625"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "5011",
+            "path": [
+              "api",
+              "tarefas"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "9fde2caa-2399-458d-b96d-7f71430814eb",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:5011",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "193",
+              "system": true
+            },
+            {
+              "key": "Cookie",
+              "value": "session=.eJyrViotTi2KT81NzMxRslJKzCnNy3cozcssTkwvSkzJ10tNKdVLKlLSgSjLTFGyMoSy8xJzU4E6HEE6FFxSc_PzikuKEmNKDQxSzcGkcb5SLQBcMyEf.awfWRQ.Ebg9rRnOaSThL2KbgJfr2hKfcgw",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"title\": \"Atividade de Testes de API Postman\",\n    \"description\": \"Validar contratos e rotas via coleção\",\n    \"due_date\": \"2026-11-28\",\n    \"priority\": \"Alta\",\n    \"discipline_id\": 1\n}"
+          }
+        },
+        "response": {
+          "id": "ad482054-c4be-4750-aeff-66f6f1221804",
+          "status": "CREATED",
+          "code": 201,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.8 Python/3.13.2"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 26 Nov 2026 06:48:38 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "238"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              84,
+              97,
+              114,
+              101,
+              102,
+              97,
+              32,
+              99,
+              114,
+              105,
+              97,
+              100,
+              97,
+              32,
+              99,
+              111,
+              109,
+              32,
+              115,
+              117,
+              99,
+              101,
+              115,
+              115,
+              111,
+              46,
+              34,
+              44,
+              34,
+              116,
+              97,
+              115,
+              107,
+              34,
+              58,
+              123,
+              34,
+              100,
+              105,
+              115,
+              99,
+              105,
+              112,
+              108,
+              105,
+              110,
+              101,
+              95,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              100,
+              117,
+              101,
+              95,
+              100,
+              97,
+              116,
+              101,
+              34,
+              58,
+              34,
+              50,
+              48,
+              50,
+              54,
+              45,
+              49,
+              49,
+              45,
+              50,
+              56,
+              34,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              52,
+              44,
+              34,
+              112,
+              114,
+              105,
+              111,
+              114,
+              105,
+              116,
+              121,
+              34,
+              58,
+              34,
+              65,
+              108,
+              116,
+              97,
+              34,
+              44,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              34,
+              80,
+              101,
+              110,
+              100,
+              101,
+              110,
+              116,
+              101,
+              34,
+              44,
+              34,
+              116,
+              105,
+              116,
+              108,
+              101,
+              34,
+              58,
+              34,
+              65,
+              116,
+              105,
+              118,
+              105,
+              100,
+              97,
+              100,
+              101,
+              32,
+              100,
+              101,
+              32,
+              84,
+              101,
+              115,
+              116,
+              101,
+              115,
+              32,
+              100,
+              101,
+              32,
+              65,
+              80,
+              73,
+              32,
+              80,
+              111,
+              115,
+              116,
+              109,
+              97,
+              110,
+              34,
+              44,
+              34,
+              117,
+              114,
+              103,
+              101,
+              110,
+              99,
+              121,
+              95,
+              108,
+              101,
+              118,
+              101,
+              108,
+              34,
+              58,
+              34,
+              65,
+              108,
+              116,
+              97,
+              32,
+              85,
+              114,
+              103,
+              92,
+              117,
+              48,
+              48,
+              101,
+              97,
+              110,
+              99,
+              105,
+              97,
+              34,
+              44,
+              34,
+              117,
+              114,
+              103,
+              101,
+              110,
+              99,
+              121,
+              95,
+              115,
+              99,
+              111,
+              114,
+              101,
+              34,
+              58,
+              55,
+              53,
+              125,
+              125,
+              10
+            ]
+          },
+          "cookie": [],
+          "responseTime": 16,
+          "responseSize": 238
+        },
+        "id": "e9512831-09c7-477d-a085-d1f843d32d0c",
+        "assertions": [
+          {
+            "assertion": "Status code deve ser 201 Created",
+            "skipped": false
+          },
+          {
+            "assertion": "Validar calculo automatico de urgencia e score",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "3305809c-4bd2-4c65-a3df-8ca93c915664",
+          "length": 6,
+          "cycles": 1,
+          "position": 5,
+          "iteration": 0,
+          "httpRequestId": "0cc20077-1228-4b1e-a232-d6c54c360455"
+        },
+        "item": {
+          "id": "ae551636-2e30-403d-acef-cbdb0e28f5e0",
+          "name": "06 - Métricas - Consulta de Indicadores Gerais (Positivo)",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "metricas"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c6019d27-31f9-4ad0-b4aa-bb5b924783be",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code deve ser 200 OK\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Validar presenca das metricas de negocio\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"total_tasks\");",
+                  "    pm.expect(jsonData).to.have.property(\"completed_tasks\");",
+                  "    pm.expect(jsonData).to.have.property(\"completion_rate_percent\");",
+                  "    pm.expect(jsonData.completion_rate_percent).to.be.a(\"number\");",
+                  "});"
+                ],
+                "_lastExecutionId": "03751aeb-c54f-4b25-9828-44f1f186de41"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "5011",
+            "path": [
+              "api",
+              "metricas"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "235f5ff1-da53-467e-adcc-6b56ac99f7cf",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:5011",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Cookie",
+              "value": "session=.eJyrViotTi2KT81NzMxRslJKzCnNy3cozcssTkwvSkzJ10tNKdVLKlLSgSjLTFGyMoSy8xJzU4E6HEE6FFxSc_PzikuKEmNKDQxSzcGkcb5SLQBcMyEf.awfWRQ.Ebg9rRnOaSThL2KbgJfr2hKfcgw",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "66ea0522-8760-45b4-a1f8-714d29e4d9a9",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.8 Python/3.13.2"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 26 Nov 2026 06:48:38 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "131"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              99,
+              111,
+              109,
+              112,
+              108,
+              101,
+              116,
+              101,
+              100,
+              95,
+              116,
+              97,
+              115,
+              107,
+              115,
+              34,
+              58,
+              49,
+              44,
+              34,
+              99,
+              111,
+              109,
+              112,
+              108,
+              101,
+              116,
+              105,
+              111,
+              110,
+              95,
+              114,
+              97,
+              116,
+              101,
+              95,
+              112,
+              101,
+              114,
+              99,
+              101,
+              110,
+              116,
+              34,
+              58,
+              50,
+              53,
+              46,
+              48,
+              44,
+              34,
+              105,
+              110,
+              95,
+              112,
+              114,
+              111,
+              103,
+              114,
+              101,
+              115,
+              115,
+              95,
+              116,
+              97,
+              115,
+              107,
+              115,
+              34,
+              58,
+              49,
+              44,
+              34,
+              112,
+              101,
+              110,
+              100,
+              105,
+              110,
+              103,
+              95,
+              116,
+              97,
+              115,
+              107,
+              115,
+              34,
+              58,
+              50,
+              44,
+              34,
+              116,
+              111,
+              116,
+              97,
+              108,
+              95,
+              100,
+              105,
+              115,
+              99,
+              105,
+              112,
+              108,
+              105,
+              110,
+              101,
+              115,
+              34,
+              58,
+              51,
+              44,
+              34,
+              116,
+              111,
+              116,
+              97,
+              108,
+              95,
+              116,
+              97,
+              115,
+              107,
+              115,
+              34,
+              58,
+              52,
+              125,
+              10
+            ]
+          },
+          "cookie": [],
+          "responseTime": 6,
+          "responseSize": 131
+        },
+        "id": "ae551636-2e30-403d-acef-cbdb0e28f5e0",
+        "assertions": [
+          {
+            "assertion": "Status code deve ser 200 OK",
+            "skipped": false
+          },
+          {
+            "assertion": "Validar presenca das metricas de negocio",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 841
+    },
+    "failures": [],
+    "error": null
+  }
+}

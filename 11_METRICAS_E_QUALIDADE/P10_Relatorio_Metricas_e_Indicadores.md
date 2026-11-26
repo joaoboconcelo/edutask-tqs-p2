@@ -25,6 +25,6 @@ O mesmo comando e limite de 120 caracteres registraram 179 ocorrências antes e 
 
 ## Interpretação
 
-A regressão foi ampliada para contratos JSON inválidos, tipos de credenciais, migração de hashes, exclusões e fluxos alternativos. A cobertura alta não prova ausência geral de falhas. Os indicadores não substituem análise dos riscos ou homologação humana. O desempenho é restrito à base pequena e ao ambiente declarado; a taxa de reabertura não é uma previsão de ausência futura de regressão.
+A regressão foi ampliada para contratos JSON inválidos, tipos de credenciais, migração de hashes, exclusões e fluxos alternativos. A cobertura alta não prova ausência geral de falhas. Os indicadores não substituem a análise dos riscos. O desempenho é restrito à base pequena e ao ambiente declarado; a taxa de reabertura não é uma previsão de ausência futura de regressão.
 
 Os três gráficos em PNG usam os mesmos totais da planilha. O algoritmo PBKDF2-SHA256 é verificado diretamente, conforme RNF-02 original; não foi alterado o requisito para acomodar a implementação.

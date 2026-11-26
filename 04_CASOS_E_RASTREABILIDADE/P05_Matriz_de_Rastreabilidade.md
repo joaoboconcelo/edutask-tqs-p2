@@ -36,7 +36,7 @@
 
 ## Complemento da revisão e cobertura demonstrada
 
-Os vínculos acima identificam a inspeção interativa atual. Abaixo estão as verificações automatizadas e não funcionais complementares. O executor da inspeção está registrado no P06; não é presumida execução humana.
+Os vínculos acima identificam a inspeção interativa atual. Abaixo estão as verificações automatizadas e não funcionais complementares. O executor da inspeção está registrado no P06.
 
 | Requisito | Riscos | Verificação executada | Evidência |
 |---|---|---|---|

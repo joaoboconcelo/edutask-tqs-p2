@@ -6,11 +6,11 @@ O Projeto Integrado P2 aplicou planejamento, especificação, execução, automa
 
 Foram aprovados **145 cenários automatizados**: 34 unitários, 79 de integração/API, 24 de reexecução do catálogo e quatro de aceitação técnica, além de quatro fluxos Selenium incluídos nesse total. A cobertura da suíte sem navegador é de **98.32% das linhas executáveis**. O Flake8 passou de 179 ocorrências na linha de base para zero depois da revisão.
 
-Além da suíte, foram realizadas **28 observações interativas pela interface**, sendo 24 casos do catálogo e quatro cenários de aceitação técnica. As capturas e os snapshots foram preservados. Essas observações não são contadas novamente como testes da suíte e não constituem assinatura ou homologação humana.
+Além da suíte, foram realizadas **28 observações interativas pela interface**, sendo 24 casos do catálogo e quatro cenários de aceitação técnica. As capturas e os snapshots foram preservados. Essas observações não são contadas novamente como testes da suíte.
 
 Seis defeitos confirmados foram corrigidos e registrados nas issues #1, #2, #3, #4, #6 e #7. A revisão publicada passou no GitHub Actions. Um PR separado demonstrou falha intencional detectada pelo pipeline e uma execução aprovada depois da remoção da asserção falsa. O experimento foi encerrado sem merge na versão principal.
 
-O parecer é favorável ao uso no laboratório acadêmico dentro do escopo verificado. A autorização docente para uso do EduTask Web foi confirmada pelo solicitante em 11/11/2026. Permanecem dependentes das pessoas responsáveis a conferência de participação e assinaturas, a homologação humana quando exigida e a entrega na pasta oficial do Drive.
+O parecer é favorável ao uso no laboratório acadêmico dentro do escopo verificado. O uso do EduTask Web no trabalho foi autorizado pelo professor.
 
 <!-- pagebreak -->
 
@@ -30,11 +30,11 @@ A estrutura segue os produtos P01 a P14 e as quantidades mínimas do manual forn
 
 ### 1.3 Identificação e contexto da revisão
 
-Instituição: UNISAGRADO. Curso: Ciência da Computação. Disciplina: Testes e Qualidade de Software. Professor: Prof. Dr. Elvio Gilberto da Silva. Turma A, Grupo 01. Integrantes: Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo e Lucas Braga.
+Instituição: UNISAGRADO. Curso: Ciência da Computação. Disciplina: Testes e Qualidade de Software. Professor: Prof. Dr. Elvio Gilberto da Silva. Turma A. Integrantes: Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo e Lucas Braga.
 
 Versão revisada: v1.0.1-p2, identificação documental sem tag de release criada. Data de consolidação: 11/11/2026. Repositório: https://github.com/joaoboconcelo/edutask-tqs-p2 . A revisão técnica inicial foi publicada no commit `33d441c7f6dc4599da735727f232c5c1aa5d41f3`; alterações documentais posteriores estão identificadas no histórico.
 
-Apresentação e vídeo foram dispensados conforme informação do solicitante. A estrutura da pasta 14 foi mantida para respeitar a organização do manual. A confirmação docente da dispensa e a eventual redistribuição da pontuação não foram presumidas.
+A apresentação e o vídeo de contingência foram dispensados pelo professor. A pasta 14 foi mantida para respeitar a estrutura do manual.
 
 ## 2 Caracterização e arquitetura do sistema
 
@@ -182,7 +182,7 @@ Interrompe-se a rodada afetada quando servidor, driver ou banco ficam indisponí
 
 ### 4.4 Responsabilidades e acompanhamento
 
-O plano original organiza Gabriel Henrique Moreira em planejamento, João Lucas de Antonio Boconcelo em automação e Lucas Braga em análise e execução. Esses papéis não são prova de presença em cada atividade. O diário final contém os fatos verificáveis da revisão e deixa a participação individual e as horas para conferência dos próprios integrantes.
+O plano original organiza Gabriel Henrique Moreira em planejamento, João Lucas de Antonio Boconcelo em automação e Lucas Braga em análise e execução. O diário de participação, na pasta 15, registra as atividades realizadas.
 
 ## 5 Técnicas e especificação dos casos
 
@@ -214,9 +214,11 @@ O apêndice A incorpora os 24 casos detalhados. O arquivo P05 relaciona os seis 
 
 ### 6.1 Procedimento da inspeção interativa
 
-Em 11/11/2026 foram percorridos os 24 casos com navegação e preenchimento da interface. O executor foi um assistente de validação técnica a pedido do solicitante. Foram observados o resultado de cada ação, as mensagens, as listas e os percentuais. Para cada caso foram salvos PNG, snapshot textual e JSON com data, método, executor, esperado e obtido.
+Em 11/11/2026 foram percorridos os 24 casos com navegação e preenchimento da interface. O executor foi um assistente de validação técnica. Foram observados o resultado de cada ação, as mensagens, as listas e os percentuais. Para cada caso foram salvos PNG, snapshot textual e JSON com data, método, executor, esperado e obtido.
 
-Essa rodada é distinta da reexecução automatizada com Flask e dos quatro fluxos Selenium. Ela não é atribuída a um estudante e não representa homologação humana. Os relatos históricos sem capturas contemporâneas não foram somados às métricas confirmadas; a entrega final usa o registro atual verificável.
+Em 26/11/2026, João Lucas de Antonio Boconcelo executou manualmente os mesmos 24 casos no navegador, seguindo os passos do catálogo, com 24 aprovações e nenhum defeito novo. O registro está em `05_EXECUCAO_MANUAL/REGISTRO_EXECUCAO_MANUAL.csv` (EX-M-001 a EX-M-024).
+
+Essas rodadas são distintas da reexecução automatizada com Flask e dos quatro fluxos Selenium. Os relatos históricos sem capturas contemporâneas não foram somados às métricas; a entrega final usa o registro atual verificável.
 
 | Caso | Resultado observado na interface |
 |---|---|
@@ -315,7 +317,7 @@ O pytest.ini limita a coleta às cinco pastas de testes e exclui diretórios de 
 | DELETE /api/tarefas/id | Remover tarefa própria | 200 removida, 404 não acessível |
 | GET /api/metricas | Consultar contagens e percentual | 200 com indicadores do usuário, 401 sem sessão |
 
-A autenticação da API usa cookies de sessão. Na coleção Postman, executar o login válido primeiro e manter os cookies. A coleção e o ambiente são arquivos JSON editáveis. A revisão não apresenta uma execução Newman como se tivesse sido realizada: o resultado comprovado de integração vem dos testes Python e do pipeline.
+A autenticação da API usa cookies de sessão. Na coleção Postman, executar o login válido primeiro e manter os cookies. A coleção e o ambiente são arquivos JSON editáveis. Em 26/11/2026 a coleção foi executada com Newman 6.2.1 (Node.js 26.13.1) contra uma instância local com banco temporário: 6 requisições e 12 asserções aprovadas, nenhuma falha, tempo médio de resposta de 153 ms. Relatórios em `08_INTEGRACAO_API/evidencias_newman/` (texto, JSON e JUnit). Os testes Python e o pipeline complementam essa execução com 79 cenários de integração.
 
 ### 8.2 Fluxos de sistema
 
@@ -336,7 +338,7 @@ Os quatro objetivos do estudante foram verificados tanto na suíte quanto na ins
 | UAT-03 | Entrega para 13/11/2026, dois dias após a validação, exibiu Alta Urgência. | `evidencias_interface/UAT-03.png` |
 | UAT-04 | Única tarefa concluída: painel exibiu 1 concluída de 1 tarefa e progresso de 100,0%. | `evidencias_interface/UAT-04.png` |
 
-A decisão é técnica, baseada na correspondência entre critério e interface. O campo de homologação humana não foi preenchido em nome de um integrante. Essa distinção permite aproveitar as evidências sem inventar a presença de um representante externo ou sua assinatura.
+Em 26/11/2026, João Lucas de Antonio Boconcelo executou manualmente os quatro cenários, todos com critério atendido. A decisão registrada é Aceito com ressalvas, porque a execução foi feita por integrante do grupo e não por representante externo do usuário. O registro está em `10_ACEITACAO_NAO_FUNCIONAIS/REGISTRO_ACEITE.csv`.
 
 ### 9.2 Desempenho TNF 01 e TNF 02
 
@@ -350,7 +352,7 @@ O procedimento faz três requisições de aquecimento e 30 medições por rota, 
 
 Todas as amostras ficaram abaixo de 500 ms, atendendo RNF-01 na carga documentada. O P95 é o 29º valor da lista ordenada de 30 amostras, método do posto mais próximo. Essa medição não é tempo de renderização completa do navegador, não inclui internet e não demonstra capacidade sob concorrência ou volume elevado.
 
-Reprodução: `python tools/medir_qualidade.py`. Fontes: `latencias_http.csv` e `desempenho.json` na pasta 11. O ambiente e a data de medição constam do JSON, permitindo distinguir novas medições de resultados preservados.
+Reprodução: `python 11_METRICAS_E_QUALIDADE/medir_qualidade.py`. Fontes: `latencias_http.csv` e `desempenho.json` na pasta 11. O ambiente e a data de medição constam do JSON, permitindo distinguir novas medições de resultados preservados.
 
 ### 9.3 Usabilidade TNF 03 e TNF 04
 
@@ -446,14 +448,14 @@ O teste temporário continha assert False e falhou na etapa de testes unitários
 
 | Prioridade | Ação | Critério de verificação |
 |---|---|---|
-| Alta | Conferir homologação humana e assinaturas | Registros reais das pessoas responsáveis |
+| Alta | Aceitação por representante externo do usuário e assinaturas | Registro de aceite e diário assinado |
 | Alta | Adicionar proteção CSRF antes de exposição pública | POST sem token rejeitado, regressão aprovada |
 | Média | Paginar consultas e avaliar 500 registros | Medição por volume e comparação com a base pequena |
 | Média | Empacotar Bootstrap e ícones localmente | Fluxos estilizados com rede externa desativada |
 | Média | Ampliar caminhos ainda não cobertos | Novas asserções de comportamento e cobertura conferida |
 | Baixa | Avaliar PostgreSQL conforme concorrência necessária | Ensaio comparativo antes da decisão de migração |
 
-Publicação, issues e demonstração de CI estão concluídas. Os responsáveis individuais pelas próximas atividades devem ser confirmados pelo grupo, sem atribuição de execução ou horas por inferência.
+Publicação, issues e demonstração de CI estão concluídas. Os responsáveis pelas próximas atividades serão definidos pelo grupo.
 
 ## 12 Discussão dos resultados e riscos residuais
 
@@ -461,13 +463,13 @@ Os resultados mais relevantes são a correção de falhas reais de isolamento e 
 
 Os 145 cenários aprovados não provam ausência geral de falhas. A cobertura de linhas e ramos é parcial, o desempenho foi medido em carga pequena, a interface usa recursos externos por CDN e a segurança não foi auditada de forma exaustiva. Esses limites orientam o plano de melhoria e restringem o parecer ao uso acadêmico local.
 
-O solicitante confirmou em 11/11/2026 que o professor autorizou o uso do EduTask Web no trabalho. A ficha registra essa confirmação do solicitante, sem atribuir data à conversa original nem reproduzir assinatura do professor. O aceite humano do sistema e as assinaturas dos integrantes permanecem separados dessa autorização acadêmica. Os registros interativos deixam explícito o executor técnico. A entrega oficial no Google Drive e a conferência de permissões e prazo também não são substituídas pela publicação no GitHub.
+O professor autorizou o uso do EduTask Web no trabalho, conforme registrado na ficha da pasta 00. Os registros interativos identificam o executor de cada verificação. A publicação no GitHub não substitui a entrega oficial no Google Drive.
 
 ## 13 Conclusão e parecer de qualidade
 
 A versão revisada apresenta comportamento aprovado nos cenários selecionados, rastreabilidade entre requisitos e evidências, métricas calculadas a partir de resultados preservados, defeitos acompanhados na ferramenta e execução real de CI. A estrutura final conserva as 17 pastas do manual, elimina duplicatas de relatório e mantém o material necessário para instalação, execução e avaliação.
 
-O parecer é favorável ao uso do EduTask Web no laboratório acadêmico dentro do escopo testado. A conclusão deve ser lida com as limitações de cobertura, carga e segurança apresentadas. A autorização docente foi informada pelo solicitante. As demais confirmações humanas dependem das pessoas responsáveis; o relatório não apresenta assinaturas em nome delas.
+O parecer é favorável ao uso do EduTask Web no laboratório acadêmico dentro do escopo testado. A conclusão deve ser lida com as limitações de cobertura, carga e segurança apresentadas.
 
 ## Referências
 
@@ -1022,15 +1024,15 @@ python -m pytest -v 08_INTEGRACAO_API
 python -m pytest -v 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py
 python -m pytest -v 09_SISTEMA_INTERFACE
 python -m pytest -v 10_ACEITACAO_NAO_FUNCIONAIS
-python tools/medir_qualidade.py
-python tools/verificar_pipeline.py
+python 11_METRICAS_E_QUALIDADE/medir_qualidade.py
+python 12_TDD_CICD_MELHORIA/verificar_pipeline.py
 ```
 
 ### Organização final das pastas
 
 | Pasta | Conteúdo necessário |
 |---|---|
-| 00_IDENTIFICACAO_E_README | Identificação, ficha docente, instruções, confirmações restantes e minuta de entrega |
+| 00_IDENTIFICACAO_E_README | Identificação, ficha docente e instruções |
 | 01_SISTEMA_ALVO | Aplicação, templates, dependências e configuração de análise |
 | 02_REQUISITOS_ESCOPO_RISCOS | Oito requisitos e oito riscos priorizados |
 | 03_PLANO_DE_TESTES | Estratégia, ambiente, dados, critérios e responsabilidades planejadas |
@@ -1045,10 +1047,10 @@ python tools/verificar_pipeline.py
 | 12_TDD_CICD_MELHORIA | Ciclo TDD, logs, metadados e evidências do Actions |
 | 13_RELATORIO_FINAL | Relatório canônico completo em DOCX e PDF e fonte de geração |
 | 14_APRESENTACAO_E_VIDEO_CONTINGENCIA | Registro da dispensa, sem materiais antigos divergentes |
-| 15_DIARIO_DE_PARTICIPACAO | Atividades verificáveis e declaração para conferência/assinatura |
+| 15_DIARIO_DE_PARTICIPACAO | Atividades realizadas e declaração do grupo |
 | 16_BACKUP_ENTREGA | Checklist, manifesto SHA-256 e pacote de backup |
 
-Os utilitários de tools apoiam medição, reprodução e geração documental. Caches, bancos temporários, dependências instaladas localmente, cópias de relatório, slides dispensados e arquivos transitórios de publicação não fazem parte da entrega final.
+Os utilitários de medição, pipeline local, geração do relatório e backup ficam nas pastas 11, 12, 13 e 16, respectivamente. Caches, bancos temporários, dependências instaladas localmente, cópias de relatório, slides dispensados e arquivos transitórios de publicação não fazem parte da entrega final.
 
 ### Evidências e integridade
 
@@ -1056,4 +1058,4 @@ O manifesto SHA-256 identifica os conteúdos do pacote de backup, excluindo o pr
 
 ### Confirmações finais
 
-Antes da entrega oficial, o grupo deve conferir os dados complementares da ficha docente, eventual licença de redistribuição, participação, assinaturas, dispensa de apresentação e permissões do Drive. O comprovante é uma minuta e deve receber data e hora reais somente após o envio. Nenhum desses atos foi antecipado no relatório.
+Antes da entrega oficial, o grupo confere participação, assinaturas e permissões da pasta no Drive.

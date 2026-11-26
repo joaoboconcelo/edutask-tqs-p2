@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="EduTask Web - Suíte de Testes de API e Integração (P2)" tests="6" time="0.919">
+  <testsuite name="01 - Autenticação - Login Válido (Positivo)" id="38ae3aed-7e1c-4d75-864b-16bac7099356" timestamp="2026-11-26T06:48:36.790Z" tests="2" failures="0" errors="0" time="0.452">
+    <testcase name="Status code deve ser 200 OK" time="0.452" classname="01AutenticacaoLoginValidoPositivo"/>
+    <testcase name="Resposta deve conter mensagem de sucesso e dados do usuario" time="0.452" classname="01AutenticacaoLoginValidoPositivo"/>
+  </testsuite>
+  <testsuite name="02 - Autenticação - Credenciais Inválidas (Negativo)" id="7ada18ba-bbcc-439b-8108-e6738bfcb8ae" timestamp="2026-11-26T06:48:36.790Z" tests="2" failures="0" errors="0" time="0.430">
+    <testcase name="Status code deve ser 401 Unauthorized" time="0.430" classname="02AutenticacaoCredenciaisInvalidasNegativo"/>
+    <testcase name="Resposta deve conter mensagem de erro de credenciais" time="0.430" classname="02AutenticacaoCredenciaisInvalidasNegativo"/>
+  </testsuite>
+  <testsuite name="03 - Disciplinas - Criar Disciplina Válida (Positivo)" id="b9c81e57-9174-498a-a08f-3128d00fce43" timestamp="2026-11-26T06:48:36.790Z" tests="2" failures="0" errors="0" time="0.010">
+    <testcase name="Status code deve ser 201 Created" time="0.010" classname="03DisciplinasCriarDisciplinaValidaPositivo"/>
+    <testcase name="Validar contrato do objeto da disciplina criada" time="0.010" classname="03DisciplinasCriarDisciplinaValidaPositivo"/>
+  </testsuite>
+  <testsuite name="04 - Disciplinas - Código Duplicado (Negativo / Conflito)" id="05471405-462a-4e3b-a89d-c80215c3454e" timestamp="2026-11-26T06:48:36.790Z" tests="2" failures="0" errors="0" time="0.005">
+    <testcase name="Status code deve ser 409 Conflict" time="0.005" classname="04DisciplinasCodigoDuplicadoNegativoConflito"/>
+    <testcase name="Mensagem deve reportar duplicidade" time="0.005" classname="04DisciplinasCodigoDuplicadoNegativoConflito"/>
+  </testsuite>
+  <testsuite name="05 - Tarefas - Criar Atividade Acadêmica (Positivo)" id="e9512831-09c7-477d-a085-d1f843d32d0c" timestamp="2026-11-26T06:48:36.790Z" tests="2" failures="0" errors="0" time="0.016">
+    <testcase name="Status code deve ser 201 Created" time="0.016" classname="05TarefasCriarAtividadeAcademicaPositivo"/>
+    <testcase name="Validar calculo automatico de urgencia e score" time="0.016" classname="05TarefasCriarAtividadeAcademicaPositivo"/>
+  </testsuite>
+  <testsuite name="06 - Métricas - Consulta de Indicadores Gerais (Positivo)" id="ae551636-2e30-403d-acef-cbdb0e28f5e0" timestamp="2026-11-26T06:48:36.790Z" tests="2" failures="0" errors="0" time="0.006">
+    <testcase name="Status code deve ser 200 OK" time="0.006" classname="06MetricasConsultaDeIndicadoresGeraisPositivo"/>
+    <testcase name="Validar presenca das metricas de negocio" time="0.006" classname="06MetricasConsultaDeIndicadoresGeraisPositivo"/>
+  </testsuite>
+</testsuites>

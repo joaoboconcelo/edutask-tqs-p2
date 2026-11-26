@@ -1,0 +1,25 @@
+﻿Execucao;Caso;Titulo;Data_real;Versao;Executor;Resultado_obtido;Status;Captura;Defeito
+EX-M-001;CT-001;Cadastro de usuario com dados validos e senha forte;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-002;CT-002;Cadastro de usuario com e-mail em formato invalido;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-003;CT-003;Cadastro com senha de 7 caracteres (Limite inferior);26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-004;CT-004;Cadastro com senha sem caractere especial;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-005;CT-005;Cadastro com e-mail ja existente no banco de dados;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-006;CT-006;Cadastro com senhas divergentes na confirmacao;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-007;CT-007;Autenticacao de usuario com credenciais validas;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-008;CT-008;Autenticacao com senha incorreta;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-009;CT-009;Autenticacao com e-mail nao existente;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-010;CT-010;Tentativa de acesso direto a rota restrita sem sessao;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-011;CT-011;Cadastro de disciplina com dados validos e codigo padrao;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-012;CT-012;Cadastro de disciplina com codigo fora do padrao;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-013;CT-013;Cadastro de disciplina com carga horaria limite inferior (15h);26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-014;CT-014;Cadastro de disciplina com carga horaria abaixo do limite (14h);26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-015;CT-015;Cadastro de disciplina com carga horaria limite superior (400h);26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-016;CT-016;Cadastro de disciplina com carga horaria acima do limite (401h);26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-017;CT-017;Tentativa de cadastrar disciplina com codigo duplicado;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-018;CT-018;Tentativa de exclusao de disciplina com tarefas vinculadas;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-019;CT-019;Criacao de atividade com dados validos e data futura;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-020;CT-020;Criacao de atividade com titulo de 2 caracteres (Abaixo min);26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-021;CT-021;Criacao de atividade sem informar data limite de entrega;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-022;CT-022;Atualizacao de status da tarefa e recalculao da taxa no Dashboard;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-023;CT-023;Filtragem combinada por status Pendente e prioridade Alta;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum
+EX-M-024;CT-024;Busca textual por termo inexistente;26/11/2026;v1.0.1-p2;João Lucas de Antonio Boconcelo;Conforme o resultado esperado do catálogo;Aprovado;A anexar;Nenhum

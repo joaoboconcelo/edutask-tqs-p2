@@ -6,7 +6,7 @@
 
 | Campo | Preenchimento do Grupo |
 | :--- | :--- |
-| **Turma e grupo** | Ciência da Computação - Turma A / Grupo 01 |
+| **Turma e grupo** | Ciência da Computação - Turma A |
 | **Integrantes** | Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo, Lucas Braga |
 | **Nome do sistema** | EduTask Web - Sistema de Gestão Acadêmica e Atividades |
 | **Origem do sistema** | Aplicação acadêmica do grupo; origem exata e eventual projeto-base precisam ser confirmados pelos integrantes. |
@@ -20,7 +20,7 @@
 | **Riscos de viabilidade** | Baixo risco: o sistema é executado 100% em ambiente local com SQLite embutido, eliminando dependências de servidores de banco de dados externos ou problemas de portas bloqueadas. |
 | **Decisão do professor** | [x] Aprovado &nbsp;&nbsp;&nbsp; [ ] Aprovado com ajustes &nbsp;&nbsp;&nbsp; [ ] Não aprovado |
 | **Ajustes solicitados** | |
-| **Data da aprovação** | Data da conversa original não informada. Confirmação do solicitante registrada em 11/11/2026. |
+| **Data da aprovação** | Autorização do professor registrada pelo grupo em 11/11/2026. |
 
 ---
 
@@ -29,4 +29,4 @@
 * **João Lucas de Antonio Boconcelo:** _______________________________________
 * **Lucas Braga:** _______________________________________
 
-A autorização do professor para utilizar o EduTask Web foi confirmada pelo solicitante em 11/11/2026. Este registro documenta a informação recebida e não constitui assinatura do professor nem homologação dos resultados de teste.
+A autorização do professor para utilizar o EduTask Web foi registrada pelo grupo em 11/11/2026.

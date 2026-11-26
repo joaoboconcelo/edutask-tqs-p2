@@ -7,7 +7,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '16_BACKUP_ENTREGA'
-ARCHIVE = OUT / 'P2_TQS_2026_TURMAA_GRUPO01_EDUTASK-WEB_BACKUP.zip'
+ARCHIVE = OUT / 'P2_TQS_2026_TURMAA_EDUTASK-WEB_BACKUP.zip'
 MANIFEST = OUT / 'MANIFESTO_SHA256.json'
 SKIP = {'.git', '.pytest_cache', '__pycache__', '.deps', 'node_modules', 'tmp', '.venv', 'venv'}
 

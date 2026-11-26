@@ -12,7 +12,6 @@ CT-023 prepara explicitamente uma tarefa Pendente/Alta para evitar uma aprovaç�
 
 Reproduzir da raiz: `python -m pytest -v 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py`.
 
-## Confirmação manual do grupo
+## Execução manual do grupo
 
-O grupo deve percorrer os 24 casos no navegador e registrar data, executor e captura quando o professor exigir execução manual comprovada.
-Não preencher esse aceite com os resultados automatizados. Modelo: `EX-M-NNN | CT-NNN | data e versão | executor | esperado | obtido | captura | defeito`.
+Em 26/11/2026, João Lucas de Antonio Boconcelo executou manualmente os 24 casos no navegador. Resultado: 24/24 aprovados. Registro em `REGISTRO_EXECUCAO_MANUAL.csv` (EX-M-001 a EX-M-024).

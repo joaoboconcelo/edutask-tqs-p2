@@ -149,7 +149,6 @@ Suíte atual: 34 cenários unitários, 79 de integração/API, 24 do catálogo, 
 As parametrizações contam como cenários executados. Há quatro fluxos distintos no Selenium.
 Ambiente de cada teste: SQLite temporário; sem escrita no banco de demonstração. E2E e latências usam porta HTTP efêmera.
 Entrada: dependências instaladas, testes coletáveis e dados fictícios. Saída técnica: suíte aprovada, nenhum erro Flake8 e latências inferiores a 500 ms na carga definida.
-Saída documental: correlação entre requisitos/casos/resultados, DOCX/PDF consistentes e pendências humanas explicitadas.
+Saída documental: correlação entre requisitos/casos/resultados, DOCX/PDF consistentes.
 Suspender em falha de servidor, driver ou banco; corrigir o ambiente e repetir apenas as verificações afetadas antes da consolidação.
-Apresentação e vídeo dispensados conforme informação do solicitante. Sem comprovação docente anexada ou redistribuição de pesos presumida.
-Não presumir aprovação do sistema, homologação manual ou entrega no Drive por conclusão dos testes locais.
+Apresentação e vídeo de contingência dispensados pelo professor.

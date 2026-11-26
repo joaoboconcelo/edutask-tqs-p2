@@ -1,0 +1,62 @@
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman
+
+EduTask Web - Suíte de Testes de API e Integração (P2)
+
+→ 01 - Autenticação - Login Válido (Positivo)
+  POST http://127.0.0.1:5011/api/auth/login [200 OK, 537B, 452ms]
+  √  Status code deve ser 200 OK
+  √  Resposta deve conter mensagem de sucesso e dados do usuario
+
+→ 02 - Autenticação - Credenciais Inválidas (Negativo)
+  POST http://127.0.0.1:5011/api/auth/login [401 UNAUTHORIZED, 215B, 430ms]
+  √  Status code deve ser 401 Unauthorized
+  √  Resposta deve conter mensagem de erro de credenciais
+
+→ 03 - Disciplinas - Criar Disciplina Válida (Positivo)
+  POST http://127.0.0.1:5011/api/disciplinas [201 CREATED, 386B, 10ms]
+  √  Status code deve ser 201 Created
+  √  Validar contrato do objeto da disciplina criada
+
+→ 04 - Disciplinas - Código Duplicado (Negativo / Conflito)
+  POST http://127.0.0.1:5011/api/disciplinas [409 CONFLICT, 251B, 5ms]
+  √  Status code deve ser 409 Conflict
+  √  Mensagem deve reportar duplicidade
+
+→ 05 - Tarefas - Criar Atividade Acadêmica (Positivo)
+  POST http://127.0.0.1:5011/api/tarefas [201 CREATED, 423B, 16ms]
+  √  Status code deve ser 201 Created
+  √  Validar calculo automatico de urgencia e score
+
+→ 06 - Métricas - Consulta de Indicadores Gerais (Positivo)
+  GET http://127.0.0.1:5011/api/metricas [200 OK, 311B, 6ms]
+  √  Status code deve ser 200 OK
+  √  Validar presenca das metricas de negocio
+
+┌─────────────────────────┬────────────────────┬───────────────────┐
+│                         │           executed │            failed │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              iterations │                  1 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│                requests │                  6 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│            test-scripts │                  6 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│      prerequest-scripts │                  0 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              assertions │                 12 │                 0 │
+├─────────────────────────┴────────────────────┴───────────────────┤
+│ total run duration: 1374ms                                       │
+├──────────────────────────────────────────────────────────────────┤
+│ total data received: 841B (approx)                               │
+├──────────────────────────────────────────────────────────────────┤
+│ average response time: 153ms [min: 5ms, max: 452ms, s.d.: 203ms] │
+└──────────────────────────────────────────────────────────────────┘
+npm notice
+npm notice New major version of npm available! 11.20.0 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

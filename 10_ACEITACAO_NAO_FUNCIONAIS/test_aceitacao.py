@@ -1,4 +1,4 @@
-"""Verificação técnica dos cenários de aceitação; homologação humana separada."""
+"""Verificação técnica automatizada dos cenários de aceitação."""
 import sys
 from pathlib import Path
 

@@ -7,7 +7,8 @@ dist/
 build/
 .env
 
-tools/.deps/
+.deps/
 node_modules/
 tmp/
 .coverage*
+~$*

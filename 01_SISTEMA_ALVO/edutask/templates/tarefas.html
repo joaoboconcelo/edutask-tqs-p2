@@ -17,7 +17,7 @@
 <div class="card p-3 mb-4 shadow-sm">
     <form method="GET" action="{{ url_for('tasks.list_tasks') }}" id="form-filter" class="row g-2 align-items-center">
         <div class="col-md-3">
-            <label class="form-label small fw-semibold text-muted mb-1">Status</label>
+            <label for="filter-status" class="form-label small fw-semibold text-muted mb-1">Status</label>
             <select name="status" class="form-select" id="filter-status">
                 <option value="Todos" {% if current_status == 'Todos' %}selected{% endif %}>Todos os Status</option>
                 <option value="Pendente" {% if current_status == 'Pendente' %}selected{% endif %}>Pendente</option>
@@ -26,7 +26,7 @@
             </select>
         </div>
         <div class="col-md-3">
-            <label class="form-label small fw-semibold text-muted mb-1">Prioridade</label>
+            <label for="filter-priority" class="form-label small fw-semibold text-muted mb-1">Prioridade</label>
             <select name="priority" class="form-select" id="filter-priority">
                 <option value="Todas" {% if current_priority == 'Todas' %}selected{% endif %}>Todas as Prioridades</option>
                 <option value="Alta" {% if current_priority == 'Alta' %}selected{% endif %}>Alta</option>
@@ -35,7 +35,7 @@
             </select>
         </div>
         <div class="col-md-4">
-            <label class="form-label small fw-semibold text-muted mb-1">Buscar por Palavra-Chave</label>
+            <label for="search-input" class="form-label small fw-semibold text-muted mb-1">Buscar por Palavra-Chave</label>
             <input type="text" name="q" class="form-control" id="search-input" placeholder="Ex: Selenium, DER, Relatório..." value="{{ current_query }}">
         </div>
         <div class="col-md-2 d-flex align-items-end pt-4">

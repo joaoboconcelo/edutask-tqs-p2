@@ -11,7 +11,8 @@ Revisão: 2026-11-11T18:05:55-03:00. Sistema: EduTask Web v1.0.1-p2.
 | UAT-03 | Priorizar uma entrega próxima | Prazo em dois dias exibe Alta Urgência | test_uat03_student_sees_urgency |
 | UAT-04 | Acompanhar seu progresso | Concluir tarefa aumenta contagem e percentual exato | test_uat04_student_tracks_completion |
 
-Resultado técnico: quatro cenários aprovados na suíte e novamente conferidos pela interface. As capturas e o registro de aceitação técnica estão nesta pasta. Executor: assistente de validação técnica. Homologação humana ou assinatura do usuário não são presumidas.
+Resultado técnico: quatro cenários aprovados na suíte e novamente conferidos pela interface. As capturas e o registro de aceitação técnica estão nesta pasta. Executor: assistente de validação técnica.
+Execução manual: em 26/11/2026, João Lucas de Antonio Boconcelo executou os quatro cenários no navegador. Decisão: Aceito com ressalvas, pois a execução foi feita por integrante do grupo, sem representante externo do usuário. Registro: `REGISTRO_ACEITE.csv`.
 Reproduzir: `python -m pytest -v 10_ACEITACAO_NAO_FUNCIONAIS`.
 
 ## Seis verificações não funcionais em três categorias
@@ -25,7 +26,7 @@ Métrica: todas as respostas abaixo de 500 ms, de acordo com RNF-01. Banco de 1 
 | /api/tarefas | 30 | 4.206 | 4.147 | 26.937 | Atende |
 | /tarefas | 30 | 4.157 | 4.578 | 5.488 | Atende |
 
-Fonte: `11_METRICAS_E_QUALIDADE/evidencias/latencias_http.csv` e `desempenho.json`. Reproduzir: `python tools/medir_qualidade.py`.
+Fonte: `11_METRICAS_E_QUALIDADE/evidencias/latencias_http.csv` e `desempenho.json`. Reproduzir: `python 11_METRICAS_E_QUALIDADE/medir_qualidade.py`.
 
 TNF-03 Usabilidade por inspeção de navegação: quatro fluxos Selenium com controles identificáveis e capturas E2E-01 a E2E-04. Critério: completar os fluxos sem rotas inexistentes e encontrar os resultados nas telas correspondentes. Resultado: quatro fluxos aprovados. Não equivale a estudo de usabilidade com participantes.
 

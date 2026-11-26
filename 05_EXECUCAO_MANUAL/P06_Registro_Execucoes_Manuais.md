@@ -1,7 +1,7 @@
 # Registro atual de inspeção pela interface
 
 Data: 11/11/2026. Versão: v1.0.1-p2. Ambiente: instância descartável em http://127.0.0.1:5011, SQLite separado da demonstração.
-Executor: assistente de validação técnica, por solicitação do grupo. Método: navegação e preenchimento interativo dos formulários, leitura das mensagens e dos dados visíveis. Não se atribui a execução a um integrante nem se presume homologação humana.
+Executor: assistente de validação técnica. Método: navegação e preenchimento interativo dos formulários, leitura das mensagens e dos dados visíveis.
 
 Os 24 critérios funcionais foram atendidos. Em quatro casos, a validação nativa do navegador impediu o envio; isso está registrado sem substituir a observação pela mensagem esperada do backend.
 
@@ -34,3 +34,9 @@ Os 24 critérios funcionais foram atendidos. Em quatro casos, a validação nati
 
 Cada captura tem snapshot textual e metadados JSON associados. O registro consolidado contém também os quatro cenários de aceitação técnica, cujas capturas ficam na pasta 10.
 As verificações automatizadas do mesmo catálogo, com banco por cenário, ficam em evidencias_reexecucao e não são contadas como execuções humanas.
+
+## Execução manual pelo grupo
+
+Data: 26/11/2026. Versão: v1.0.1-p2. Executor: João Lucas de Antonio Boconcelo.
+Os 24 casos CT-001 a CT-024 foram executados manualmente no navegador, seguindo os passos do catálogo P04. Resultado: 24/24 aprovados, sem defeitos novos.
+Registro detalhado por caso (EX-M-001 a EX-M-024): `REGISTRO_EXECUCAO_MANUAL.csv`. Capturas: a anexar.

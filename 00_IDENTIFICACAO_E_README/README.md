@@ -1,6 +1,6 @@
 # EduTask Web Projeto Integrado P2
 
-UNISAGRADO, Ciência da Computação, Turma A, Grupo 01. Professor: Prof. Dr. Elvio Gilberto da Silva.
+UNISAGRADO, Ciência da Computação, Turma A. Professor: Prof. Dr. Elvio Gilberto da Silva.
 Integrantes: Gabriel Henrique Moreira, João Lucas de Antonio Boconcelo e Lucas Braga.
 
 ## Sistema e versão
@@ -46,8 +46,8 @@ python -m pytest -v 08_INTEGRACAO_API
 python -m pytest -v 05_EXECUCAO_MANUAL/test_reexecucao_catalogo.py 10_ACEITACAO_NAO_FUNCIONAIS
 python -m pytest -v 09_SISTEMA_INTERFACE
 python -m flake8 01_SISTEMA_ALVO/edutask --config=01_SISTEMA_ALVO/.flake8
-python tools/medir_qualidade.py
-python tools/verificar_pipeline.py
+python 11_METRICAS_E_QUALIDADE/medir_qualidade.py
+python 12_TDD_CICD_MELHORIA/verificar_pipeline.py
 ```
 
 Selenium inicia seu próprio servidor local em porta livre; não requer servidor na porta 5000. Se necessário, definir CHROMEDRIVER como caminho do executável compatível e CHROME_BINARY como caminho do Chrome.
@@ -57,7 +57,10 @@ Resultado consolidado desta revisão: 98/145 cenários; logs e ambiente na pasta
 
 Importar `08_INTEGRACAO_API/edutask_api_collection.postman_collection.json` e `edutask_environment.postman_environment.json`.
 Executar login válido primeiro e manter cookies na mesma sessão; demais endpoints exigem autenticação. Os testes Python usam Flask test client integrado ao SQLite, não requests de rede.
-As medições de latência usam requests e HTTP real separadamente. A coleção Postman é fornecida; não há resultado Newman comprovado nesta revisão.
+As medições de latência usam requests e HTTP real separadamente. Em 26/11/2026 a coleção foi executada com Newman 6.2.1 (Node.js 26.13.1) contra uma instância local com banco temporário: 6 requisições e 12 asserções aprovadas, nenhuma falha, tempo médio de resposta de 153 ms. Relatórios em `08_INTEGRACAO_API/evidencias_newman/` (texto, JSON e JUnit). Para reproduzir, com o servidor de inspeção ativo (`python 05_EXECUCAO_MANUAL/servidor_validacao_interativa.py`, porta 5011):
+```powershell
+npx newman@6.2.1 run 08_INTEGRACAO_API/edutask_api_collection.postman_collection.json -e 08_INTEGRACAO_API/edutask_environment.postman_environment.json --env-var base_url=http://127.0.0.1:5011
+```
 
 ## Pipeline
 
@@ -66,19 +69,19 @@ Execução aprovada em main: https://github.com/joaoboconcelo/edutask-tqs-p2/act
 
 ## Documentos e evidências
 
-00 identificação e pendências; 01 sistema; 02 requisitos e riscos; 03 plano; 04 catálogo e matriz; 05 relatos manuais e reexecução automatizada; 06 defeitos históricos e confirmados; 07 unidade; 08 integração/Postman; 09 Selenium e capturas; 10 aceitação e não funcionais; 11 métricas, planilha e dados brutos; 12 TDD e CI; 13 relatório DOCX/PDF; 14 dispensa de apresentação/vídeo; 15 diário para conferência; 16 backup e checklist.
+00 identificação e instruções; 01 sistema; 02 requisitos e riscos; 03 plano; 04 catálogo e matriz; 05 relatos manuais e reexecução automatizada; 06 defeitos históricos e confirmados; 07 unidade; 08 integração/Postman; 09 Selenium e capturas; 10 aceitação e não funcionais; 11 métricas, planilha e dados brutos; 12 TDD e CI; 13 relatório DOCX/PDF; 14 dispensa de apresentação/vídeo; 15 diário para conferência; 16 backup e checklist.
 
 Relatório atual: `13_RELATORIO_FINAL/RELATORIO_FINAL_PROJETO_P2.docx` e PDF correspondente. O relatório da pasta 13 é a versão canônica. A pasta 14 registra a dispensa de apresentação/vídeo; duplicatas e materiais de apresentação antigos foram removidos.
 
 ## Limitações e contato
 
-Consulte `PENDENCIAS_PARA_ENTREGA.md`: homologação humana, licença, assinaturas e entrega oficial ainda dependem do grupo. A autorização docente para usar o sistema foi confirmada pelo solicitante em 11/11/2026. A publicação, as issues e as evidências do Actions foram concluídas.
+A autorização do professor para usar o sistema foi registrada pelo grupo em 11/11/2026. A publicação, as issues e as evidências do Actions foram concluídas.
 Não há auditoria completa de segurança, carga concorrente, CSRF dedicado ou aceitação externa comprovada. Parecer limitado ao laboratório acadêmico.
-Contato: os três integrantes identificados no início; nenhum contato pessoal foi inventado.
+Contato: os três integrantes identificados no início.
 
 ## Inspeção interativa e organização final
 
-A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. Esses registros não são assinaturas humanas. O relatório detalha os bloqueios nativos do navegador e separa os 145 cenários automatizados das 28 observações adicionais. A pasta tools contém apenas utilitários necessários à medição, reprodução e documentação.
+A pasta 05 contém 24 capturas de casos conduzidos pela interface por assistente; a pasta 10 contém quatro cenários de aceitação técnica igualmente conferidos. O relatório detalha os bloqueios nativos do navegador e separa os 145 cenários automatizados das 28 observações adicionais. Os utilitários de apoio ficam junto ao produto que geram: medição (11), pipeline local (12), relatório (13), backup (16) e servidor de inspeção (05).
 
 ## Revisão complementar para fechamento técnico
 

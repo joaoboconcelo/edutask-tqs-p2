@@ -18,7 +18,7 @@ Arquivo canônico: `.github/workflows/ci.yml`, na raiz. A configuração da raiz
 Gatilhos: push e pull_request em main/develop, além de workflow_dispatch. Etapas: instalação, Flake8 bloqueante, unidade, integração, catálogo, aceitação técnica, Selenium e upload de artefatos.
 O resumo usa o estado real do job; não anuncia sucesso quando uma etapa falha.
 
-Execução local equivalente: `python tools/verificar_pipeline.py`. Um teste temporário com `assert 25 == 100` retorna código 1; depois a suíte correta retorna 0. Logs `pipeline_local_falha.txt`, `pipeline_local_sucesso.txt` e `pipeline_local.json`.
+Execução local equivalente: `python 12_TDD_CICD_MELHORIA/verificar_pipeline.py`. Um teste temporário com `assert 25 == 100` retorna código 1; depois a suíte correta retorna 0. Logs `pipeline_local_falha.txt`, `pipeline_local_sucesso.txt` e `pipeline_local.json`.
 A demonstração local foi complementada por execuções reais no GitHub Actions. A revisão publicada foi aprovada; um PR separado falhou exatamente na asserção intencional e voltou a passar após sua remoção. O PR foi encerrado sem merge, preservando a versão principal funcional.
 
 ## Melhoria contínua
